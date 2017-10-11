@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
   <title>并发编程读书笔记---简介 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介进程在没有操作系统之前，程序可以调用机器的所有资源从头执行到尾。这样的程序既复杂而且效率不高。操作系统出现之后，计算机可以允许多个独立的程序同时运行，称之为进程（process）。这些进程由操作系统来分配资源例如内存、文件句柄、安全认证等。如果需要的话，各个进程之间还可以通过各种各样的通信机制来交流，如sockets,signal handler,shared memory,semaphore">
+  <meta name="description" content="java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….">
 <meta name="keywords" content="java,concurrency">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发编程读书笔记---简介">
 <meta property="og:url" content="http://cuteqin.github.io/2017/09/28/并发编程读书笔记---简介/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="简介进程在没有操作系统之前，程序可以调用机器的所有资源从头执行到尾。这样的程序既复杂而且效率不高。操作系统出现之后，计算机可以允许多个独立的程序同时运行，称之为进程（process）。这些进程由操作系统来分配资源例如内存、文件句柄、安全认证等。如果需要的话，各个进程之间还可以通过各种各样的通信机制来交流，如sockets,signal handler,shared memory,semaphore">
-<meta property="og:updated_time" content="2017-10-11T02:50:42.316Z">
+<meta property="og:description" content="java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….">
+<meta property="og:updated_time" content="2017-10-11T03:13:04.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发编程读书笔记---简介">
-<meta name="twitter:description" content="简介进程在没有操作系统之前，程序可以调用机器的所有资源从头执行到尾。这样的程序既复杂而且效率不高。操作系统出现之后，计算机可以允许多个独立的程序同时运行，称之为进程（process）。这些进程由操作系统来分配资源例如内存、文件句柄、安全认证等。如果需要的话，各个进程之间还可以通过各种各样的通信机制来交流，如sockets,signal handler,shared memory,semaphore">
+<meta name="twitter:description" content="java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -174,7 +174,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>在没有操作系统之前，程序可以调用机器的所有资源从头执行到尾。这样的程序既复杂而且效率不高。操作系统出现之后，计算机可以允许多个独立的程序同时运行，称之为<strong><em>进程（process）</em></strong>。这些进程由操作系统来分配资源例如内存、文件句柄、安全认证等。如果需要的话，各个进程之间还可以通过各种各样的通信机制来交流，如sockets,signal handler,shared memory,semaphores和files。</p>
+        <p>java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….</p>
+<a id="more"></a>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>在没有操作系统之前，程序可以调用机器的所有资源从头执行到尾。这样的程序既复杂而且效率不高。操作系统出现之后，计算机可以允许多个独立的程序同时运行，称之为<strong><em>进程（process）</em></strong>。这些进程由操作系统来分配资源例如内存、文件句柄、安全认证等。如果需要的话，各个进程之间还可以通过各种各样的通信机制来交流，如sockets,signal handler,shared memory,semaphores和files。</p>
 <h4 id="进程的优点"><a href="#进程的优点" class="headerlink" title="进程的优点"></a>进程的优点</h4><ul>
 <li>资源利用：有时候程序需要等待其他的操作比如input和output，这个时候如果让其他程序来利用计算机的资源会更加有效。</li>
 <li>公平性：多个用户和程序对计算机的资源有同样的权利，让它们在设计良好的时间切片下轮流执行，比让一个程序从头执行完再执行另一个程序更加公平。</li>
@@ -310,11 +312,15 @@
   
 <nav id="article-nav">
   
-  
-    <a href="/2017/09/28/初见/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">初篇</div>
-      <i class="icon-circle-right"></i>
+    <a href="/2017/09/28/初见/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          初篇
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -331,6 +337,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进程"><span class="toc-number">1.1.</span> <span class="toc-text">进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的优点"><span class="toc-number">1.2.</span> <span class="toc-text">进程的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程"><span class="toc-number">1.3.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多线程优缺点"><span class="toc-number">1.4.</span> <span class="toc-text">多线程优缺点</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -449,15 +468,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             
             <div class="clearfix"></div>
