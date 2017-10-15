@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>Tag: java | qin&#39;s blog</title>
+  <title>并发编程读书笔记（二） | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qin&#39;s blog">
-<meta property="og:url" content="http://cuteqin.github.io/tags/java/index.html">
+  <meta name="description" content="上一篇文章我们简单地了解了多线程的概念，特点，以及多线程编程需要注意的几个方面如safety,liveness,performance。这一篇主要详细介绍了学习多线程必须要会的基础知识。">
+<meta name="keywords" content="java,concurrency">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并发编程读书笔记（二）">
+<meta property="og:url" content="http://cuteqin.github.io/2017/10/14/并发编程读书笔记（二）/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
+<meta property="og:description" content="上一篇文章我们简单地了解了多线程的概念，特点，以及多线程编程需要注意的几个方面如safety,liveness,performance。这一篇主要详细介绍了学习多线程必须要会的基础知识。">
+<meta property="og:updated_time" content="2017-10-15T07:30:26.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qin&#39;s blog">
+<meta name="twitter:title" content="并发编程读书笔记（二）">
+<meta name="twitter:description" content="上一篇文章我们简单地了解了多线程的概念，特点，以及多线程编程需要注意的几个方面如safety,liveness,performance。这一篇主要详细介绍了学习多线程必须要会的基础知识。">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -149,78 +154,110 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-并发编程读书笔记（二）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/15/并发编程读书笔记（三）/" class="archive-article-date">
-  	<time datetime="2017-10-15T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/15/并发编程读书笔记（三）/">并发编程读书笔记（三）</a>
+    <h1 class="article-title" itemprop="name">
+      并发编程读书笔记（二）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/14/并发编程读书笔记（二）/" class="archive-article-date">
+        
+        <a href="/2017/10/14/并发编程读书笔记（二）/" class="archive-article-date">
   	<time datetime="2017-10-14T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/14/并发编程读书笔记（二）/">并发编程读书笔记（二）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一篇文章我们简单地了解了多线程的概念，特点，以及多线程编程需要注意的几个方面如safety,liveness,performance。这一篇主要详细介绍了学习多线程必须要会的基础知识。</p>
+<a id="more"></a>
+<h3 id="线程安全性"><a href="#线程安全性" class="headerlink" title="线程安全性"></a>线程安全性</h3><p>可以简单地说，编写多线程程序要求对线程和锁的正确使用。其实，编写线程安全的代码核心要求是对共享的、可变的状态的访问。</p>
+<p>什么是<strong>状态</strong>呢？这里的状态指的是任何可能影响该对象可见的外部行为的数据，如实例（变量、对象）或静态域；什么是<strong>共享</strong>和<strong>可变</strong>呢？共享意味着变量被多个线程同时访问，而可变意味着变量的值在其生命周期内发生变化。线程安全就是用一些同步机制来协调对共享可变的状态的并发访问，以防止状态发生不可控制的变化。这些同步机制包括提供互斥锁的synchronized关键字、volatile变量、显式锁和原子变量。或者，我们也可以通过在多线程间不共享状态，或者让状态变成不可变的来得到我们想要的结果。</p>
+<p>什么是<strong>线程安全性</strong>？可以这样定义，当多个线程访问某个类时，调用者不需要任何额外的同步或协同代码，这个类始终能表现出正确的行为，那么这个类就是线程安全的。无状态对象是线程安全的。</p>
+<h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>在并发编程中，由于不恰当的执行时序而出现不正确的结果，叫做<strong>竞态条件（race condition)</strong>。最常见的竞态条件是“先检查后执行”操作，通过一个可能错误的观测结果来决定下一步的动作。例如检查一个文件是否存在，如果不存在创建文件。在得到文件不存在的结果到创建文件两个动作之间，文件可能被另一个线程创建了，从而导致了各种问题（未预期的异常，数据被覆盖，文件被破坏等）。</p>
+<p>“先检查后执行”操作一种常见的情况是<strong>延迟初始化</strong>。如代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@NotThreadSafe</div><div class="line">public class LazyInitRace&#123;</div><div class="line">    private ExpensiveObject instance=null;</div><div class="line">    </div><div class="line">    public ExpensiveObject getInstance()&#123;</div><div class="line">        if(instance==null)&#123;</div><div class="line">            instance=new ExpensiveObject();</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码中，假如A,B两个线程同时执行getInstance()方法，A观测到instance为空，然后创建一个新的实例，然而B也可能在A创建实例前看到instance为空，导致两次getInstance()得到不同的结果。</p>
+<p>如何解决上述解决竞态条件问题呢？</p>
+<h5 id="原子操作"><a href="#原子操作" class="headerlink" title="原子操作"></a>原子操作</h5><p>原子操作是指在某个线程修改变量时，防止其他线程使用这个变量，保证其他线程在该线程操作完成前或完成后读取和修改状态。然而，“先检查后执行”和“读取-修改-写入”操作都是复合操作，java提供了怎样的方式保证它们变为原子操作呢？如下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@ThreadSafe</div><div class="line">public class Counting&#123;</div><div class="line">    private final AtomicLong count=new AtomicLong(0);</div><div class="line">    public long getCount()&#123;</div><div class="line">        return count.get();</div><div class="line">    &#125;</div><div class="line">    public increment()&#123;</div><div class="line">        count.incrementAndGet();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>java.util.concurrent.atomic包中包含了一些原子变量类，用于实现在数值和对象引用的原子状态转换。</p>
+<h4 id="加锁机制"><a href="#加锁机制" class="headerlink" title="加锁机制"></a>加锁机制</h4><p>如果不只一个状态变量呢？每个变量都替换成atomic包中的原子变量类可行吗？如下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@NotThreadSafe</div><div class="line">public class Factoring&#123;</div><div class="line">    private final AtomicReference&lt;BingInteger&gt; lastNumber=new AtomicReference&lt;BigInteger&gt;();</div><div class="line">    private final AtomicReference&lt;BigInteger[]&gt; lastFactors=new AtomicReference&lt;BigInteger[]&gt;();</div><div class="line">    //当两个线程调用service时，可以直接用上一次的结果，而无需重新计算。</div><div class="line">    public void service(BigInteger i)&#123;</div><div class="line">        if(i.equals(lastNumber.get())&#123; </div><div class="line">            lastFactors.get();</div><div class="line">        &#125;else&#123;</div><div class="line">            BigInteger[] factors=factor(i);//factor是因式分解函数，这里未实现</div><div class="line">            lastNumber.set(i);</div><div class="line">            lastFactors.set(factors);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="内置锁（Intrinsic-locks"><a href="#内置锁（Intrinsic-locks" class="headerlink" title="内置锁（Intrinsic locks)"></a>内置锁（Intrinsic locks)</h5><p>虽然两个原子引用是线程安全的，但是代码中依然存在竞态条件：检查上一次的结果，再执行下一步的操作。这里java提供了内置的锁机制来支持原子性：同步代码块。线程在进入同步代码块之前会自动获得锁，并在退出同步代码块后自动释放锁。如下面代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@ThreadSafe</div><div class="line">public class Factoring&#123;</div><div class="line">    private BigInteger lastNumber;</div><div class="line">    private BigInteger[] lastFactors;</div><div class="line">    </div><div class="line">    public synchronized void service(BigInteger i)&#123;</div><div class="line">        ······//同上方的代码</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这种加入同步代码块的方式可以保证线程安全，但是多个线程无法同时使用service()方法，导致服务的性能非常低。此时可以考虑创建一个不可变类来包含这些需要原子操作的相关数据。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">@Immutable</div><div class="line">class OneValueCache&#123;</div><div class="line">    private final BigInteger lastNumber;</div><div class="line">    private final BigInteger[] lastFactors;</div><div class="line">    public OneValueCache(BigInteger i,BigInteger[] factors)&#123;</div><div class="line">        lastNumber=i;</div><div class="line">        lastFactors=factors;</div><div class="line">    &#125;</div><div class="line">    public BigInteger[] getFactors(BigInteger i)&#123;</div><div class="line">        if(lastNumber==null || !lastNumber.equals(i))&#123;</div><div class="line">            return null;</div><div class="line">      t  &#125;else&#123;</div><div class="line">            return Array.copyOf(lastFactors,lastFactors.length);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@ThreadSafe</div><div class="line">public class Factoring&#123;</div><div class="line">    private volatile oneValueCache cache=new OneValueCache(null,null);</div><div class="line">    public void service(BigInteger i)&#123;</div><div class="line">    </div><div class="line">        BigInteger[] factors=cache.get(i);</div><div class="line">        if(factors==null)&#123;</div><div class="line">            factors=factor(i);</div><div class="line">            cache=new OneValueCache(i,factors);//当其他线程将volatile类型的cache设置为一个新的OneValueCache时，其他线程会立即看到缓存数据。</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="重入-Reentrancy"><a href="#重入-Reentrancy" class="headerlink" title="重入(Reentrancy)"></a>重入(Reentrancy)</h5><p>内置锁是可重入的，也就是说，一个线程可以获得另一个已经由其他线程持有的锁。重入的一种实现方式是为每个锁关联一个获取计数值和一个所有者线程。当计数值为0时，这个锁没有被任何线程所拥有。当线程请求一个未被持有的锁时，jvm记下锁的持有者，并且将计数值记为1。如果同一个线程再次获得这个锁，计数值将递增。当线程退出同步代码块时，计数值递减。当计数值为0时，锁被释放。下面代码体现了可重入锁的优点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class Animal&#123;</div><div class="line">    public synchronized void doSomething()&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Dog extends Animal&#123;</div><div class="line">    @Override</div><div class="line">    public synchronized doSomething()&#123;</div><div class="line">        super.doSomething(); //如果没有可重入的锁，Animal上的锁被自己的doSomething()方法获取后，Dog类中的super.doSomething()方法将永远无法获得Animal上的锁，从而导致死锁。</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="用锁来保护状态"><a href="#用锁来保护状态" class="headerlink" title="用锁来保护状态"></a>用锁来保护状态</h4><p>每个对象都有一个隐式创建的内置锁，某个线程在获取对象的内置锁之后，并不能阻止其他线程访问该对象，只能阻止其他线程获得同一个锁。实现对共享可变状态的安全方位需要自行构造加锁协议或者同步策略。每个共享可变的变量都应该只由一个锁来保护。</p>
+<p>一种常见的加锁约定是，将所有的可变状态都封装在对象内部，并通过对象的内置锁对所有可访问可变状态的代码位置做同步处理，那么这些变量由同一个锁保护。也就是说，将每个使用同步共享的变量的方法变成同步方法。然而，这样会导致活跃性或性能问题。</p>
+<h4 id="活跃性和性能"><a href="#活跃性和性能" class="headerlink" title="活跃性和性能"></a>活跃性和性能</h4><p>一种提高同步方法性能的做法是：缩小同步代码块的作用范围，尽量将不影响共享状态且执行时间较长的操作从同步代码块中分离出去。但是也不能过小，将本应该是原子的操作拆分到多个同步代码块中去。这样既确保了并发性，又维护了线程安全性。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">@ThreadSafe</div><div class="line">public class CachedFactorizer&#123;</div><div class="line">    private BigInteger lastNumber;</div><div class="line">    private BigInteger[] lastFactors;</div><div class="line">    private long hits;//如果这里使用AtomicLong原子变量的话，同步机制会比较混乱，对性能或安全性没有任何好处。</div><div class="line">    private long cacheHits;</div><div class="line">    public synchronized long getHits()&#123;</div><div class="line">        return hits;</div><div class="line">    &#125;</div><div class="line">    public synchronized double getCacheHitRatio()&#123;</div><div class="line">        return (double) cacheHits / (double) hits;</div><div class="line">    &#125;</div><div class="line">    public void service(BigInteger i)&#123;</div><div class="line">        BigInteger[] factors=null;</div><div class="line">        synchronized(this)&#123;</div><div class="line">            ++hits;</div><div class="line">            if(i.equals(lastNumber)&#123;</div><div class="line">                ++cacheHits;</div><div class="line">                factors=lastFactors.get();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(factors==null)&#123;</div><div class="line">            factors=factor(i);</div><div class="line">            synchronized (this)&#123;</div><div class="line">                lastNumber=i;</div><div class="line">                lastFactor=factors.clone();//创建保护性的副本</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>要合理设计同步代码块的大小，需要满足安全性（必须），并且在简单性和性能之间权衡。执行时间长的操作，一定不要有锁。</p>
+<h3 id="对象的共享"><a href="#对象的共享" class="headerlink" title="对象的共享"></a>对象的共享</h3><p>对象的共享也是同步的一个重要方面。它包括了对象的共享和发布。</p>
+<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class NoVisitbility&#123;</div><div class="line">    private static boolean ready;</div><div class="line">    private static int number;</div><div class="line">    private static class ReaderThread extends Thread&#123;</div><div class="line">        @Override</div><div class="line">        public void run()&#123;</div><div class="line">            while(!ready)&#123;</div><div class="line">                Thread.yield();</div><div class="line">            &#125;</div><div class="line">            System.out.println(number);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        new ReaderThread().start();</div><div class="line">        number=42;</div><div class="line">        ready=true;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>NoVisitbility可能会持续循环下去，因为ReaderThread看不到ready的值；也可能输出0；因为ReaderThread看到了ready的值确没有看到number的值—这种现象被称为<strong>重排序（Reordering)</strong>。在没有同步的情况下，编译器、处理器和运行时都可能对执行顺序进行一些意想不到的调整。</p>
+<p>java提供了一种更加轻量级的同步机制，即<strong>volatile变量</strong>，来确保变量的更新通知到其他线程。当变量声明为volatile时，编译器和运行时不会将该变量上的操作与其他内存操作一起重排序。volatile变量不会被缓存在寄存器或者其他处理器不可见的地方，因此读取volatile变量时总会返回最新写入的值。</p>
+<p>volatile变量只能控制代码的可见性，而加锁机制技能确保可见性又可以确保原子性。如果A线程写入一个变量并且B线程读取一个变量，此时在写入操作前对A可见的所有变量对读取操作时的B也可见。这样会使代码变得更难理解。因此volatile变量通常用于表示某个操作完成或者中断的标志。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">volatile boolean asleep;</div><div class="line">····</div><div class="line">while(!asleep)&#123;</div><div class="line">    doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="发布与溢出"><a href="#发布与溢出" class="headerlink" title="发布与溢出"></a>发布与溢出</h4><p><strong>发布</strong>指的是对象能够在当前作用域之外的地方使用。当某个不应该被发布的对象被发布时，称为<strong>逸出</strong>。</p>
+<p>发布：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public static Set&lt;Secret&gt; knownSecrets;</div><div class="line">public void initialize()&#123;</div><div class="line">    knownSecrets=new HashSet&lt;Secret&gt;;//将HashSet对象的引用保存到knownSecret以发布对象，如果一个Secret对象被添加到集合中，同样被发布。</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>逸出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class UnsafeState&#123;</div><div class="line">    private String[] statenew String[]&#123;&quot;a&quot;,&quot;b&quot;,&quot;c&quot;&#125;;</div><div class="line">    public String[] getStates()&#123;</div><div class="line">        return states;//本应是私有变量的states被发布了，出现逸出。</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">public class ThisEscape&#123;</div><div class="line">    public ThisEscape(EventSource source)&#123;</div><div class="line">        source.registerListener(new EventListener()&#123;</div><div class="line">            //匿名内部类可以访问外部对象的域，编译器会把外部类的对象this隐式的作为一个参数传递给内部类的构造方法。此时ThisEscape的构造方法尚未完成，this引用逸出。</div><div class="line">            public void onEvent(Event e)&#123;</div><div class="line">                doSomething(e);/</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ThisEscape可以修改为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class SafeListener&#123;</div><div class="line">    private final EventListener listener;</div><div class="line">    private SafeListener()&#123;</div><div class="line">        listener=new EventListener()&#123;</div><div class="line">            public void onEvent(Event e)&#123;</div><div class="line">                doSomething(e);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    public static SafeListener newInstance(EventSource source)&#123;</div><div class="line">        //在构造函数完成后，其他线程才能使用this引用</div><div class="line">        SafeListener safe=new SafeListener();</div><div class="line">        source.registerListener(safe.listener);</div><div class="line">        return safe;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="线程封闭"><a href="#线程封闭" class="headerlink" title="线程封闭"></a>线程封闭</h4><p>实现线程安全最简单的方法之一就是不共享数据，仅在单线程内访问数据，称为<strong>线程封闭(Thread Confinement)</strong>。Java提供了一下机制来实现线程封闭性，如局部变量和ThreadLocal类，程序员应该确保封闭在线程中的对象不会从线程中逸出。</p>
+<p>在Swing中大量使用了线程封闭技术，Swing的可视化组件和数据模型对象都不是线程安全的，Swing将它们封闭到Swing的事件分发线程中来实现线程安全性。Swing程序的很多并发错误是因为错误地在另一个线程中使用了这些被封闭的对象。</p>
+<p>JDBC的Connection对象也大量使用了线程封闭技术。当线程从连接池中获得一个Connection对象时，Connection处理请求结束之前都不会被分配给其他线程。因此，Connection对象被封闭在线程中。</p>
+<h5 id="ad-hoc线程封闭"><a href="#ad-hoc线程封闭" class="headerlink" title="ad-hoc线程封闭"></a>ad-hoc线程封闭</h5><p>ad-hoc线程封闭是指，维护线程封闭性的职责完全由程序实现来承担。没有任何语言能做到这一点，因此程序中尽量少使用它。</p>
+<h5 id="栈封闭"><a href="#栈封闭" class="headerlink" title="栈封闭"></a>栈封闭</h5><p>栈封闭是指只有局部变量才能访问对象。java基本类型的局部变量实在在栈中，任何方法都无法获得对其的引用。而对象引用的封闭性需要一些额外的工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public int loadTheArk(Collection&lt;Animal) candidates)&#123;</div><div class="line">    SortedSet&lt;Animal&gt; animals;</div><div class="line">    int numPairs=0;</div><div class="line">    Animal cndidate=null;</div><div class="line">    //animals被封闭在方法中，不要使它们逸出</div><div class="line">    animals=new TreeSet&lt;Animal&gt;(new SpeciesGenderComparator());</div><div class="line">    animals.addAll(candidates)</div><div class="line">    for(Animal a:animals)&#123;</div><div class="line">        if(candidate==null || !candidate.isPotentialMate(a)&#123;</div><div class="line">            candidate=a;</div><div class="line">        &#125;else&#123;</div><div class="line">            ark.load(new AnimalPair(candidate,a));//这里会不会导致animals集合里面数据的引用a被发布？</div><div class="line">            ++numPairs;</div><div class="line">            candidate=null;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return numPairs;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="ThreadLocal类"><a href="#ThreadLocal类" class="headerlink" title="ThreadLocal类"></a>ThreadLocal类</h5><p>ThreadLocal类能使线程中的某个值与保存值的对象关联起来。ThreadLocal对象常用于防止对可变的单实例对象(Singleton)或全局变量进行共享。代码例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">private static ThreadLocal&lt;Connection&gt; connectionHolder = new ThreadLocal&lt;Connection&gt;()&#123;</div><div class="line">    public Connection initialValue()&#123;</div><div class="line">        return DriverManager.getConnection(DB_URL);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">public static Connection getConnection()&#123;</div><div class="line">    return connectionHolder.get();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="不变性"><a href="#不变性" class="headerlink" title="不变性"></a>不变性</h4><p>不可变对象一定是线程安全的。满足以下条件的对象时不可变的：</p>
+<ul>
+<li>对象创建以后状态就不能修改</li>
+<li>对象所有的域都是final类型（String类除外，因为设计了良性的数据竞争）</li>
+<li>对象是正确创建的（没有在构造函数中发生this逸出）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">@Immutable</div><div class="line">public final class ThreeStooges&#123;</div><div class="line">    private final Set&lt;String&gt; stooges=new HashSet&lt;String&gt;();</div><div class="line">    //虽然Set是可变对象，但是在构造后无法被修改。</div><div class="line">    pubic ThreeStooges()&#123;</div><div class="line">        stooges.add(&quot;more&quot;);</div><div class="line">        stooges.add(&quot;larry&quot;);</div><div class="line">        stooges.add(&quot;curly&quot;);</div><div class="line">    &#125;</div><div class="line">    public boolean isStooge(String name)&#123;</div><div class="line">        return stooges.contains(name);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="安全发布"><a href="#安全发布" class="headerlink" title="安全发布"></a>安全发布</h4><p>任何线程都可以在不需要额外同步的情况下不安全的访问不可变对象，即使在发布这些对象时没有使用同步。但可变对象必须通过安全的方式来发布：</p>
+<ul>
+<li>在静态初始化函数中初始化一个对象的引用，JVM在类初始化时存在同步机制。如public static Holder holder=new Holder(42);</li>
+<li>将对象的引用保存在volatile类型的域或者AtomicReference对象中</li>
+<li>将对象的引用保存在某个正确构造对象的final类型域中</li>
+<li>将对象的引用保存在一个由锁保护的域中</li>
+</ul>
+<p>在java线程安全容器类，如ConcurrentMap等中，将某个元素放入容器中，可以将该元素安全地发布到任何从容器中访问元素的线程。</p>
+<h5 id="事实不可变对象"><a href="#事实不可变对象" class="headerlink" title="事实不可变对象"></a>事实不可变对象</h5><p>如果对象从技术上看是可变的，但其状态在发布后就不会再改变，那么该对象称为<strong>事实不可变对象（Effetively Immutable Object)</strong>。在没有同步的情况下，任何线程都可以安全地使用被安全发布的事实不可变对象。如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">public Map&lt;String,Date&gt; lastLogin=Collections.synchronizedMaop(new HashMap&lt;String,Date&gt;());</div><div class="line">//Date对象时可变的（或许是类库设计中的错误），但是synchronizedMaop使其安全地被发布，因此访问Date值时不需要额外的同步机制。</div></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -236,61 +273,139 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/10/14/并发编程读书笔记（二）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/并发编程读书笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-10-10T15:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/10/15/并发编程读书笔记（三）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          并发编程读书笔记（三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/10/并发编程读书笔记（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">并发编程读书笔记---简介</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/并发编程读书笔记（一）/">并发编程读书笔记---简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程安全性"><span class="toc-number">1.</span> <span class="toc-text">线程安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原子性"><span class="toc-number">1.1.</span> <span class="toc-text">原子性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#原子操作"><span class="toc-number">1.1.1.</span> <span class="toc-text">原子操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加锁机制"><span class="toc-number">1.2.</span> <span class="toc-text">加锁机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#内置锁（Intrinsic-locks"><span class="toc-number">1.2.1.</span> <span class="toc-text">内置锁（Intrinsic locks)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重入-Reentrancy"><span class="toc-number">1.2.2.</span> <span class="toc-text">重入(Reentrancy)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用锁来保护状态"><span class="toc-number">1.3.</span> <span class="toc-text">用锁来保护状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#活跃性和性能"><span class="toc-number">1.4.</span> <span class="toc-text">活跃性和性能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的共享"><span class="toc-number">2.</span> <span class="toc-text">对象的共享</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可见性"><span class="toc-number">2.1.</span> <span class="toc-text">可见性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#发布与溢出"><span class="toc-number">2.2.</span> <span class="toc-text">发布与溢出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程封闭"><span class="toc-number">2.3.</span> <span class="toc-text">线程封闭</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ad-hoc线程封闭"><span class="toc-number">2.3.1.</span> <span class="toc-text">ad-hoc线程封闭</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#栈封闭"><span class="toc-number">2.3.2.</span> <span class="toc-text">栈封闭</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ThreadLocal类"><span class="toc-number">2.3.3.</span> <span class="toc-text">ThreadLocal类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不变性"><span class="toc-number">2.4.</span> <span class="toc-text">不变性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安全发布"><span class="toc-number">2.5.</span> <span class="toc-text">安全发布</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#事实不可变对象"><span class="toc-number">2.5.1.</span> <span class="toc-text">事实不可变对象</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+  <div id="SOHUCS" sid="并发编程读书笔记（二）" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cyteMrlxV"; 
+    var conf = "c025c77b26852e1cf2ef8d5ad5493e87"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -313,9 +428,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

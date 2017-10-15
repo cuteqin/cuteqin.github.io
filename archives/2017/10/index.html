@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>并发编程读书笔记---简介 | qin&#39;s blog</title>
+  <title>Archives: 2017/10 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….">
-<meta name="keywords" content="java,concurrency">
-<meta property="og:type" content="article">
-<meta property="og:title" content="并发编程读书笔记---简介">
-<meta property="og:url" content="http://cuteqin.github.io/2017/09/28/并发编程读书笔记---简介/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="qin&#39;s blog">
+<meta property="og:url" content="http://cuteqin.github.io/archives/2017/10/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….">
-<meta property="og:updated_time" content="2017-10-11T03:13:04.306Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="并发编程读书笔记---简介">
-<meta name="twitter:description" content="java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….">
+<meta name="twitter:title" content="qin&#39;s blog">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -154,85 +149,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-并发编程读书笔记---简介" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      并发编程读书笔记---简介
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/15/并发编程读书笔记（三）/" class="archive-article-date">
+  	<time datetime="2017-10-15T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-15</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/15/并发编程读书笔记（三）/">并发编程读书笔记（三）</a>
     </h1>
   
 
-        
-        <a href="/2017/09/28/并发编程读书笔记---简介/" class="archive-article-date">
-  	<time datetime="2017-09-28T06:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….</p>
-<a id="more"></a>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>在没有操作系统之前，程序可以调用机器的所有资源从头执行到尾。这样的程序既复杂而且效率不高。操作系统出现之后，计算机可以允许多个独立的程序同时运行，称之为<strong><em>进程（process）</em></strong>。这些进程由操作系统来分配资源例如内存、文件句柄、安全认证等。如果需要的话，各个进程之间还可以通过各种各样的通信机制来交流，如sockets,signal handler,shared memory,semaphores和files。</p>
-<h4 id="进程的优点"><a href="#进程的优点" class="headerlink" title="进程的优点"></a>进程的优点</h4><ul>
-<li>资源利用：有时候程序需要等待其他的操作比如input和output，这个时候如果让其他程序来利用计算机的资源会更加有效。</li>
-<li>公平性：多个用户和程序对计算机的资源有同样的权利，让它们在设计良好的时间切片下轮流执行，比让一个程序从头执行完再执行另一个程序更加公平。</li>
-<li>方便性：写多个程序让每个程序执行一个任务，必要的时候互相交流，最后再由一个程序来执行所有任务的编程模型更加简单而且更受人喜欢。</li>
-</ul>
-<p>一个善于利用时间的人会在起床后先烧水，然后去刷牙洗脸，而不是刷牙洗脸完再去烧水。程序也是这样。</p>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>同样地，<strong><em>线程（Thread）</em></strong> 的发展受到了进程发展的启发：在一个进程内可以同时包括多个线程。它们共享进程的资源如内存和文件句柄，但每个线程还拥有自己的程序计数器，栈，和本地变量。并且，线程还可以利用多处理器系统；同一个线程内的进程们可以同时在多个CPU上执行。<br>线程有时候也叫轻量级进程，几乎所有的现代操作系统都把线程作为调度的基本单元。</p>
-<h4 id="多线程优缺点"><a href="#多线程优缺点" class="headerlink" title="多线程优缺点"></a>多线程优缺点</h4><p>当合理使用时，多线程能够降低程序开发和维护的成本，提高应用的性能。多线程能将异步的程序任务流变成几乎顺序执行的任务流，而且代码写起来更简单，易读和易维护。</p>
-<p>多线程对提高用户界面的相应的GUI应用和高吞吐高性能的服务端程序（如servlets和RMI等)很有用，它们对JVM的垃圾回收器也很有用。</p>
-<p>正因为多个线程独立执行的同时共享了进程的变量和堆内存，如果没有显式的同步操作，一个线程可能会修改另一个线程正在使用的变量，从而带来不可预料的后果。</p>
-<p>当我们使用多线程时，必须关注以下几点：</p>
-<ul>
-<li>safety</li>
-</ul>
-<p>由于各个线程的执行顺序是不可预测的，有时候会导致令人意外的结果。如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@NotThreadSafe</div><div class="line">public class UnsafeSequence&#123;</div><div class="line">    private int value;</div><div class="line">    public int getNext()&#123;</div><div class="line">        return value++;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>假设上述代码有A,B两个线程，很有可能每个线程从共享内存同时读取了value值，同时在本地方法中自增，最后同时写回新的值到共享内存。这样两个线程执行后得到了同样的结果，是不正确的。</p>
-<p>上述代码可以改为线程安全，如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@ThreadSafe</div><div class="line">public class Sequence&#123;</div><div class="line">    private int value;</div><div class="line">    public synchronized int getNext()&#123;</div><div class="line">        return value++;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>liveness</li>
-</ul>
-<p>当一个线程到达一种永远不能执行的状态，这就叫liveness failure。这样的情况有：在顺序执行的程序中，前面的代码出现了死循环导致后面的代码不能执行;而在多线程的程序中，如果A线程在等待B线程正在占有的资源，然后B线程永远都没有没有释放它，那么A线程不能继续执行。典型的场景有dead lock，starvation，livelock</p>
-<ul>
-<li>performance</li>
-</ul>
-<p>程序性能表现在很多方面，如响应时间，吞吐量，资源消耗，扩展性等。多线程带来了一些性能的消耗—上下文切换。CPU暂停当前的线程进入下一个线程需要保存和恢复各个线程执行的上下文，这个过程占用了CPU时间；当各个线程共享数据时，使用同步机制妨碍了编译器的优化和内存缓存的刷新失效，同时在共享内存中引起同步traffic。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -248,134 +194,103 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/09/28/并发编程读书笔记---简介/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2017/09/28/初见/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          初篇
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/14/并发编程读书笔记（二）/" class="archive-article-date">
+  	<time datetime="2017-10-14T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#进程"><span class="toc-number">1.1.</span> <span class="toc-text">进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#进程的优点"><span class="toc-number">1.2.</span> <span class="toc-text">进程的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程"><span class="toc-number">1.3.</span> <span class="toc-text">线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多线程优缺点"><span class="toc-number">1.4.</span> <span class="toc-text">多线程优缺点</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/14/并发编程读书笔记（二）/">并发编程读书笔记（二）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/10/并发编程读书笔记（一）/" class="archive-article-date">
+  	<time datetime="2017-10-10T15:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        </div>
+    	 
   
-  
-
-  
-  <div id="SOHUCS" sid="并发编程读书笔记---简介" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cyteMrlxV"; 
-    var conf = "c025c77b26852e1cf2ef8d5ad5493e87"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
-</script>
-  
-
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/10/并发编程读书笔记（一）/">并发编程读书笔记---简介</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
+  
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -398,8 +313,8 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -528,7 +443,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://how2j.cn" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
             <li class="search-li">
