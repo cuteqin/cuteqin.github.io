@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>Archives: 2017/10 | qin&#39;s blog</title>
+  <title>并发编程读书笔记（四） | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qin&#39;s blog">
-<meta property="og:url" content="http://cuteqin.github.io/archives/2017/10/index.html">
+  <meta name="description" content="前面几篇文章我们基本打好了并发编程的理论基础，对于书上不理解的地方查阅资料理解，在每一篇的最后也会慢慢增加一些FAQ深化思考。最重要的还是写代码实战，可以将这些知识运用到项目的角角落落里，否则理论知识很容易忘记的。接下来几篇文章会结合Java类库进行实战，学习的最后打算写一个生产者消费者模式的小项目。">
+<meta name="keywords" content="java,concurrency">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并发编程读书笔记（四）">
+<meta property="og:url" content="http://cuteqin.github.io/2017/10/23/并发编程读书笔记（四）/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
+<meta property="og:description" content="前面几篇文章我们基本打好了并发编程的理论基础，对于书上不理解的地方查阅资料理解，在每一篇的最后也会慢慢增加一些FAQ深化思考。最重要的还是写代码实战，可以将这些知识运用到项目的角角落落里，否则理论知识很容易忘记的。接下来几篇文章会结合Java类库进行实战，学习的最后打算写一个生产者消费者模式的小项目。">
+<meta property="og:updated_time" content="2017-10-25T09:28:22.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qin&#39;s blog">
+<meta name="twitter:title" content="并发编程读书笔记（四）">
+<meta name="twitter:description" content="前面几篇文章我们基本打好了并发编程的理论基础，对于书上不理解的地方查阅资料理解，在每一篇的最后也会慢慢增加一些FAQ深化思考。最重要的还是写代码实战，可以将这些知识运用到项目的角角落落里，否则理论知识很容易忘记的。接下来几篇文章会结合Java类库进行实战，学习的最后打算写一个生产者消费者模式的小项目。">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -149,78 +154,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-并发编程读书笔记（四）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/24/喜欢的书/" class="archive-article-date">
-  	<time datetime="2017-10-24T13:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/24/喜欢的书/">喜欢的书</a>
+    <h1 class="article-title" itemprop="name">
+      并发编程读书笔记（四）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">book</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hobby</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/23/并发编程读书笔记（四）/" class="archive-article-date">
+        
+        <a href="/2017/10/23/并发编程读书笔记（四）/" class="archive-article-date">
   	<time datetime="2017-10-23T13:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/23/并发编程读书笔记（四）/">并发编程读书笔记（四）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面几篇文章我们基本打好了并发编程的理论基础，对于书上不理解的地方查阅资料理解，在每一篇的最后也会慢慢增加一些FAQ深化思考。最重要的还是写代码实战，可以将这些知识运用到项目的角角落落里，否则理论知识很容易忘记的。接下来几篇文章会结合Java类库进行实战，学习的最后打算写一个生产者消费者模式的小项目。</p>
+<a id="more"></a>
+<h3 id="任务执行"><a href="#任务执行" class="headerlink" title="任务执行"></a>任务执行</h3><h4 id="串行地执行任务"><a href="#串行地执行任务" class="headerlink" title="串行地执行任务"></a>串行地执行任务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class SingleThreadWebServer&#123;</div><div class="line">    public static void main(String[] args) throws IOException&#123;</div><div class="line">        ServerSocket socket =new ServerSocket(80);</div><div class="line">        while(true)&#123;</div><div class="line">            Socket connection=socket.accept();</div><div class="line">            handleRequest(connection);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="显示地为任务创建线程"><a href="#显示地为任务创建线程" class="headerlink" title="显示地为任务创建线程"></a>显示地为任务创建线程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class ThreadPerTaskWebServer&#123;</div><div class="line">    public static void main(String[] args) throws IOException&#123;</div><div class="line">        ServerSocket socket=new ServerSocket(80);</div><div class="line">        while(true)&#123;</div><div class="line">            final Socket connection =socket.accept();</div><div class="line">            Runnable task=new Runnable()&#123;</div><div class="line">                public void run()&#123;</div><div class="line">                    handleRequest(connection);</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">             new Thread(task).start();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>线程生命周期的开销非常高，如果无限创建线程会增加资源消耗，降低程序稳定性。所以在一定范围内，增加线程可以提高系统的吞吐率，但如果超出了这个范围，再创建更多的线程只会降低程序的执行速度。</p>
+<h4 id="Executor框架"><a href="#Executor框架" class="headerlink" title="Executor框架"></a>Executor框架</h4><p>在Java中，任务执行的主要抽象不是Thread,而是Executor。它提供了一种标准的方法将任务的提交过程和执行过程解耦，并用Runnable表示任务；它还提供对生命周期以及统计信息收集、应用程序管理机制和性能监视等机制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public void interface Executor&#123;</div><div class="line">    void execute(Runnable command);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>基于Executor的固定大小的线程池：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class TaskExecutionWebServer&#123;</div><div class="line">    private static final int NTHREADS=100;</div><div class="line">    private static final Executor exec=Executors.newFixedThreadPool(NTHREADS);</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        ServerSocket socket=new ServerSocket(80);</div><div class="line">        while(true)&#123;</div><div class="line">            final Socket connection=socket.accept();</div><div class="line">            Runnable task=new Runnable()&#123;</div><div class="line">                public  void run()&#123;</div><div class="line">                    handleRequest(connection);</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">            exec.execute(task);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>为每个请求启动一个新线程的Executor:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">public class ThreadPerTaskExecutor implements Executor&#123;</div><div class="line">    public void execute(Runnable r);</div><div class="line">    new Thread(r).start();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="Executor的生命周期"><a href="#Executor的生命周期" class="headerlink" title="Executor的生命周期"></a>Executor的生命周期</h5><p>JVM只有在所有（非守护）线程全部终止后才会退出，因此，如果无法正确地关闭Executor，那么JVM将无法结束。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">class LifecycleWebServer&#123;</div><div class="line">    private static final int NTHREADS=100;</div><div class="line">    private final ExecutorService exec=Executors.newFixedThreadPool(NTHREADS);</div><div class="line">    public void start() throws IOException&#123;</div><div class="line">        ServerSocket socket=new ServerSocket(80);</div><div class="line">        while(!exec.isShutdown())&#123;</div><div class="line">            try&#123;</div><div class="line">                final Socket conn=socket.accept();</div><div class="line">                exec.execute(new Runnable()&#123;</div><div class="line">                </div><div class="line">                    public void run()&#123;</div><div class="line">                        handleRequest(conn);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">            &#125;catch(RejectedExecutionException e)&#123;</div><div class="line">                if(!exec.isShutdown())&#123;</div><div class="line">                    log(&quot;task submission rejected&quot;,e);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    //方法1：在程序中调用stop关闭Web服务器</div><div class="line">    public void stop()&#123;</div><div class="line">        //shutdown方法平缓地关闭：不再接受新的任务，同时等待已提交的任务完成。</div><div class="line">        exec.shutdown();</div><div class="line">    &#125;</div><div class="line">    //方法2：发送HTTP请求来关闭Web服务器</div><div class="line">    private void handleRequest(Socket connection)&#123;</div><div class="line">        Request req=readRequest(connection);</div><div class="line">        if(isShutDownRequest(req)&#123;</div><div class="line">            stop();</div><div class="line">        &#125;else&#123;</div><div class="line">            distpatchRequest(req);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="延迟任务与周期任务"><a href="#延迟任务与周期任务" class="headerlink" title="延迟任务与周期任务"></a>延迟任务与周期任务</h5><p>可以用ScheduledThreadPoolExecutor来代替Timer类管理延迟任务以及周期任务。<br>Timer在执行所有定时任务时只会创建一个线程，而且不捕获异常。如果要构建自己的调度服务，可以使用DelayQueue。</p>
+<h4 id="找出可利用的并行性"><a href="#找出可利用的并行性" class="headerlink" title="找出可利用的并行性"></a>找出可利用的并行性</h4><p>如果我们要实现浏览器程序中的页面渲染（page-rendering)功能：即将HTML页面绘制到图像缓存中。</p>
+<h5 id="串行地页面渲染"><a href="#串行地页面渲染" class="headerlink" title="串行地页面渲染"></a>串行地页面渲染</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">public class SingleThreadRenderer&#123;</div><div class="line">    void renderPage(CharSequence source)&#123;</div><div class="line">        renderText(source);</div><div class="line">        List&lt;ImageData&gt; imageData=new ArrayList&lt;ImageData&gt;();</div><div class="line">        for(ImageInfo imageinfo:scanForImageInfo(source))&#123;</div><div class="line">            imageData.add(imageInfo.downloadImage());</div><div class="line">        &#125;</div><div class="line">        for(ImageData data:imageData)&#123;</div><div class="line">            renderImage(data);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="携带任务结果的callable和future"><a href="#携带任务结果的callable和future" class="headerlink" title="携带任务结果的callable和future"></a>携带任务结果的callable和future</h5><p>Runnable和Callable都是抽象的计算任务，但是Callable认为主入口（call)将返回一个值，并可能抛出一个异常。任务有四个生命周期：创建、提交、开始和完成。Future表示一个任务的生命周期，隐含的意思是生命周期只能前进。</p>
+<p>为了使页面渲染器实现更高的并发性，可以将渲染过程分为两个任务：一是渲染所有的文本（CPU密集型），二是下载所有的图像（IO密集型），如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">public class FutureRenderer&#123;</div><div class="line">    private final ExecutorService exec=Executors.newFixedThreadPool(2);</div><div class="line">    public void rennderPage(CharsetSequence source)&#123;</div><div class="line">        final List&lt;ImageInfo&gt; imageInfos=scanForImageInfo(source);</div><div class="line">        Callable&lt;List&lt;ImageData&gt;&gt; task=new Callable&lt;List&lt;ImageData&gt;&gt;()&#123;</div><div class="line">            public List&lt;ImageData&gt; call()&#123;</div><div class="line">                List&lt;ImageData&gt; result=new ArrayList&lt;ImageData&gt;();</div><div class="line">                for(ImageInfo imageInfo:imageInfos)&#123;</div><div class="line">                    result.add(imageInfo.downloadImage());</div><div class="line">                &#125;</div><div class="line">                return result;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        //submit方法返回任务结果Future</div><div class="line">        Future&lt;List&lt;ImageData&gt;&gt; future=exec.submit(task);</div><div class="line">        renderText(source);</div><div class="line">        try&#123;</div><div class="line">            //get方法将阻塞直到任务完成</div><div class="line">            List&lt;ImageData&gt; imageData=future.get();</div><div class="line">            for(ImageData data:imageData)&#123;</div><div class="line">                renderImage(data);</div><div class="line">            &#125;</div><div class="line">        &#125;catch(InterruptedException e)&#123;</div><div class="line">            //重新设置线程的中断状态</div><div class="line">            Thread.currentThread().interrupt();</div><div class="line">            //由于不需要结果，取消任务</div><div class="line">            future.cancel(true);</div><div class="line">        &#125;catch(ExecutionException e)&#123;</div><div class="line">            throw launderThrowable(e.getCause());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="CompletionService"><a href="#CompletionService" class="headerlink" title="CompletionService"></a>CompletionService</h5><p>CompletionService将Executor和BlockingQueue的功能结合在一起，将Callable任务提交给它执行，然后用类似于队列操作的take和poll等方法获得已完成的结果，这些结果会被封装成future。ExecutorCompletionService实现了CompletionService并将计算部分委托给Executor。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">//将每个图片下载后立即渲染出来</div><div class="line">public class Renderer&#123;</div><div class="line">    private final ExecutorService exec;</div><div class="line">    public Renderer(ExecutorService executor)&#123;</div><div class="line">        this.exec=executor;</div><div class="line">    &#125;</div><div class="line">    public void rennderPage(CharsetSequence source)&#123;</div><div class="line">        final List&lt;ImageInfo&gt; imageInfos=scanForImageInfo(source);</div><div class="line">        CompletionService&lt;ImageData&gt; completionService=new ExecutorCompletionService&lt;ImageData&gt;(exec);</div><div class="line">        for(final imageInfo:imageInfos)&#123;</div><div class="line">            CompletionService.submit(new Callable&lt;ImageData&gt;()&#123;</div><div class="line">            </div><div class="line">                public ImageData call()&#123;</div><div class="line">                    return imageInfo.downloadImage();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">        renderText(source);</div><div class="line">        try&#123;</div><div class="line">           for(int t=0;t&lt;imageInfos.size();t++)&#123;</div><div class="line">               Future&lt;ImageData&gt; future=completionService.take();</div><div class="line">               ImageData imageData=f.get();</div><div class="line">               renderImage(imageData);</div><div class="line">           &#125;</div><div class="line">        &#125;catch(InterruptedException e)&#123;</div><div class="line">            //重新设置线程的中断状态</div><div class="line">            Thread.currentThread().interrupt();</div><div class="line">        &#125;catch(ExecutionException e)&#123;</div><div class="line">            throw launderThrowable(e.getCause());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="为任务设定时限"><a href="#为任务设定时限" class="headerlink" title="为任务设定时限"></a>为任务设定时限</h5><p>比如获取某个数据时，量秒内得不到响应则不能获取到这种需求。future.get()方法可以带时间参数，如果超时返回TimeoutException。ExecutorService的invokeAll()方法可以同时提交多个限时任务。</p>
+<h3 id="任务取消与关闭"><a href="#任务取消与关闭" class="headerlink" title="任务取消与关闭"></a>任务取消与关闭</h3><p>Java没有提供安全的机制来终止线程（Thread.stop和suspend方法有严重缺陷，应避免使用）但提供了中断这种协作机制来终止另一个线程的工作。</p>
+<h4 id="任务取消"><a href="#任务取消" class="headerlink" title="任务取消"></a>任务取消</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//使用volatile的域来保存取消状态</div><div class="line">@ThreadSafe</div><div class="line">public class PrimieGeneraor implements Runnable&#123;</div><div class="line">    private final List&lt;BigInteger&gt; primes=new ArrayList&lt;BigInteger&gt;();</div><div class="line">    private volatile boolean cancelled;</div><div class="line">    public void run()&#123;</div><div class="line">        BigInteger p=BigInteger.ONE;</div><div class="line">        while(!cancelled)&#123;</div><div class="line">            p=p.nextProbablePrime();</div><div class="line">            synchronized(this)&#123;</div><div class="line">                primes.add(p);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public void cancel()&#123;cancelled=true;&#125;</div><div class="line">    public synchronized List&lt;BigInteger&gt; get()&#123;</div><div class="line">        return new ArrayList&lt;BigInteger&gt;(primes);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    //一个仅运行一秒的素数生成器</div><div class="line">    List&lt;BigInteger&gt; aSecondOfPrimes() throws InterruptedException&#123;</div><div class="line">        PrimeGenerator generator =new PrimeGenerator();</div><div class="line">        new Thread(generator).start();</div><div class="line">        try&#123;</div><div class="line">            SECONDS.sleep(1);</div><div class="line">        &#125;finally&#123;</div><div class="line">            generator.cancel();</div><div class="line">        &#125;</div><div class="line">        return generator.get();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>使用取消标志来中断线程的缺点是，如果run方法里发生了阻塞，那么cacelled标志将永远不会被检测到。此时可以使用线程中断机制。</p>
+<h5 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h5><p>Thread.interrupt方法并不会真正地中断一个正在运行的线程，而只是发出中断请求，然后由线程在下一个合适的时刻（取消点）来中断自己。通常，中断是实现取消最合理的方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class PrimeProducer extends Thread&#123;</div><div class="line">    private final BlockingQueue&lt;BigInteger&gt; queue;</div><div class="line">    PrimeProducer(BlockingQueue&lt;BigInteger&gt; queue)&#123;</div><div class="line">        this.queue=queue;</div><div class="line">    &#125;</div><div class="line">    public void run()&#123;</div><div class="line">        try&#123;</div><div class="line">            BigInteger p=BigInteger.ONE;</div><div class="line">            while(!Thread.currentThread().isInterrupted())&#123;</div><div class="line">                queue.put(p=p.nextProbablePrime());</div><div class="line">            &#125;catch(InterruptedException e)&#123;</div><div class="line">                //允许线程退出</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public void cancel()&#123;</div><div class="line">        interrupt();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="通过future来实现取消"><a href="#通过future来实现取消" class="headerlink" title="通过future来实现取消"></a>通过future来实现取消</h5><p>ExecutorService.submit返回一个future来描述任务，future有一个cancel方法，该方法有一个mayInterruptIfRunning的boolean类型参数，表示该线程能否介绍中断。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public static void timedRun(Runnable r,long timeout,TimeUnit unit) throws InterruptedException&#123;</div><div class="line">    Future&lt;?&gt; task=taskExec.submit(r);</div><div class="line">    try&#123;</div><div class="line">        task.get(timeout,unit);</div><div class="line">    &#125;catch(TimeoutException e)&#123;</div><div class="line">        </div><div class="line">    &#125;catch(ExecutionException e)&#123;</div><div class="line">        //重新抛出异常</div><div class="line">        throw launderException(e.getCause());</div><div class="line">    &#125;finally&#123;</div><div class="line">        task.cancel(true);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h5 id="处理不可中断的阻塞"><a href="#处理不可中断的阻塞" class="headerlink" title="处理不可中断的阻塞"></a>处理不可中断的阻塞</h5><p>Java库中，许多阻塞方法都是通过提前返回或者抛出InterruptedException来响应中断请求，从而使开发人员更容易构建出能响应取消请求的任务。但是有些阻塞方法和阻塞机制不能响应中断，只能设置线程的中断状态。此时可以采用类似中断的手段来停止这些线程，但要求知道线程阻塞的原因。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class ReaderThread extends Thread&#123;</div><div class="line">    private final Socket socket;</div><div class="line">    private final InputStream in;</div><div class="line">    public ReaderThread(Socket socket) throws IOException&#123;</div><div class="line">        this.socket=socket;</div><div class="line">        this.in=socket.getInputStream();</div><div class="line">    &#125;</div><div class="line">    public void interrupt()&#123;</div><div class="line">        try&#123;</div><div class="line">            socket.close();</div><div class="line">        &#125;catch(IOException ignored)&#123;</div><div class="line">            </div><div class="line">        &#125;finally&#123;</div><div class="line">            super.interrupt</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public void run()&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Java6以后，可以使用newTaskFor来封装非标准取消的技术。p137</p>
+<h4 id="停止基于线程的服务"><a href="#停止基于线程的服务" class="headerlink" title="停止基于线程的服务"></a>停止基于线程的服务</h4><h4 id="处理非正常的线程终止"><a href="#处理非正常的线程终止" class="headerlink" title="处理非正常的线程终止"></a>处理非正常的线程终止</h4>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -236,145 +241,139 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/10/23/并发编程读书笔记（四）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/15/并发编程读书笔记（三）/" class="archive-article-date">
-  	<time datetime="2017-10-15T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/10/24/喜欢的书/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          喜欢的书
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/15/并发编程读书笔记（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">并发编程读书笔记（三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/15/并发编程读书笔记（三）/">并发编程读书笔记（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#任务执行"><span class="toc-number">1.</span> <span class="toc-text">任务执行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#串行地执行任务"><span class="toc-number">1.1.</span> <span class="toc-text">串行地执行任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示地为任务创建线程"><span class="toc-number">1.2.</span> <span class="toc-text">显示地为任务创建线程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Executor框架"><span class="toc-number">1.3.</span> <span class="toc-text">Executor框架</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Executor的生命周期"><span class="toc-number">1.3.1.</span> <span class="toc-text">Executor的生命周期</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#延迟任务与周期任务"><span class="toc-number">1.3.2.</span> <span class="toc-text">延迟任务与周期任务</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#找出可利用的并行性"><span class="toc-number">1.4.</span> <span class="toc-text">找出可利用的并行性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#串行地页面渲染"><span class="toc-number">1.4.1.</span> <span class="toc-text">串行地页面渲染</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#携带任务结果的callable和future"><span class="toc-number">1.4.2.</span> <span class="toc-text">携带任务结果的callable和future</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CompletionService"><span class="toc-number">1.4.3.</span> <span class="toc-text">CompletionService</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#为任务设定时限"><span class="toc-number">1.4.4.</span> <span class="toc-text">为任务设定时限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#任务取消与关闭"><span class="toc-number">2.</span> <span class="toc-text">任务取消与关闭</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#任务取消"><span class="toc-number">2.1.</span> <span class="toc-text">任务取消</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#中断"><span class="toc-number">2.1.1.</span> <span class="toc-text">中断</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通过future来实现取消"><span class="toc-number">2.1.2.</span> <span class="toc-text">通过future来实现取消</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#处理不可中断的阻塞"><span class="toc-number">2.1.3.</span> <span class="toc-text">处理不可中断的阻塞</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#停止基于线程的服务"><span class="toc-number">2.2.</span> <span class="toc-text">停止基于线程的服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#处理非正常的线程终止"><span class="toc-number">2.3.</span> <span class="toc-text">处理非正常的线程终止</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/14/并发编程读书笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-10-14T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/14/并发编程读书笔记（二）/">并发编程读书笔记（二）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/并发编程读书笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-10-10T15:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/并发编程读书笔记（一）/">并发编程读书笔记（一）</a>
-    </h1>
+  <div id="SOHUCS" sid="并发编程读书笔记（四）" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cyteMrlxV"; 
+    var conf = "c025c77b26852e1cf2ef8d5ad5493e87"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -397,8 +396,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
