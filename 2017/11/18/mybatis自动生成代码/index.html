@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>search | qin&#39;s blog</title>
+  <title>MyBatis自动生成代码 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="search">
-<meta property="og:url" content="http://cuteqin.github.io/search/index.html">
+  <meta name="description" content="初次学习mybatis,发现了mybatis generator这个工具自动生成代码觉得还挺方便地~~~">
+<meta name="keywords" content="java,mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis自动生成代码">
+<meta property="og:url" content="http://cuteqin.github.io/2017/11/18/mybatis自动生成代码/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:updated_time" content="2017-09-28T06:22:51.979Z">
+<meta property="og:description" content="初次学习mybatis,发现了mybatis generator这个工具自动生成代码觉得还挺方便地~~~">
+<meta property="og:updated_time" content="2017-11-08T12:54:46.490Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="search">
+<meta name="twitter:title" content="MyBatis自动生成代码">
+<meta name="twitter:description" content="初次学习mybatis,发现了mybatis generator这个工具自动生成代码觉得还挺方便地~~~">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -150,27 +154,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="search-" class="article article-type-search " itemscope itemprop="blogPost">
+            <article id="post-mybatis自动生成代码" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      search
+      MyBatis自动生成代码
     </h1>
   
 
         
-        <a href="/search/index.html" class="archive-article-date">
-  	<time datetime="2017-09-28T06:22:51.979Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+        <a href="/2017/11/18/mybatis自动生成代码/" class="archive-article-date">
+  	<time datetime="2017-11-18T13:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>初次学习mybatis,发现了mybatis generator这个工具自动生成代码觉得还挺方便地~~~</p>
+<a id="more"></a>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>使用Mybatis Generator(MGB)能够帮助我们自动生成简单的CRUD操作代码，但是复杂的SQL操作如join,存储过程等仍然需要我们自己编写代码~</p>
+<p>使用MGB能够生成什么呢？</p>
+<ul>
+<li>匹配表结构的POJOs</li>
+<li>配置SQL的XML文件，操作有：<ul>
+<li>insert</li>
+<li>update by primary key</li>
+<li>update by example (using a dynamic where clause)</li>
+<li>delete by primary key</li>
+<li>delete by example (using a dynamic where clause)</li>
+<li>select by primary key</li>
+<li>select by example (using a dynamic where clause)</li>
+<li>count by example</li>
+</ul>
+</li>
+<li>映射接口</li>
+</ul>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>通常，MGB是通过XML配置文件来驱动的，其中，\<table\>标签下的配置比较灵活。例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE generatorConfiguration</div><div class="line">  PUBLIC &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;</div><div class="line">  &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;generatorConfiguration&gt;</div><div class="line"> &lt;!--数据库驱动--&gt;</div><div class="line">  &lt;classPathEntry location=&quot;mysql-connector-java-5.1.37-bin.jar&quot; /&gt;</div><div class="line"></div><div class="line">  &lt;context id=&quot;DB2Tables&quot; targetRuntime=&quot;MyBatis3&quot;&gt;</div><div class="line">    &lt;!--去掉所有注释--&gt;</div><div class="line">    &lt;commentGenerator&gt;</div><div class="line">        &lt;property name=&quot;suppressAllComments&quot; value=&quot;true&quot; /&gt;</div><div class="line">    &lt;/commentGenerator&gt;</div><div class="line">    &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;</div><div class="line">        connectionURL=&quot;jdbc:mysql://localhost/spring&quot;</div><div class="line">        userId=&quot;&quot;</div><div class="line">        password=&quot;&quot;&gt;</div><div class="line">    &lt;/jdbcConnection&gt;</div><div class="line">&lt;!--配置数据库类型DECIMAL和NUMERIC更好地被处理 --&gt;</div><div class="line">    &lt;javaTypeResolver &gt;</div><div class="line">      &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot; /&gt;</div><div class="line">    &lt;/javaTypeResolver&gt;</div><div class="line">  &lt;!--生成Model类存放位置--&gt;</div><div class="line">    &lt;javaModelGenerator targetPackage=&quot;com.model&quot; targetProject=&quot;src/main/java&quot;&gt;</div><div class="line">      &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot; /&gt;</div><div class="line">    &lt;/javaModelGenerator&gt;</div><div class="line">  &lt;!--生成映射文件存放位置--&gt;</div><div class="line">    &lt;sqlMapGenerator targetPackage=&quot;mapper&quot;  targetProject=&quot;src/resources&quot;&gt;</div><div class="line">    &lt;/sqlMapGenerator&gt;</div><div class="line"> &lt;!--生成Dao类存放位置--&gt;</div><div class="line">    &lt;javaClientGenerator type=&quot;XMLMAPPER&quot; targetPackage=&quot;com.mapper&quot;  targetProject=&quot;src/main/java&quot;&gt;</div><div class="line">    &lt;/javaClientGenerator&gt;</div><div class="line">  &lt;!--对应表及类名--&gt;</div><div class="line">    &lt;table tableName=&quot;ALLTYPES&quot; domainObjectName=&quot;Customer&quot; &gt;</div><div class="line">      &lt;property name=&quot;useActualColumnNames&quot; value=&quot;true&quot;/&gt;  </div><div class="line">      &lt;generatedKey column=&quot;ID&quot; sqlStatement=&quot;mysql&quot; identity=&quot;true&quot; /&gt; </div><div class="line">      &lt;columnOverride column=&quot;DATE_FIELD&quot; property=&quot;startDate&quot; /&gt;  </div><div class="line">      &lt;ignoreColumn column=&quot;FRED&quot; /&gt;  </div><div class="line">      &lt;columnOverride column=&quot;LONG_VARCHAR_FIELD&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</div><div class="line">    &lt;/table&gt;</div><div class="line"></div><div class="line">  &lt;/context&gt;</div><div class="line">&lt;/generatorConfiguration&gt;</div></pre></td></tr></table></figure></table\></p>
+<p>把XML文件和mybatis-generator-core-x.x.x.jar放在项目根目录下，然后使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar mybatis-generator-core-x.x.x.jar -configfile generatorConfig.xml -overwrite</div></pre></td></tr></table></figure></p>
+<p>生成了代码后，要能够使代码在项目里生效，在application.properties文件（spring boot的配置文件）中添加mybatis的配置如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">##mybatis配置</div><div class="line">mybatis.typeAliasesPackage=com.model</div><div class="line">mybatis.mapperLocations=classpath:mapper/*.xml</div></pre></td></tr></table></figure></p>
+<h4 id="使用生成的代码"><a href="#使用生成的代码" class="headerlink" title="使用生成的代码"></a>使用生成的代码</h4><p>生成的代码中，需要特别理解一下的是Example Class，这个类主要是为了支持SQL中动态的选择（where),除了BLOB类型的列，其他的列都能放在where后面。在这个类中包括了几个静态的内部类：</p>
+<ul>
+<li>Criteria：包括了一系列where语句中被and的各种条件，而Example class包括了一系列被or的Criteria。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">   TestTableExample example = new TestTableExample();</div><div class="line"></div><div class="line">  example.or()</div><div class="line">    .andField1EqualTo(5)</div><div class="line">    .andField2IsNull();</div><div class="line"></div><div class="line">  example.or()</div><div class="line">    .andField3NotEqualTo(9)</div><div class="line">    .andField4IsNotNull();</div><div class="line"></div><div class="line">  List&lt;Integer&gt; field5Values = new ArrayList&lt;Integer&gt;();</div><div class="line">  field5Values.add(8);</div><div class="line">  field5Values.add(11);</div><div class="line">  field5Values.add(14);</div><div class="line">  field5Values.add(22);</div><div class="line"></div><div class="line">  example.or()</div><div class="line">    .andField5In(field5Values);</div><div class="line"></div><div class="line">  example.or()</div><div class="line">    .andField6Between(3, 7);</div><div class="line"></div><div class="line">/***</div><div class="line">相当于</div><div class="line">where (field1 = 5 and field2 is null)</div><div class="line">     or (field3 &lt;&gt; 9 and field4 is not null)</div><div class="line">     or (field5 in (8, 11, 14, 22))</div><div class="line">     or (field6 between 3 and 7)</div><div class="line">***/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="http://note.youdao.com/" target="_blank" rel="external">http://www.mybatis.org/generator/index.html</a></p>
+
       
 
       
@@ -199,6 +231,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/search/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/11/18/mybatis自动生成代码/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,6 +308,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/24/喜欢的书/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">喜欢的书</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -282,7 +339,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用生成的代码"><span class="toc-number">3.</span> <span class="toc-text">使用生成的代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -298,7 +355,7 @@
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="mybatis自动生成代码" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cyteMrlxV"; 
@@ -335,7 +392,7 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
