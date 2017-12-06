@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>sqoop�û�ָ�� | qin&#39;s blog</title>
+  <title>sqoop用户指南 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sqoop��һ�������ڹ�ϵ�����ݿ���hadoop֮�䴫������ETL�Ĺ��ߣ���������ʵ�ֻ���MapReduce���ܣ������ṩ�˲����Ժ��ݴ��ԡ�����Ŀǰ��������˵sqoop2��sqoop1�汾�����ݲ��һ���û����sqoop2 feature�Ŀ��������Բ��ʺ�����ϵͳ�����ˣ����Ľ��ܵ���s">
-<meta name="keywords" content="sqoop,������">
+  <meta name="description" content="sqoop是一个用于在关系型数据库和hadoop之间传输数据ETL的工具，由于它的实现基于MapReduce框架，所以提供了并行性和容错性。截至目前，官网上说sqoop2和sqoop1版本不兼容并且还还没完成sqoop2 feature的开发，所以不适合生产系统。因此，本文介绍的是sqoop1.4.6版本的用户指南~">
+<meta name="keywords" content="sqoop,大数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sqoop�û�ָ��">
+<meta property="og:title" content="sqoop用户指南">
 <meta property="og:url" content="http://cuteqin.github.io/2017/12/02/sqoop用户指南/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="sqoop��һ�������ڹ�ϵ�����ݿ���hadoop֮�䴫������ETL�Ĺ��ߣ���������ʵ�ֻ���MapReduce���ܣ������ṩ�˲����Ժ��ݴ��ԡ�����Ŀǰ��������˵sqoop2��sqoop1�汾�����ݲ��һ���û����sqoop2 feature�Ŀ��������Բ��ʺ�����ϵͳ�����ˣ����Ľ��ܵ���s">
-<meta property="og:updated_time" content="2017-12-06T07:08:51.510Z">
+<meta property="og:description" content="sqoop是一个用于在关系型数据库和hadoop之间传输数据ETL的工具，由于它的实现基于MapReduce框架，所以提供了并行性和容错性。截至目前，官网上说sqoop2和sqoop1版本不兼容并且还还没完成sqoop2 feature的开发，所以不适合生产系统。因此，本文介绍的是sqoop1.4.6版本的用户指南~">
+<meta property="og:updated_time" content="2017-12-06T09:36:34.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sqoop�û�ָ��">
-<meta name="twitter:description" content="sqoop��һ�������ڹ�ϵ�����ݿ���hadoop֮�䴫������ETL�Ĺ��ߣ���������ʵ�ֻ���MapReduce���ܣ������ṩ�˲����Ժ��ݴ��ԡ�����Ŀǰ��������˵sqoop2��sqoop1�汾�����ݲ��һ���û����sqoop2 feature�Ŀ��������Բ��ʺ�����ϵͳ�����ˣ����Ľ��ܵ���s">
+<meta name="twitter:title" content="sqoop用户指南">
+<meta name="twitter:description" content="sqoop是一个用于在关系型数据库和hadoop之间传输数据ETL的工具，由于它的实现基于MapReduce框架，所以提供了并行性和容错性。截至目前，官网上说sqoop2和sqoop1版本不兼容并且还还没完成sqoop2 feature的开发，所以不适合生产系统。因此，本文介绍的是sqoop1.4.6版本的用户指南~">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      sqoop�û�ָ��
+      sqoop用户指南
     </h1>
   
 
@@ -174,24 +174,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>sqoop��һ�������ڹ�ϵ�����ݿ���hadoop֮�䴫������ETL�Ĺ��ߣ���������ʵ�ֻ���MapReduce���ܣ������ṩ�˲����Ժ��ݴ��ԡ�����Ŀǰ��������˵sqoop2��sqoop1�汾�����ݲ��һ���û����sqoop2 feature�Ŀ��������Բ��ʺ�����ϵͳ�����ˣ����Ľ��ܵ���sqoop1.4.6�汾���û�ָ��~</p>
+        <p>sqoop是一个用于在关系型数据库和hadoop之间传输数据ETL的工具，由于它的实现基于MapReduce框架，所以提供了并行性和容错性。截至目前，官网上说sqoop2和sqoop1版本不兼容并且还还没完成sqoop2 feature的开发，所以不适合生产系统。因此，本文介绍的是sqoop1.4.6版本的用户指南~</p>
 <a id="more"></a>
-<h4 id="�����÷�"><a href="#�����÷�" class="headerlink" title="�����÷�"></a>�����÷�</h4><ul>
-<li>�ӹ�ϵ�����ݿ��ı���һ��һ�еض�ȡ����д��HDFS�ļ�����Щ�ļ���ʽ����delimited text file,binary Avro,SequenceFile�ȡ��������ݵĹ��̻�����һ�����ڷ�װ������¼��java�ࡣ�����������������л��ͷ����л�SequenceFile��ʽ���ļ������߽����зָ������ı���¼�ȡ�</li>
-<li>�������������ݴ�HDFS�ϵ�������ϵ�����ݿ��С�</li>
-<li>����һЩ�򵥵��������������ݿ⡣��sqoop-list-database,sqoop-list-table��</li>
-<li>ֵ��ע�����ǣ�sqoop�ĵ��룬�������ɣ������Ĺ��̿��Ա����ƻ����������Ե����ض������ݣ�����ָ�����ݵķָ������ļ���ʽ�ȣ����Կ������ɴ���ʹ�õ������߰���</li>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><ul>
+<li>从关系型数据库的表中一行一行地读取数据写入HDFS文件，这些文件格式包括delimited text file,binary Avro,SequenceFile等。导入数据的过程会生成一个用于封装导入记录的java类。这个类可以用于序列化和反序列化SequenceFile格式的文件，或者解析有分隔符的文本记录等。</li>
+<li>将计算结果数据从HDFS上导出到关系型数据库中。</li>
+<li>包括一些简单的命令来检查数据库。如sqoop-list-database,sqoop-list-table等</li>
+<li>值得注意的是，sqoop的导入，代码生成，导出的过程可以被定制化。例如可以导入特定的数据，可以指定数据的分隔符，文件格式等，可以控制生成代码使用的类或者包。</li>
 </ul>
 <h4 id="sqoop-tools"><a href="#sqoop-tools" class="headerlink" title="sqoop tools"></a>sqoop tools</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$ sqoop help</div><div class="line">usage: sqoop COMMAND [ARGS]</div><div class="line"></div><div class="line">Available commands:</div><div class="line">  codegen            Generate code to interact with database records</div><div class="line">  create-hive-table  Import a table definition into Hive</div><div class="line">  eval               Evaluate a SQL statement and display the results</div><div class="line">  export             Export an HDFS directory to a database table</div><div class="line">  help               List available commands</div><div class="line">  import             Import a table from a database to HDFS</div><div class="line">  import-all-tables  Import tables from a database to HDFS</div><div class="line">  import-mainframe   Import mainframe datasets to HDFS</div><div class="line">  list-databases     List available databases on a server</div><div class="line">  list-tables        List available tables in a database</div><div class="line">  version            Display version information</div><div class="line"></div><div class="line">See &apos;sqoop help COMMAND&apos; for information on a specific command.</div></pre></td></tr></table></figure>
-<h5 id="sqoop-import"><a href="#sqoop-import" class="headerlink" title="sqoop-import"></a>sqoop-import</h5><p>���ڴ�RDBMS����һ������HDFS��,����������:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">import</div><div class="line">--connect</div><div class="line">jdbc:mysql://localhost/db</div><div class="line">--username</div><div class="line">foo</div><div class="line">--password-file $&#123;user.home&#125;/.password  �������ļ��ķ�ʽ����ȫ�����Է�ֹ���ݿ����뱻��¶��job�������ļ��С�</div><div class="line">--append ��HDFS���Ѵ������ݼ��ϸ����µ����ݣ���Ŀ��Ŀ¼·���Ѿ�����HDFS��</div><div class="line">--columns &lt;col,col,col...&gt; ��Ҫ���������У�Ĭ������</div><div class="line">--delete-target-dir ������Ŀ���ļ��д��ڣ�����ɾ��</div><div class="line">-m��--num-mappers &lt;n&gt; ָ��map task��������Ĭ����4�������������ı�</div><div class="line">-w,--query &lt;statement&gt; ����statement��ѯ���Ľ������ݣ�����ָ��--target-dir������ֻ����һЩ�򵥵Ĳ�ѯ����where����û��or��û���Ӳ�ѯ��û��joins.</div><div class="line">--split-by &lt;column-name&gt; ���ڽ������ֳɼ���������Ԫ���У�ֻ��ָ��һ���У�Ĭ��������������sqoop���еص��롣</div><div class="line">--table ��Ҫ�������ı�</div><div class="line">--target-dir HDFS��Ŀ���ļ���·��</div><div class="line">--warehouse-dir ���б�����·���ĸ�HDFS·��</div><div class="line">--where &lt;where clause&gt; ����������ʹ�õ�where���� </div><div class="line">--null-string &lt;null-string&gt; string��������ΪNullʱд����ֵ</div><div class="line">--null-non-string &lt;null-string&gt; ��string��������ΪNullʱд����ֵ</div><div class="line">--map-column-java &lt;mapping&gt; ����Ĭ�ϵ�SQL�������ͺ�Java�������͵�ӳ�䣬mapping��id=string,value=Integer��</div><div class="line">--map-column-hive &lt;mapping&gt; ����Ĭ�ϵ�SQL�������ͺ�Hive�������͵�ӳ��</div><div class="line">--check-column &lt;col&gt; ��������������ʱ��ָ���������У� (the column should not be of type CHAR/NCHAR/VARCHAR/VARNCHAR/ LONGVARCHAR/LONGNVARCHAR)</div><div class="line">--incremental &lt;mode&gt; ָ��sqoop���������µ��У�����ȡֵΪappend����lastmodified�����������������������Ӷ�������idʱ��ʹ��appendģʽ��ͬʱ��--check-columnָ������id�У���ԭʼ���ݿ��ܻ����£�����ÿһ�θ��¶�������timestamp�ĸ��£�ʹ��lastmodifiedģʽ��ͬʱ��--last-valueָ����һ�ε������µ�ʱ����</div><div class="line">--last-value &lt;value&gt; ָ��֮ǰ�����������м����е�����ֵ���������������д��ڸ�ֵ���С�ͨ��--last-value�ᱻ��ӡ���������նˣ�������save job�洢��metastore�С�</div><div class="line">--validate  ��֤�������ݺ͵������ݵ�����</div><div class="line"></div><div class="line">#����hive����</div><div class="line">--hive-import ��table���뵽hive�У�����û��ָ���ָ�������Ĭ�Ϸָ�����</div><div class="line">--hive-overwrite ����Hive���ı������ݣ����ᱻ����</div><div class="line">--create-hive-table ����hive�������ǲ������ݡ�����Ŀ�������ڵĻ���job��ʧ�ܣ�������Ĭ��Ϊfalse</div><div class="line">--hive-table ������ʱָ��Ŀ��hive��</div><div class="line">--hive-drop-import-delims ��string���͵���ʱ��ȥ���ָ�����</div><div class="line">--hive-partition-key ָ��Hive���ķ�������</div><div class="line">--hive-partition-value &lt;v&gt; ָ��hive������ֵ��������string</div><div class="line">--map-column-hive &lt;map&gt; ��дĬ�ϵ�SQL���ݵ�hive���������͵�ӳ����ϵ��</div></pre></td></tr></table></figure></p>
-<h5 id="sqoop-import-all-tables"><a href="#sqoop-import-all-tables" class="headerlink" title="sqoop-import-all-tables"></a>sqoop-import-all-tables</h5><p>���ڽ����ݿ��еı�ȫ������HDFS��</p>
-<h5 id="sqoop-export"><a href="#sqoop-export" class="headerlink" title="sqoop-export"></a>sqoop-export</h5><p>���ڽ�HDFS�ϵ����ݵ��ص�RDBMS�У���RDBMS�е�Ŀ�����������ڡ�</p>
-<h5 id="sqoop-job"><a href="#sqoop-job" class="headerlink" title="sqoop-job"></a>sqoop-job</h5><p>������������ִ����������ʱ����һ��Job�������������ôӶ���ÿ��ִ�е����Ķ������µ����ݡ�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--create &lt;job-id&gt; ����һ���µ�Job,����Ϊjob-id����--�������ָ�������sqoop���䡣�磺sqoop job my job -- import --connect .....</div><div class="line">--delete &lt;job-id&gt; ɾ��һ��job</div><div class="line">--exec &lt;job-id&gt; ִ��һ��job</div><div class="line">--show &lt;job-id&gt; ��ʾJob�Ĳ���</div><div class="line">--list ��ʾ���е�Job</div></pre></td></tr></table></figure></p>
+<h5 id="sqoop-import"><a href="#sqoop-import" class="headerlink" title="sqoop-import"></a>sqoop-import</h5><p>用于从RDBMS导入一个表到HDFS中,常用命令有:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">import</div><div class="line">--connect</div><div class="line">jdbc:mysql://localhost/db</div><div class="line">--username</div><div class="line">foo</div><div class="line">--password-file $&#123;user.home&#125;/.password  用配置文件的方式更安全，可以防止数据库密码被暴露在job的配置文件中。</div><div class="line">--append 在HDFS上已存的数据集上附件新的数据（当目标目录路径已经存在HDFS）</div><div class="line">--columns &lt;col,col,col...&gt; 需要被导入的列，默认所有</div><div class="line">--delete-target-dir 导入的目标文件夹存在，则先删除</div><div class="line">-m或--num-mappers &lt;n&gt; 指定map task的数量，默认是4。如果被导入的表</div><div class="line">-w,--query &lt;statement&gt; 导入statement查询后的结果数据，必须指定--target-dir。并且只能是一些简单的查询，如where语句没有or，没有子查询，没有joins.</div><div class="line">--split-by &lt;column-name&gt; 用于将任务分成几个工作单元的列，只能指定一个列，默认是主键，用于sqoop并行地导入。</div><div class="line">--table 需要被导入的表</div><div class="line">--target-dir HDFS的目标文件夹路径</div><div class="line">--warehouse-dir 所有表导入路径的父HDFS路径</div><div class="line">--where &lt;where clause&gt; 导入数据中使用的where语句 </div><div class="line">--null-string &lt;null-string&gt; string数据类型为Null时写入的值</div><div class="line">--null-non-string &lt;null-string&gt; 非string数据类型为Null时写入的值</div><div class="line">--map-column-java &lt;mapping&gt; 覆盖默认的SQL数据类型和Java数据类型的映射，mapping如id=string,value=Integer等</div><div class="line">--map-column-hive &lt;mapping&gt; 覆盖默认的SQL数据类型和Hive数据类型的映射</div><div class="line">--check-column &lt;col&gt; 当导入增量的行时，指定检查的列， (the column should not be of type CHAR/NCHAR/VARCHAR/VARNCHAR/ LONGVARCHAR/LONGNVARCHAR)</div><div class="line">--incremental &lt;mode&gt; 指定sqoop怎样决定新的列，可以取值为append或者lastmodified。当数据中有随数据量增加而自增的id时，使用append模式，同时用--check-column指定自增id列；当原始数据可能会更新，并且每一次更新都伴随有timestamp的更新，使用lastmodified模式，同时用--last-value指定上一次导入最新的时间戳</div><div class="line">--last-value &lt;value&gt; 指定之前导入的数据中检查列的最大值。如果导入检查列大于该值的行。通常--last-value会被打印在命令行终端，或者用save job存储在metastore中。</div><div class="line">--validate  验证导出数据和导入数据的行数</div><div class="line"></div><div class="line">#导入hive参数</div><div class="line">--hive-import 将table导入到hive中（如果没有指定分隔符则用默认分隔符）</div><div class="line">--hive-overwrite 如果Hive里的表有数据，将会被覆盖</div><div class="line">--create-hive-table 创建hive表，但是不导数据。如果目标表存在的话，job会失败，该属性默认为false</div><div class="line">--hive-table 导数据时指定目标hive表</div><div class="line">--hive-drop-import-delims 导string类型的列时，去掉分隔符号</div><div class="line">--hive-partition-key 指定Hive表的分区名字</div><div class="line">--hive-partition-value &lt;v&gt; 指定hive分区的值，必须是string</div><div class="line">--map-column-hive &lt;map&gt; 重写默认的SQL数据到hive的数据类型的映射关系。</div></pre></td></tr></table></figure></p>
+<h5 id="sqoop-import-all-tables"><a href="#sqoop-import-all-tables" class="headerlink" title="sqoop-import-all-tables"></a>sqoop-import-all-tables</h5><p>用于将数据库中的表全部导入HDFS中</p>
+<h5 id="sqoop-export"><a href="#sqoop-export" class="headerlink" title="sqoop-export"></a>sqoop-export</h5><p>用于将HDFS上的数据导回到RDBMS中，在RDBMS中的目标表必须存在。</p>
+<h5 id="sqoop-job"><a href="#sqoop-job" class="headerlink" title="sqoop-job"></a>sqoop-job</h5><p>这个命令用于执行增量导入时，用一个Job来保存相关配置从而能每次执行导入的都是最新的数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--create &lt;job-id&gt; 定义一个新的Job,名称为job-id。用--符号来分割后面的sqoop语句。如：sqoop job my job -- import --connect .....</div><div class="line">--delete &lt;job-id&gt; 删除一个job</div><div class="line">--exec &lt;job-id&gt; 执行一个job</div><div class="line">--show &lt;job-id&gt; 显示Job的参数</div><div class="line">--list 显示所有的Job</div></pre></td></tr></table></figure></p>
 <h5 id="sqoop-metastore"><a href="#sqoop-metastore" class="headerlink" title="sqoop-metastore"></a>sqoop-metastore</h5><h5 id="sqoop-merge"><a href="#sqoop-merge" class="headerlink" title="sqoop-merge"></a>sqoop-merge</h5><h5 id="sqoop-codegen"><a href="#sqoop-codegen" class="headerlink" title="sqoop-codegen"></a>sqoop-codegen</h5><h4 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><ul>
-<li>������ʱ������ͬ��MYSQL�����ݵ�Hive��</li>
-<li>���������ָ�ʽ���ı����ݵ��뵽HDFS��</li>
+<li>怎样定时增量地同步MYSQL的数据到Hive中</li>
+<li>怎样将各种格式的文本数据导入到HDFS中</li>
 </ul>
-<h4 id="�ο�"><a href="#�ο�" class="headerlink" title="�ο�"></a>�ο�</h4><p><a href="https://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html" target="_blank" rel="external">sqoop user guide</a></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html" target="_blank" rel="external">sqoop user guide</a></p>
 
       
 
@@ -230,7 +230,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">������</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
         		</li>
       		
 		</ul>
@@ -301,8 +301,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2017/11/16/git使用整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gitʹ������</div>
+    <a href="/2017/11/16/重拾英语/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">重拾英语</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -329,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#�����÷�"><span class="toc-number">1.</span> <span class="toc-text">�����÷�</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sqoop-tools"><span class="toc-number">2.</span> <span class="toc-text">sqoop tools</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-import"><span class="toc-number">2.1.</span> <span class="toc-text">sqoop-import</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-import-all-tables"><span class="toc-number">2.2.</span> <span class="toc-text">sqoop-import-all-tables</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-export"><span class="toc-number">2.3.</span> <span class="toc-text">sqoop-export</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-job"><span class="toc-number">2.4.</span> <span class="toc-text">sqoop-job</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-metastore"><span class="toc-number">2.5.</span> <span class="toc-text">sqoop-metastore</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-merge"><span class="toc-number">2.6.</span> <span class="toc-text">sqoop-merge</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-codegen"><span class="toc-number">2.7.</span> <span class="toc-text">sqoop-codegen</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FAQ"><span class="toc-number">3.</span> <span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#�ο�"><span class="toc-number">4.</span> <span class="toc-text">�ο�</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本用法"><span class="toc-number">1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sqoop-tools"><span class="toc-number">2.</span> <span class="toc-text">sqoop tools</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-import"><span class="toc-number">2.1.</span> <span class="toc-text">sqoop-import</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-import-all-tables"><span class="toc-number">2.2.</span> <span class="toc-text">sqoop-import-all-tables</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-export"><span class="toc-number">2.3.</span> <span class="toc-text">sqoop-export</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-job"><span class="toc-number">2.4.</span> <span class="toc-text">sqoop-job</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-metastore"><span class="toc-number">2.5.</span> <span class="toc-text">sqoop-metastore</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-merge"><span class="toc-number">2.6.</span> <span class="toc-text">sqoop-merge</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sqoop-codegen"><span class="toc-number">2.7.</span> <span class="toc-text">sqoop-codegen</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FAQ"><span class="toc-number">3.</span> <span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -452,6 +452,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">book</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hobby</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -460,7 +468,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,23 +480,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">������</a>
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">book</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hobby</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Engilish</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">concurrency</a>
               </li>
             
             <div class="clearfix"></div>
