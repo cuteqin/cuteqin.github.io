@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>初篇 | qin&#39;s blog</title>
+  <title>spring boot读取配置文件 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="just do it， code girl !">
-<meta name="keywords" content="生活">
+  <meta name="description" content="spring boot读取配置文件有它特殊的顺序，我在一次将spring boot项目打包成jar然后运行的过程中，报错URI is not hierarchical，解决起来还用了一些些时间……">
+<meta name="keywords" content="spring boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初篇">
-<meta property="og:url" content="http://cuteqin.github.io/2017/09/28/初见/index.html">
+<meta property="og:title" content="spring boot读取配置文件">
+<meta property="og:url" content="http://cuteqin.github.io/2017/12/07/spring boot读取配置文件/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="just do it， code girl !">
-<meta property="og:updated_time" content="2017-10-11T02:50:59.527Z">
+<meta property="og:description" content="spring boot读取配置文件有它特殊的顺序，我在一次将spring boot项目打包成jar然后运行的过程中，报错URI is not hierarchical，解决起来还用了一些些时间……">
+<meta property="og:updated_time" content="2017-12-09T09:04:08.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初篇">
-<meta name="twitter:description" content="just do it， code girl !">
+<meta name="twitter:title" content="spring boot读取配置文件">
+<meta name="twitter:description" content="spring boot读取配置文件有它特殊的顺序，我在一次将spring boot项目打包成jar然后运行的过程中，报错URI is not hierarchical，解决起来还用了一些些时间……">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -154,27 +154,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-初见" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spring boot读取配置文件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      初篇
+      spring boot读取配置文件
     </h1>
   
 
         
-        <a href="/2017/09/28/初见/" class="archive-article-date">
-  	<time datetime="2017-09-28T06:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+        <a href="/2017/12/07/spring boot读取配置文件/" class="archive-article-date">
+  	<time datetime="2017-12-07T15:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="just-do-it，-code-girl"><a href="#just-do-it，-code-girl" class="headerlink" title="just do it， code girl !"></a>just do it， code girl !</h5>
+        <p>spring boot读取配置文件有它特殊的顺序，我在一次将spring boot项目打包成jar然后运行的过程中，报错URI is not hierarchical，解决起来还用了一些些时间……</p>
+<a id="more"></a>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>spring boot项目打包成jar之后，配置文件读取的路径出现问题，这种情况怎么样正确地读取配置文件呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">主要代码：</div><div class="line">private IMetaStoreClient client = null;</div><div class="line">private Resource hiveConfig = new ClassPathResource(&quot;hive-site.xml&quot;);</div><div class="line">InputStream input = hiveConfig.getInputStream();</div><div class="line">HiveConf conf = new HiveConf();</div><div class="line">conf.addResource(input);</div><div class="line">client = RetryingMetaStoreClient.getProxy(conf, true);</div><div class="line"></div><div class="line">报错信息：</div><div class="line">java.lang.IllegalArgumentException: URI is not hierarchical</div><div class="line">	at java.io.File.&lt;init&gt;(File.java:418) ~[na:1.8.0_111]</div><div class="line">	at org.apache.hadoop.hive.conf.HiveConf.findConfigFile(HiveConf.java:176) ~[hive-common-2.3.0.jar!/:2.3.0]</div><div class="line">	at org.apache.hadoop.hive.conf.HiveConf.&lt;clinit&gt;(HiveConf.java:145) ~[hive-common-2.3.0.jar!/:2.3.0]</div></pre></td></tr></table></figure></p>
+<h4 id="查资料"><a href="#查资料" class="headerlink" title="查资料"></a>查资料</h4><h5 id="URI-VS-URL"><a href="#URI-VS-URL" class="headerlink" title="URI VS URL"></a>URI VS URL</h5><blockquote>
+<p>URI represents a Uniform Resource Identifier for a resource; it is an identifier for a resource but not necessarily a locator for that resource. URL represents a Uniform Resource Locator for a resource. URLs are a subset of URIs, though the class URL is not a subclass of the URI class. In short, a URL tells how to access the resource, while a URI may or may not. The Uniform Resource Name (URN) is another subset of URI. No Java class exists for it.<br>——来自<a href="https://docs.oracle.com/javase/8/docs/technotes/guides/net/overview/overview.html" target="_blank" rel="external">oracle java documentation</a></p>
+</blockquote>
+<p>URN的例子是：mailto：cay@horstman.com。在java类库中，URI类不包含任何访问资源的方法，它唯一的作用就是解析。相反的是，URL类可以打开一个到达资源的流。</p>
+<h6 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h6><p>Web上可用的每种资源如HTML文档、图像、视频片段、程序等都是一个来URI来定位的，URI一般由三部组成</p>
+<ul>
+<li>访问资源的命名机制(http：，https：，ftp：，本地文件系统(file：)，和Jar文件(jar：))</li>
+<li>存放资源的主机名</li>
+<li>资源自身的名称，由路径表示，着重强调于资源。</li>
+</ul>
+<h6 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h6><p>URL—Uniform Resource Location统一资源定位符URL是Internet上用来描述信息资源的字符串，主要用在各种WWW客户程序和服务器程序上，特别是著名的Mosaic。采用URL可以用一种统一的格式来描述各种信息资源，包括文件、服务器的地址和目录等。URL一般由三部组成</p>
+<ul>
+<li>协议(或称为服务方式)</li>
+<li>存有该资源的主机IP地址(有时也包括端口号)</li>
+<li>主机资源的具体地址。如目录和文件名等</li>
+</ul>
+<h5 id="jar-uri"><a href="#jar-uri" class="headerlink" title="jar uri"></a>jar uri</h5><p>jar中的资源有其专用的URL形式：jar:<url>!/{entry}，尝试一下把它转成正常的file格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">代码：</div><div class="line">private Resource hiveConfig = new ClassPathResource(&quot;hive-site.xml&quot;);</div><div class="line">URL JarURL=hiveConfig.getURL();</div><div class="line">JarURLConnection connection=(JarURLConnection)JarURL.openConnection();</div><div class="line">URL url = connection.getJarFileURL();</div><div class="line">System.out.println(url.getPath());</div><div class="line">HiveConf conf = new HiveConf();</div><div class="line">conf.addResource(url);</div><div class="line">           </div><div class="line"></div><div class="line">结果失败：</div><div class="line">file:/home/kingdee/project/xxx.jar!/BOOT-INF/classes  //什么鬼，.jar后面还有一个！</div></pre></td></tr></table></figure></url></p>
+<h5 id="copy-file"><a href="#copy-file" class="headerlink" title="copy file"></a>copy file</h5><p>恩，既然路径改不过来那么，我们把文件内容复制到一个临时文件里，然后去加载临时文件的路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">代码：</div><div class="line">private Resource hiveConfig = new ClassPathResource(&quot;hive-site.xml&quot;);</div><div class="line">InputStream inputStream=hiveConfig.getInputStream();</div><div class="line">File somethingFile = File.createTempFile(&quot;hive-site&quot;, &quot;.xml&quot;);</div><div class="line">try &#123;</div><div class="line">    FileUtils.copyInputStreamToFile(inputStream, somethingFile);</div><div class="line">    &#125; finally &#123;</div><div class="line">    IOUtils.closeQuietly(inputStream);</div><div class="line">    &#125;</div><div class="line">URL url=somethingFile.toURI().toURL();</div><div class="line">HiveConf conf = new HiveConf();</div><div class="line">conf.addResource(url);</div><div class="line"></div><div class="line">结果失败：</div><div class="line">2017-12-07 19:27:52.411  INFO 20664 --- [nio-8090-exec-1] org.apache.hadoop.hive.conf.HiveConf     : Found configuration file jar:file:/home/kingdee/project/xxx.jar!/BOOT-INF/classes!/hive-site.xml</div></pre></td></tr></table></figure></p>
+<p>文件是被成功复制了，但是突然发现HiveConf的配置文件并没有随着我的addResource操作而改变配置文件的路径……</p>
+<h5 id="HiveConf类源码"><a href="#HiveConf类源码" class="headerlink" title="HiveConf类源码"></a>HiveConf类源码</h5><p>那么只有研究一下HiveConf的源代码了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//HiveConf的构造方法：</div><div class="line">public HiveConf() &#123;</div><div class="line">    this.initialize(this.getClass());</div><div class="line">&#125;</div><div class="line">//initialize方法中相关代码：</div><div class="line">private void initialize(Class&lt;?&gt; cls) &#123;</div><div class="line">       this.addResource(getConfVarInputStream());</div><div class="line">        if(hiveSiteURL != null) &#123;</div><div class="line">            this.addResource(hiveSiteURL);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">//静态初始化加载</div><div class="line">static &#123;</div><div class="line">        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();</div><div class="line">        if(classLoader == null) &#123;</div><div class="line">            classLoader = HiveConf.class.getClassLoader();</div><div class="line">        &#125;</div><div class="line">        hiveSiteURL = findConfigFile(classLoader, &quot;hive-site.xml&quot;, true);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可知由于HiveConf在静态初始化加载的时候，把classLoader下的hive-site.xml文件路径赋给了hiveSiteURL,而在intialize方法中直接addResource(hiveSiteURL),所以在HiveConf构造方法里将hiveSiteURL初始化的时候，由于项目时jar包，读取外部的hiveSiteURL路径时报错URI is not hierarchy.</p>
+<h4 id="问题的解决"><a href="#问题的解决" class="headerlink" title="问题的解决"></a>问题的解决</h4><p>好吧，那只能用最笨的方法将项目打成war包吧，惹不起不躲得起。。。。最后终于成功解决了问题。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://docs.spring.io/spring-boot/docs/1.5.2.RELEASE/reference/htmlsingle/#boot-features-external-config-application-property-files" target="_blank" rel="external">application property file</a></p>
+<p><a href="https://stackoverflow.com/questions/43020491/spring-boot-external-configuration-of-property-file" target="_blank" rel="external">stackoverflow</a></p>
+<p><a href="https://www.zhihu.com/question/21950864" target="_blank" rel="external">知乎</a></p>
+<p><a href="http://blog.csdn.net/pml18710973036/article/details/66968018" target="_blank" rel="external">spring boot打包成war</a></p>
+
       
 
       
@@ -208,7 +237,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring boot</a>
         		</li>
       		
 		</ul>
@@ -264,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/09/28/初见/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/12/07/spring boot读取配置文件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,15 +307,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/10/并发编程读书笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          并发编程读书笔记（一）
-        
-      </div>
-    </a>
   
+    <a href="/2017/12/02/sqoop用户指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sqoop用户指南</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -311,7 +336,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#just-do-it，-code-girl"><span class="toc-number">1.</span> <span class="toc-text">just do it， code girl !</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查资料"><span class="toc-number">2.</span> <span class="toc-text">查资料</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#URI-VS-URL"><span class="toc-number">2.1.</span> <span class="toc-text">URI VS URL</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#URI"><span class="toc-number">2.1.1.</span> <span class="toc-text">URI</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#URL"><span class="toc-number">2.1.2.</span> <span class="toc-text">URL</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#jar-uri"><span class="toc-number">2.2.</span> <span class="toc-text">jar uri</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#copy-file"><span class="toc-number">2.3.</span> <span class="toc-text">copy file</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HiveConf类源码"><span class="toc-number">2.4.</span> <span class="toc-text">HiveConf类源码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题的解决"><span class="toc-number">3.</span> <span class="toc-text">问题的解决</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -327,7 +352,7 @@
   
 
   
-  <div id="SOHUCS" sid="初见" ></div> 
+  <div id="SOHUCS" sid="spring boot读取配置文件" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cyteMrlxV"; 
