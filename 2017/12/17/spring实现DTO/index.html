@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>初篇 | qin&#39;s blog</title>
+  <title>DTO和entity的转换 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="just do it， code girl !">
-<meta name="keywords" content="生活">
+  <meta name="description" content="在写业务代码的时候，一个最基本的操作就是将数据库或其他地方的数据取出来，经过转换后返回符合业务场景的数据。有时候返回的数据来自于多个查询表，查询调用次数就会变得很多。后端可以提供一个DTO对象把需要的数据都整合起来然后返回给前端调用，因为从客户端到服务器的请求操作开销是比较高的。">
+<meta name="keywords" content="spring,dto">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初篇">
-<meta property="og:url" content="http://cuteqin.github.io/2017/09/28/初见/index.html">
+<meta property="og:title" content="DTO和entity的转换">
+<meta property="og:url" content="http://cuteqin.github.io/2017/12/17/spring实现DTO/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="just do it， code girl !">
-<meta property="og:updated_time" content="2017-10-11T02:50:59.527Z">
+<meta property="og:description" content="在写业务代码的时候，一个最基本的操作就是将数据库或其他地方的数据取出来，经过转换后返回符合业务场景的数据。有时候返回的数据来自于多个查询表，查询调用次数就会变得很多。后端可以提供一个DTO对象把需要的数据都整合起来然后返回给前端调用，因为从客户端到服务器的请求操作开销是比较高的。">
+<meta property="og:updated_time" content="2017-12-21T12:04:40.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初篇">
-<meta name="twitter:description" content="just do it， code girl !">
+<meta name="twitter:title" content="DTO和entity的转换">
+<meta name="twitter:description" content="在写业务代码的时候，一个最基本的操作就是将数据库或其他地方的数据取出来，经过转换后返回符合业务场景的数据。有时候返回的数据来自于多个查询表，查询调用次数就会变得很多。后端可以提供一个DTO对象把需要的数据都整合起来然后返回给前端调用，因为从客户端到服务器的请求操作开销是比较高的。">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -154,27 +154,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-初见" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spring实现DTO" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      初篇
+      DTO和entity的转换
     </h1>
   
 
         
-        <a href="/2017/09/28/初见/" class="archive-article-date">
-  	<time datetime="2017-09-28T06:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+        <a href="/2017/12/17/spring实现DTO/" class="archive-article-date">
+  	<time datetime="2017-12-17T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="just-do-it，-code-girl"><a href="#just-do-it，-code-girl" class="headerlink" title="just do it， code girl !"></a>just do it， code girl !</h5>
+        <p>在写业务代码的时候，一个最基本的操作就是将数据库或其他地方的数据取出来，经过转换后返回符合业务场景的数据。有时候返回的数据来自于多个查询表，查询调用次数就会变得很多。后端可以提供一个DTO对象把需要的数据都整合起来然后返回给前端调用，因为从客户端到服务器的请求操作开销是比较高的。<br><a id="more"></a></p>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li><strong>Data Transfer Object:</strong><br>当你调用一个代价比较大的接口时，就需要减少接口调用的次数。可以使用DTO将所有数据留在这个对象里，并且为了跨连接需要被序列化。通常，在服务端会用一个组装器在DTO和domain object之间传输数据。通常来说，DTO不只有fileds,getter,setter。</li>
+<li><strong>Data Access Object:</strong><br>DAO将对数据源所有的访问都封装起来了。数据源可以是持久化存储如RDBMS，或者REST访问的business service，或者SOAP。DAO抽象了底层的数据访问给service对象，使得service对象对数据源的访问是透明的。Service对象也会委派数据加载或者保存的操作给DAO。</li>
+<li><strong>Model or Entity or domain object:</strong><br>domain object属性对应于数据表列的实体。直接将domain object暴露出去可能会带来安全问题，如果我们不小心地处理什么样的属性能被什么样的操作改变的话。</li>
+</ul>
+<blockquote>
+<p>DTO can help us to keep the integrity of data on Java application.</p>
+</blockquote>
+<h4 id="ModelMapper"><a href="#ModelMapper" class="headerlink" title="ModelMapper"></a>ModelMapper</h4><p>ModelMapper 是一个帮助我们在entity和DTO之间实现快速转换的jar包。使用之后能让代码变得清晰很多，have a try!</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://martinfowler.com/books/eaa.html" target="_blank" rel="external">P of EEA</a><br><a href="http://modelmapper.org/" target="_blank" rel="external">ModelMapper</a></p>
+
       
 
       
@@ -208,7 +219,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dto</a>
         		</li>
       		
 		</ul>
@@ -264,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/09/28/初见/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/12/17/spring实现DTO/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,15 +293,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/10/并发编程读书笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          并发编程读书笔记（一）
-        
-      </div>
-    </a>
   
+    <a href="/2017/12/07/spring boot读取配置文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring boot读取配置文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -311,7 +322,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#just-do-it，-code-girl"><span class="toc-number">1.</span> <span class="toc-text">just do it， code girl !</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ModelMapper"><span class="toc-number">2.</span> <span class="toc-text">ModelMapper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -327,7 +338,7 @@
   
 
   
-  <div id="SOHUCS" sid="初见" ></div> 
+  <div id="SOHUCS" sid="spring实现DTO" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cyteMrlxV"; 
@@ -446,7 +457,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,15 +473,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">book</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hobby</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dto</a>
               </li>
              
               <li class="article-tag-list-item">
