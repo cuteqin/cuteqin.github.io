@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>qin&#39;s blog</title>
+  <title>大数据查询框架调研 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qin&#39;s blog">
-<meta property="og:url" content="http://cuteqin.github.io/page/2/index.html">
+  <meta name="description" content="大数据相关的开源项目日新月异，很容易让人眼花缭乱。这篇文章整理一下网上的各种资料，对大数据的查询框架做一些介绍。大数据开发人员如果只会用工具的话，也很有可能随着工具的淘汰而被淘汰哦。">
+<meta name="keywords" content="big data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据查询框架调研">
+<meta property="og:url" content="http://cuteqin.github.io/2017/12/25/大数据查询框架调研/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
+<meta property="og:description" content="大数据相关的开源项目日新月异，很容易让人眼花缭乱。这篇文章整理一下网上的各种资料，对大数据的查询框架做一些介绍。大数据开发人员如果只会用工具的话，也很有可能随着工具的淘汰而被淘汰哦。">
+<meta property="og:updated_time" content="2017-12-25T08:54:31.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qin&#39;s blog">
+<meta name="twitter:title" content="大数据查询框架调研">
+<meta name="twitter:description" content="大数据相关的开源项目日新月异，很容易让人眼花缭乱。这篇文章整理一下网上的各种资料，对大数据的查询框架做一些介绍。大数据开发人员如果只会用工具的话，也很有可能随着工具的淘汰而被淘汰哦。">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -149,34 +154,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-并发编程读书笔记（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-大数据查询框架调研" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/14/并发编程读书笔记（二）/">并发编程读书笔记（二）</a>
+    <h1 class="article-title" itemprop="name">
+      大数据查询框架调研
     </h1>
   
 
         
-        <a href="/2017/10/14/并发编程读书笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-10-14T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
+        <a href="/2017/12/25/大数据查询框架调研/" class="archive-article-date">
+  	<time datetime="2017-12-25T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上一篇文章我们简单地了解了多线程的概念，特点，以及多线程编程需要注意的几个方面如safety,liveness,performance。这一篇主要详细介绍了学习多线程必须要会的基础知识。</p>
-        
-          <a class="article-more-a" href="/2017/10/14/并发编程读书笔记（二）/#more">more >></a>
-        
+        <p>大数据相关的开源项目日新月异，很容易让人眼花缭乱。这篇文章整理一下网上的各种资料，对大数据的查询框架做一些介绍。大数据开发人员如果只会用工具的话，也很有可能随着工具的淘汰而被淘汰哦。</p>
+<a id="more"></a>
+<h3 id="技术调研"><a href="#技术调研" class="headerlink" title="技术调研"></a>技术调研</h3><h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>大数据查询分析是云计算中核心问题之一，自从Google在2006年之前的几篇论文奠定云计算领域基础，尤其是GFS、Map-Reduce、Bigtable被称为云计算底层技术三大基石。GFS、Map-Reduce技术直接支持了Apache Hadoop项目的诞生。Bigtable和Amazon Dynamo直接催生了NoSQL这个崭新的数据库领域，撼动了RDBMS在商用数据库和数据仓库方面几十年的统治性地位。FaceBook的Hive项目是建立在Hadoop上的数据仓库基础构架，提供了一系列用于存储、查询和分析大规模数据的工具。当我们还浸淫在GFS、Map-Reduce、Bigtable等Google技术中，并进行理解、掌握、模仿时，Google在2009年之后，连续推出多项新技术，包括：Dremel、Pregel、Percolator、Spanner和F1。其中，Dremel促使了实时计算系统的兴起，Pregel开辟了图数据计算这个新方向，Percolator使分布式增量索引更新成为文本检索领域的新标准，Spanner和F1向我们展现了跨数据中心数据库的可能。在Google的第二波技术浪潮中，基于Hive和Dremel，新兴的大数据公司Cloudera开源了大数据查询分析引擎Impala，Hortonworks开源了Stinger，Fackbook开源了Presto。类似Pregel，UC Berkeley AMPLAB实验室开发了Spark图计算框架，并以Spark为核心开源了大数据查询分析引擎Shark。</p>
+<p>大数据查询目前来讲可以大体分为三类：</p>
+<ol>
+<li>基于hbase预聚合的，比如Opentsdb,Kylin,Druid等,需要指定预聚合的指标，在数据接入的时候根据指定的指标进行聚合运算，适合相对固定的业务报表类需求，只需要统计少量维度即可满足业务报表需求。牺牲灵活性换取性能。</li>
+<li>基于Parquet列式存储的，比如Presto,Drill，Impala等，基本是完全基于内存的并行计算，Parquet系能降低存储空间，提高IO效率，以离线处理为主，很难提高数据写的实时性，超大表的join支持可能不够好。spark sql也算类似，但它在内存不足时可以spill disk来支持超大数据查询和join</li>
+<li>基于lucene外部索引的，比如ElasticSearch和Solr,能够满足的的查询场景远多于传统的数据库存储，但对于日志、行为类时序数据，所有的搜索请求都也必须搜索所有的分片，另外，对于聚合分析场景的支持也是软肋</li>
+</ol>
+<h4 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h4><p>Hive是hadoop生态圈最早用于数据仓库的工具，它提供了类似SQL的查询语言HQL用来查询存储在HDFS中的数据。使得基于传统关系型数据库的数据架构转移在hadoop上后，sql用户可以集中精力关注查询本身，而不是写map reduce代码来获得计算结果<strong>。Hive2.0</strong>之后不再使用Mapreduce框架，而是使用Tez作为查询引擎。</p>
+<p>限制：</p>
+<ul>
+<li>不支持行级数据更新、删除、插入操作</li>
+<li>查询有较大的延时</li>
+<li>不支持OLTP所需的关键功能</li>
+<li>传统关系型数据库是“写时模式”，在加载数据时会对数据模式进行检查校验，索引，压缩，因此加载慢但是读取的速度很快。而hive是“读时模式”，数据加载很快，只有在查询的时候才会检查格式，这样的好处是对存储模式未知的数据有优势。</li>
+<li>数据访问权限控制需要安装插件或者二次开发</li>
+</ul>
+<h4 id="Drill"><a href="#Drill" class="headerlink" title="Drill"></a>Drill</h4><p>Dremel是谷歌内部使用的新一代BigQuery引擎，对应的开源项目为Apache Drill。它的设计是为了满足对于多种类型的数据存储(结构化，半结构化以及嵌套数据)执行低延迟的查询，使用ANSI SQL兼容语法;性能高易扩展；并且提供了整合已部署的Hive和Hbase的插件。<br>特点：</p>
+<ul>
+<li>满足对于多种类型的数据存储(结构化，半结构化以及嵌套数据)执行<strong>低延迟</strong>的查询，更适用于工业大数据（如传感器）写数据的场景</li>
+<li>使用ANSI SQL兼容语法</li>
+<li>支持本地文件、HDFS、HBase、MongoDB等后端存储</li>
+<li>支持Parquet、JSON、CSV、TSV、PSV等数据格式</li>
+<li>性能高，易扩展，满足上千节点PB级别数据的交互式商业智能分析场景。</li>
+<li>通过测试结果可以看出，若是数量级在100W时，响应时间平均在秒级别，可以尝试用Drill去中OLTP业务。若是在1000W以上级别，显然这个延时做OLTP是难以接受的，这个可以去做OLAP业务。</li>
+</ul>
+<h4 id="Impala"><a href="#Impala" class="headerlink" title="Impala"></a>Impala</h4><p>Cloudera公司参考Google Dremel的开源实现，它可以看成是Google Dremel架构和MPP (Massively Parallel Processing)结构的结合体。Impala没有再使用缓慢的Hive&amp;Map-Reduce批处理，而是通过使用与商用并行关系数据库中类似的分布式查询引擎（由Query Planner、Query Coordinator和Query Exec Engine三部分组成），可以直接从HDFS或HBase中用SELECT、JOIN和统计函数查询数据，从而大大降低了延迟。</p>
+<ul>
+<li>实现语言：Java前端与C++处理后端</li>
+<li>高性能低延迟的SQL查询</li>
+<li>适用于各种Hadoop数据存储的文件格式</li>
+<li>要求最后产生的数据量一定要少。</li>
+<li>与Drill不同的是，impala只支持hive metastore,而Drill不需要metastore的定义，支持各种数据源，如JSON,XML。如果数据的元数据都定义好了，那么使用impala最好。</li>
+</ul>
+<h4 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h4><p>Presto是Facebook内部使用的大数据查询分析工具，2013年11月Facebook将其开源。Presto的运行模型与Hive有着本质的区别。Hive将查询翻译成多阶段的Map-Reduce任务，一个接着一个地运行。每一个任务从磁盘上读取输入数据并且将中间结果输出到磁盘上。然而Presto引擎没有使用Map-Reduce。它使用了一个定制的查询执行引擎和响应操作符来支持SQL的语法。除了改进的调度算法之外，所有的数据处理都是在内存中进行的。不同的处理端通过网络组成处理的流水线。这样会避免不必要的磁盘读写和额外的延迟。这种流水线式的执行模型会在同一时间运行多个数据处理段，一旦数据可用的时候就会将数据从一个处理段传入到下一个处理段。 这样的方式会大大的减少各种查询的端到端响应时间。同时，Presto设计了一个简单的数据存储抽象层，来满足在不同数据存储系统之上都可以使用SQL进行查询。存储连接器目前支持除Hive/HDFS外，还支持HBase、Scribe和定制开发的系统。一条Presto查询可以将多个数据源的数据进行合并，可以跨越整个组织进行分析。</p>
+<ul>
+<li><p>查询语言是ANSI SQL而不是Hive SQL，不支持UDF</p>
+</li>
+<li><p>Presto运行在一个单独的结点上，需要remote access HDFS的数据，和数据源完全解耦，所以查询效果会有些data locality problem.</p>
+</li>
+<li>presto java8写的，代码质量非常高。设计：纯内存，没有容错，一个task失败就整个query fail。需要注意调整内存相关，线程数等参数，容易OOM。benchmark还行。支持标准SQL</li>
+</ul>
+<h4 id="Spark-SQL"><a href="#Spark-SQL" class="headerlink" title="Spark SQL"></a>Spark SQL</h4><p>为了提高Map-Reduce的计算效率，Berkeley的AMPLab实验室开发了Spark，Spark可看做基于内存的Map-Reduce实现，此外，伯克利还在Spark基础上封装了一层SQL，产生了一个新的类似Hive的系统Shark。Hive是SQL on Map-Reduce，而Shark是Hive on Spark。Spark是UC Berkeley AMP lab所开源的类Hadoop Map-Reduce的通用的并行计算框架，Spark基于Map-Reduce算法实现的分布式计算，拥有Hadoop Map-Reduce所具有的优点；但不同于Map-Reduce的是Job中间输出和结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的Map-Reduce的算法。 Shark将停止开发，而Spark SQL将取代并兼容Shark 0.9的所有功能，并提供额外的功能。</p>
+<ul>
+<li>本质上也是基于DAG的MPP</li>
+<li>计算过程对内存要求较高</li>
+<li>为了使Hive用户迁移到Spark上，开发了Hive on spark项目</li>
+<li>支持UDF</li>
+</ul>
+<h4 id="Stinger"><a href="#Stinger" class="headerlink" title="Stinger"></a>Stinger</h4><p>原叫Tez，下一代Hive,Hortonworks主导开发，运行在YARN上的DAG计算框架。Tez可以理解为Google Pregel的开源实现，该框架可以像Map-Reduce一样，可以用来设计DAG应用程序，但需要注意的是，Tez只能运行在YARN上。Tez的一个重要应用是优化Hive和PIG这种典型的DAG应用场景，它通过减少数据读写IO，优化DAG流程使得Hive速度提供了很多倍。</p>
+<h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><p>Elasticseach主要是用作实时地分布式全文检索引擎，它的查询响应时间为毫秒级。但同时它也具有一定的简单数据分析功能。</p>
+<h4 id="性能评测总结"><a href="#性能评测总结" class="headerlink" title="性能评测总结"></a>性能评测总结</h4><p>通过对Hive、Impala、Spark SQL、Stinger和Presto的评测和分析，总结如下：</p>
+<p>1) 使用MPP数据库技术对连接查询有帮助。例如，Impala在两H表，多表连接查询中优势明显；</p>
+<p>2) 充分利用缓存的系统在内存充足的情况下性能优势明显。例如，Spark SQL，Impala在小数据量时性能优势明显；内存不足时性能下降严重，Spark SQL会出现很多问题；</p>
+<p>3) 数据倾斜会严重影响一些系统的性能。例如，Hive、Stinger、Spark SQL对数据倾斜比较敏感，容易造成倾斜；Impala受这方面的影响似乎不大；<br>对于Hive、Impala、Spark SQL、Stinger和Presto这五类开源的分析引擎，在大多数情况下，Imapla的综合性能是最稳定的，时间性能也是最好的，而且其安装配置过程也相对容易。其他分别为Presto、Spark SQL、Stinger和Hive。在内存足够和非Join操作情况下，Spark SQL的性能是最好的。</p>
+<h4 id="总结与展望"><a href="#总结与展望" class="headerlink" title="总结与展望"></a>总结与展望</h4><p>对大数据分析的项目来说，技术往往不是最关键的，关键在于谁的生态系统更强，技术上一时的领先并不足以保证项目的最终成功。虽然Google最先推出的论文定基了大数据的发展，但是Cloudera,Facebook,Hortonwork等公司在其论文的基础上开发出的开源产品使得大数据技术更加普及。这也使我们的选择更加丰富起来。Hadoop已经是一个兼容并包的大平台了，各种技术可以组合一起使用来满足用户的不同需求。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.venustech.com.cn/NewsInfo/531/25567.Html" target="_blank" rel="external">http://www.venustech.com.cn/NewsInfo/531/25567.Html</a><br><a href="http://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/36632.pdf" target="_blank" rel="external">Google Dremel paper</a><br><a href="https://hive.apache.org/" target="_blank" rel="external">Apache Hive</a><br><a href="https://drill.apache.org/docs/drill-introduction/" target="_blank" rel="external">Apache Drill</a><br><a href="http://data.qq.com/article?id=2331" target="_blank" rel="external">腾讯大数据博客</a><br><a href="https://cwiki.apache.org/confluence/display/Hive/Hive+on+Spark%3A+Getting+Started" target="_blank" rel="external">Hive on Spark</a><br><a href="https://allegro.tech/2015/06/fast-data-hackathon.html" target="_blank" rel="external">性能对比benchmark</a><br><a href="https://tech.meituan.com/presto.html" target="_blank" rel="external">美团Presto使用实践</a><br><a href="http://dataunion.org/25451.html" target="_blank" rel="external">Presto使用场景</a><br><a href="https://www.quora.com/What-is-the-difference-between-Spark-and-Presto" target="_blank" rel="external">Spark和Presto对比Quaro</a><br><a href="https://www.zhihu.com/question/41541395" target="_blank" rel="external">Presto和Spark对比知乎</a></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -187,11 +266,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">big data</a>
         		</li>
       		
 		</ul>
@@ -200,16 +275,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/14/并发编程读书笔记（二）/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/12/25/大数据查询框架调研/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/17/spring实现DTO/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DTO和entity的转换</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -224,97 +358,43 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-并发编程读书笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/10/并发编程读书笔记（一）/">并发编程读书笔记（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/10/并发编程读书笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-10-10T15:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java并发编程是java程序员必须要会的知识，虽然写下的东西都是书上或者网上有的，但是自己消化一遍加上自己的理解也是好的…….这一篇主要介绍了多线程并发的一些简单的内容。</p>
-        
-          <a class="article-more-a" href="/2017/10/10/并发编程读书笔记（一）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/10/并发编程读书笔记（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#技术调研"><span class="toc-number">1.</span> <span class="toc-text">技术调研</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hive"><span class="toc-number">1.2.</span> <span class="toc-text">Hive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Drill"><span class="toc-number">1.3.</span> <span class="toc-text">Drill</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Impala"><span class="toc-number">1.4.</span> <span class="toc-text">Impala</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Presto"><span class="toc-number">1.5.</span> <span class="toc-text">Presto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spark-SQL"><span class="toc-number">1.6.</span> <span class="toc-text">Spark SQL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stinger"><span class="toc-number">1.7.</span> <span class="toc-text">Stinger</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Elasticsearch"><span class="toc-number">1.8.</span> <span class="toc-text">Elasticsearch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#性能评测总结"><span class="toc-number">1.9.</span> <span class="toc-text">性能评测总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结与展望"><span class="toc-number">1.10.</span> <span class="toc-text">总结与展望</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+  <div id="SOHUCS" sid="大数据查询框架调研" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cyteMrlxV"; 
+    var conf = "c025c77b26852e1cf2ef8d5ad5493e87"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+
+  
+
   
 
 
@@ -337,8 +417,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
