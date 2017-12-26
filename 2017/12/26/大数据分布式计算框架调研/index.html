@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>Tag: concurrency | qin&#39;s blog</title>
+  <title>�����ݷֲ�ʽ�������ܵ��� | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qin&#39;s blog">
-<meta property="og:url" content="http://cuteqin.github.io/tags/concurrency/index.html">
+  <meta name="description" content="�����������С�">
+<meta name="keywords" content="big data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="�����ݷֲ�ʽ�������ܵ���">
+<meta property="og:url" content="http://cuteqin.github.io/2017/12/26/大数据分布式计算框架调研/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
+<meta property="og:description" content="�����������С�">
+<meta property="og:updated_time" content="2017-12-26T09:22:35.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qin&#39;s blog">
+<meta name="twitter:title" content="�����ݷֲ�ʽ�������ܵ���">
+<meta name="twitter:description" content="�����������С�">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -149,190 +154,280 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-大数据分布式计算框架调研" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      �����ݷֲ�ʽ�������ܵ���
+    </h1>
+  
+
+        
+        <a href="/2017/12/26/大数据分布式计算框架调研/" class="archive-article-date">
+  	<time datetime="2017-12-26T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>�����������С�</p>
+<a id="more"></a>
+<h4 id="����"><a href="#����" class="headerlink" title="����"></a>����</h4><p>�������Ļ����������Ǵ������ݣ����������ļ��е����ݣ�ͨ�����紫���������������ݰ������ݿ��еĽṹ�����ݵȡ����Ż��������������ȼ����õ�Խ��Խ�㷺��Ӧ�ã����ݹ�ģ�������ӣ�TB��PB������Ϊ��̬�������ݵĴ������޷��ɵ�̨���������ɣ���ֻ���ɶ�̨������ͬ�е��������񡣶��ڷֲ�ʽ�����н��д����ݴ������������洢ϵͳ�򽻵��⣬���漰���������ķֹ������㸺�ɵķ��䣬������֮��������Ǩ�Ƶȹ���������Ҫ���Ǽ����������緢������ʱ�����ݰ�ȫ������Ҫ���ӵöࡣ�����ܰ���Щ�����Ľ���������װ��һ�����������У����ɴ�����������Ӧ�ó����Ŀ�����</p>
+<p>��һ���򵥵����ӣ���������Ҫ�����ۼ�¼��ͳ�Ƹ�����Ʒ���۶�ڵ��������У�����ֻ�������ۼ�¼ɨ��һ�飬�Ը���Ʒ�����۶������ۼӼ��ɡ��������ۼ�¼�����ڹ�ϵ���ݿ��У�����ʡ�£�ִ��һ��SQL�����Ϳ����ˡ����ڼٶ����ۼ�¼ʵ��̫�࣬��Ҫ���Ƴ��ɶ�̨��������ͳ�����۶��ķ�����Ϊ��֤��������ȷ���ɿ�����Ч�����㣬����������Ҫ�����������⣺</p>
+<ol>
+<li>����Ϊÿ̨�����������������Ȱ���Ʒ���������ۼ�¼���飬��ͬ����������ͬ��Ʒ���������ۼ�¼��������������̨�����ַ�һ�������ۼ�¼����ͳ�ƣ������Ѹ�̨������ͳ�ƽ�������Ʒ�����ϲ���</li>
+<li>�������ַ�ʽ���漰���ݵ��������⣬Ӧѡ�����������㷨��Ӧ������̨������ִ���������̣�</li>
+<li>���ζ���ÿ̨�������������ݴ�����������������������ȥ���������������ͣ����ǽ��շ�����ʱ�ŷ��ͣ��������������ͣ����շ�������������ô�죿����������ʱ�ŷ��ͣ��Ƿ��ͷ�Ӧ�ñ������ݶ��ã�</li>
+<li>�᲻���������䲻�����еĻ����ܿ��ʹ������ˣ��еĻ���һֱæ�ţ����������ŵĻ�����Ҫ��æ�ŵĻ��������������ܿ�ʼִ�У�</li>
+<li>��������һ̨���������ܲ��ܼ������������ĸ��ɣ��Ӷ���������ִ��ʱ�䣿</li>
+<li>����һ̨�������ˣ���û�����ɵ������ý���˭���᲻����©ͳ�ƻ��ظ�ͳ�ƣ�</li>
+<li>ͳ�ƹ����У�����֮������Э�����Ƿ���Ҫר�ŵ�һ̨����ָ�ӵ�������������������̨���������أ�</li>
+<li>����ѡ���������ۼ�¼��ԴԴ���ϵ����ӣ�ͳ�ƻ�ûִ�����¼�¼�����ˣ����α�֤ͳ�ƽ�����׼ȷ�ԣ��ܲ��ܱ�֤������ʵʱ���µģ��ٴ�ͳ��ʱ�ܲ��ܱ��������ظ����㣿</li>
+<li>����ѡ���ܲ������û�ִ��һ��SQL�Ϳ��Եõ�������</li>
+</ol>
+<p>2004��ǰ����Google�Ⱥ󷢱���ƪ���ķֱ����ֲܷ�ʽ�ļ�ϵͳGFS�����м���ģ��MapReduce���ǹ�ϵ���ݴ洢ϵͳBigTable����һ�����������Դ����ݷֲ�ʽ�����Ŀ����÷�������Google���ĵ������£�Yahoo�Ĺ���ʦDougCutting��MikeCafarella������Hadoop���ڽ����͸Ľ�Hadoop�Ļ����ϣ����Ⱥ���������ʮ��Ӧ���ڷֲ�ʽ�����Ĵ����ݼ������ܡ������ڲο�ҵ�������Ļ����ϣ�����Щ���ܰ����б�׼���ࣺ</p>
+<ul>
+<li><p>�������漰���������ĵ�8��9�������⣬���������������ܡ������������ص��������ݴ��������������ֿɷ�Ϊ�ǵ���ʽ�͵���ʽ���࣬����ʽ����DAG�������޻�ͼ����ͼ������ģ�͡�</p>
+</li>
+<li><p>�����Ե�8������������Ӧ�Է������������������������ص����Ĵ�����ʵʱ�ԣ����������������ܣ����������ڱ����ظ����㣬�����������������ܡ�</p>
+</li>
+<li><p>�����ص���ע���ǵ�9�����⣬�����ڽ���ʽ�������ܡ�</p>
+</li>
+</ul>
+<p>���еĴ����ݼ������ܷ�Ϊ���֣�</p>
+<ul>
+<li>�����������ܣ�Apache Hadoop</li>
+<li>�����������ܣ�Apache Storm/Apache Samza</li>
+<li>���Ͽ��ܣ�Apache Spark/Apache Flink</li>
+</ul>
+<p>��Ȼ������ĳһ�ִ������͵���Ŀ�����õ���������������Ҫ�󣬵����Ͽ��������ṩһ�����ݴ�����ͨ�ý������������ֿ��ܲ��������ṩ�������������ķ����������ṩ���Լ��ļ�����⡢���ߣ���ʤ��ͼ�η���������ѧϰ������ʽ��ѯ�ȶ���������</p>
+<h4 id="����������"><a href="#����������" class="headerlink" title="����������"></a>����������</h4><p>�ڴ�����ʱ��������ͨ�����ǳ������϶�̬�����ġ��ںܶೡ�ϣ�������Ҫ�ڷǳ��̵�ʱ���ڵõ����������һ�Ҫ�����ݴ���ӵ�����Ƶ����⣬����������©���ظ����㡣��������������������һ�������Ľ�����������������ʽ���������������ݼ�ִ�в��������Ƕ�ͨ��ϵͳ������ÿ��������ִ�в���������������һ������DAG�������޻�ͼ��ģ�͡�ͼ�еĽڵ���Ϊ���ࣺһ�������ݵ������ڵ㣬���������罻������ϵͳ�ṩ���ݣ���һ�������ݵļ����ڵ㣬��������ĳ�ִ������������ˡ��ۼӡ��ϲ��ȡ����ⲿϵͳ���ϴ�����ʵʱ������������Щ�ڵ㣬�����Ǵ�������������������������ˮ�Ļ��������ڵ��ñ�����ͷ��ԴԴ���ϵس�ˮ�������ڵ����൱��ˮ�ܵ�ת�ӿڡ�</p>
+<p>���ദ���ǳ��ʺ�ĳЩ���͵Ĺ������ء��н�ʵʱ�����������������ʺ�ʹ��������ģʽ����������������Ӧ�ó���������־���Լ���������ʱ���ĺ���ָ�������ʺϵ����ͣ���Ϊ����Щ���������ݱ仯������Ӧ����ҵ��ְ����˵�Ǽ�Ϊ�ؼ��ġ����������ʺ��������������Ա䶯����ֵ������Ӧ�����ҹ�עһ��ʱ���ڱ仯���Ƶ����ݡ�</p>
+<h4 id="Storm"><a href="#Storm" class="headerlink" title="Storm"></a>Storm</h4><p>�������������У�Ŀǰ�������ߣ�Ӧ�����㷺��Ҫ��Storm����������Storm���м򵥵ı���ģ�ͣ���֧��Java��Ruby��Python�ȶ��ֿ������ԡ�StormҲ�������õ����ܣ��ڶ��ڵ㼯Ⱥ��ÿ�����Դ����ϰ�������Ϣ��Storm���ݴ�����Ҳ���Ƶú����š�</p>
+<h5 id="���ƺ;���"><a href="#���ƺ;���" class="headerlink" title="���ƺ;���"></a>���ƺ;���</h5><p>Ŀǰ��˵Storm�����ǽ�ʵʱ�������������ѽ����������ü��������ü����ӳٴ������ݣ�������ϣ�����������ӳٵĹ������ء����������ٶ�ֱ��Ӱ���û����飬������Ҫ����������ֱ���ṩ���ÿʹ򿪵���վҳ�棬��ʱStorm������һ���ܺõ�ѡ����</p>
+<p>Storm��Trident����ʹ���û�������΢�����洿��������������Ȼ�����û����Ի��ø��������Դ���������Ҫ���Ĺ��ߣ���ͬʱ���������������ü����������������������������ơ��������ˣ�����һ����������ʽ���Ǻõġ�</p>
+<p>Core Storm�޷���֤��Ϣ�Ĵ���˳����Core StormΪ��Ϣ�ṩ�ˡ�����һ�Ρ��Ĵ�����֤������ζ�ſ��Ա�֤ÿ����Ϣ���ܱ���������Ҳ���ܷ����ظ���Trident�ṩ���ϸ���һ�δ�����֤�������ڲ�ͬ��֮���ṩ˳�����������޷���һ�����ڲ�ʵ��˳��������</p>
+<p>�ڻ������Է��棬Storm����Hadoop��YARN��Դ���������м��ɣ����˿��Ժܷ�������������Hadoop���𡣳���֧�ִ󲿷ִ������ܣ�Storm����֧�ֶ������ԣ�Ϊ�û������˶����ṩ�˸���ѡ����</p>
+<h5 id="�ܽ�"><a href="#�ܽ�" class="headerlink" title="�ܽ�"></a>�ܽ�</h5><p>�����ӳ������ܸߵĴ������������������أ�Storm���������ʺϵļ������ü������Ա�֤ÿ����Ϣ���������������϶��ֱ�������ʹ�á�����Storm�޷�������������������Ҫ��Щ�������ܻ���Ҫʹ�������������������ϸ���һ�δ�����֤�бȽϸߵ�Ҫ�󣬴�ʱ�ɿ���ʹ��Trident������������������������������Ҳ�����ʺϡ�</p>
+<h4 id="Samza"><a href="#Samza" class="headerlink" title="Samza"></a>Samza</h4><p>Apache Samza��һ����Apache Kafka��Ϣϵͳ���ܰ󶨵����������ܡ���ȻKafka�����ںܶ�������ϵͳ�����������ƣ�Samza���Ը��õط���Kafka���صļܹ����ƺͱ��ϡ��ü�����ͨ��Kafka�ṩ�ݴ������壬�Լ�״̬�洢��</p>
+<p>Samza��ʹ��YARN��Ϊ��Դ������������ζ��Ĭ����������Ҫ�߱�Hadoop��Ⱥ�����پ߱�HDFS��YARN������ͬʱҲ��ζ��Samza����ֱ��ʹ��YARN�ḻ���ڽ����ܡ�</p>
+<h5 id="���ƺ;���-1"><a href="#���ƺ;���-1" class="headerlink" title="���ƺ;���"></a>���ƺ;���</h5><p>է��֮�£�Samza��Kafka����ѯϵͳ�������ƺ���һ�����ƣ�Ȼ����Ҳ����Ϊϵͳ�ṩһЩ���صı�֤�͹��ܣ���Щ����Ҳ������������ϵͳ���߱��ġ�</p>
+<p>����Kafka�Ѿ��ṩ�˿���ͨ�����ӳٷ�ʽ���ʵ����ݴ洢���������⻹����Ϊÿ�����ݷ����ṩ�ǳ������ҵͳɱ��Ķඩ����ģ�͡������������ݣ������м�̬�Ľ�������д�뵽Kafka�����ɱ����β�������ʹ�á�</p>
+<p>���ֶ�Kafka�Ľ��������ںܶ෽��������MapReduce������HDFS����������Ȼ����������ÿ������֮����HDFS������������һЩ���ص��������⣬��Ҳ�����������������ĺܶ��������⡣</p>
+<p>Samza��Kafka֮�����ܵĹ�ϵʹ�ô������豾�����Էǳ���ɢ��������һ������������Э�����������������κβ������������������Ķ����ߣ������ж����Ŷ���Ҫ�����������ݵ���֯����һ���Էǳ����á������Ŷӿ���ȫ�����Ľ���ϵͳ�����ݻ��⣬�����ⶩ�������ŶӶ����ݽ��й�ĳЩ�����󴴽��Ļ��⡣��һ�в����������ݿ��ȸ����ܼ��ͻ����ܹ����ɶ�����ѹ����</p>
+<p>ֱ��д��Kafka���ɱ�����ѹ��Backpressure�����⡣��ѹ��ָ�����ط�ֵ�������������ٶȳ�������ʵʱ���������������������������ܵ��´�������ͣ�ٲ����ܶ�ʧ���ݡ��������ƣ�Kafka���Խ����ݱ����ܳ�ʱ�䣬����ζ�����������ڷ�����ʱ���������д���������ֱ�������������赣�������κκ�����</p>
+<p>Samza����ʹ���Ա��ؼ�ֵ�洢��ʽʵ�ֵ��ݴ�������ϵͳ�洢���ݡ�����Samza���ɻ��á�����һ�Ρ��Ľ������ϣ��������������ݿ��ܶ��ν������ɵ�ʧ�ܣ��ü����޷��Ի��ܺ�״̬�������������ṩ��ȷ�ָ���</p>
+<p>Samza�ṩ�ĸ߼�����ʹ���ںܶ෽����Storm��ϵͳ�ṩ�Ļ�Ԫ��Primitive������������ʹ�á�ĿǰSamzaֻ֧��JVM���ԣ�����ζ����������֧�ַ��治��Storm���</p>
+<h5 id="�ܽ�-1"><a href="#�ܽ�-1" class="headerlink" title="�ܽ�"></a>�ܽ�</h5><p>�����Ѿ��߱�������ʵ��Hadoop��Kafka�Ļ�����Apache Samza����������������һ���ܺõ�ѡ����Samza�������ʺ��ж����Ŷ���Ҫʹ�ã����໥֮�䲢��һ������Э������ͬ�����׶εĶ�������������֯��Samza�ɴ����򻯺ܶ���������������ʵ�ֵ��ӳٵ����ܡ��������������뵱ǰϵͳ�����ݣ�Ҳ�������ʺ�ʹ�ã���������Ҫ�����ӳٵĴ����������ϸ���һ�δ��������нϸ����󣬴�ʱ��Ȼ�ʺϿ��ǡ�</p>
+<h4 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h4><p>Apache Spark��һ�ְ�����������������һ�����������ܡ���Hadoop��MapReduce�������ڸ�����ͬԭ�򿪷�������Spark��Ҫ������ͨ�����Ƶ��ڴ������ʹ����Ż����Ƽӿ��������������ص������ٶȡ�</p>
+<p>Spark����Ϊ������Ⱥ��������Ҫ��Ӧ�洢�������ϣ���������Hadoop���ɲ�ȡ��MapReduce���档</p>
+<h5 id="������gʽ"><a href="#������gʽ" class="headerlink" title="������ģʽ"></a>������ģʽ</h5><p>��MapReduce��ͬ��Spark�����ݴ�������ȫ�����ڴ��н��У�ֻ��һ��ʼ�����ݶ����ڴ棬�Լ������ս����־ô洢ʱ��Ҫ���洢�㽻���������м�̬�Ĵ����������洢���ڴ��С�</p>
+<p>��Ȼ�ڴ��д�����ʽ�ɴ����������ܣ�Spark�ڴ����������йص�����ʱ�ٶ�Ҳ�кܴ���������Ϊͨ����ǰ���������񼯽��з�������ʵ�ָ����Ƶ�����ʽ�Ż���Ϊ��Spark�ɴ�����������ִ�е�ȫ����������Ҫ���������ݣ��Լ�����������֮����ϵ��Directed Acyclic Graph�������޻�ͼ������DAG�����˴��������Զ��������и����ܵ�Э����</p>
+<p>Ϊ��ʵ���ڴ��������㣬Spark��ʹ��һ����ΪResilient Distributed Dataset�����Էֲ�ʽ���ݼ�������RDD��ģ�����������ݡ�����һ�ִ������ݼ���ֻλ���ڴ��У����㲻���Ľṹ������RDDִ�еĲ����������µ�RDD��ÿ��RDD��ͨ����ϵ��Lineage������������RDD�������ջ����������ϵ����ݡ�Spark��ͨ��RDD�����轫ÿ�������Ľ���д�ش��̵�ǰ����ʵ���ݴ���</p>
+<h5 id="������gʽ-1"><a href="#������gʽ-1" class="headerlink" title="������ģʽ"></a>������ģʽ</h5><p>��������������Spark Streamingʵ�ֵġ�Spark��������������Ҫ�����������������أ�Ϊ���ֲ��������ƺ������������������������Ĳ��죬Sparkʵ����һ�ֽ���΢����Micro-batch��*�ĸ���ھ������Է����ü������Խ�����������һϵ�зǳ�С�ġ����������˼���ͨ��������������ԭ���������д�����</p>
+<p>Spark Streaming�������뼶�����������л��壬������Щ��������ΪС��ģ�Ĺ̶����ݼ����������������ַ�ʽ��ʵ��Ч���ǳ��ã����������������������������ܷ�����Ȼ���ڲ��㡣</p>
+<h5 id="���ƺ;���-2"><a href="#���ƺ;���-2" class="headerlink" title="���ƺ;���"></a>���ƺ;���</h5><p>ʹ��Spark����Hadoop MapReduce����Ҫԭ�����ٶȡ����ڴ��������Ժ��Ƚ���DAG���ȵȻ��Ƶİ����£�Spark�����ø����ٶȴ�����ͬ�����ݼ���</p>
+<p>Spark����һ����Ҫ�������ڶ����ԡ��ò�Ʒ����Ϊ������Ⱥ���𣬻�������Hadoop��Ⱥ���ɡ��ò�Ʒ��������������������������һ����Ⱥ���ɴ�����ͬ���͵�������</p>
+<p>�������������������⣬Χ��Spark�������˰������ֿ�����̬ϵͳ����Ϊ����ѧϰ������ʽ��ѯ�������ṩ���õ�֧�֡�����MapReduce��Spark�������ǡ�������֪�������ڱ�д�����˿ɴ���������������</p>
+<p>Ϊ������ϵͳ�����������ķ�������Ҫ�Խ���ϵͳ�����ݽ��л��塣��������ʹ�øü������Դ����ǳ������Ĵ������ݣ��������������ʣ����ȴ�����������Ҳ�ᵼ���ӳ����ߡ�����ζ��Spark Streaming���ܲ��ʺϴ������ӳ��нϸ�Ҫ���Ĺ������ء�</p>
+<p>�����ڴ�ͨ���ȴ��̿ռ��������������Ȼ��ڴ��̵�ϵͳ��Spark�ɱ����ߡ�Ȼ�������ٶȵ�������ζ�ſ��Ը�������������������Ҫ����Сʱ��Ϊ��Դ���ѵĻ����У���һ����ͨ�����Ե������ӵĳɱ���</p>
+<p>Spark�ڴ�������һ���Ƶ���һ�������ǣ����������ڹ����ļ�Ⱥ�п��ܻ�������Դ���������⡣����Hadoop MapReduce��Spark����Դ���ĸ��󣬿��ܻ�����Ҫ��ͬһʱ��ʹ�ü�Ⱥ��������������Ӱ�졣�ӱ���������Spark�����ʺ���Hadoop��ջ��������������һ����</p>
+<h5 id="�ܽ�-2"><a href="#�ܽ�-2" class="headerlink" title="�ܽ�"></a>�ܽ�</h5><p>Spark�Ƕ������������ش�������������ѡ����Spark�����������Ը����ڴ�ռ��Ϊ�����ṩ�������ױȵ��ٶ����ơ��������������ʶ����ӳٵĹ������أ����Ƚ��ʺ�ʹ��Spark Streaming��Ϊ����������������</p>
+<h4 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h4><p>Apache Flink��һ�ֿ��Դ������������������������ܡ��ü����ɽ����������������߱����ޱ߽��������������˽�������������Ϊ���������Ӽ����Դ�����Ϊ���д���������ȡ������Ϊ�ȵķ���������һϵ����Ȥ�ĸ����á�</p>
+<p>����������Ϊ�ȵķ���Ҳ����Kappa�ܹ�����֮���Ե��Ǹ��ӱ���Ϊ��֪��Lambda�ܹ����üܹ���ʹ����������Ϊ��Ҫ����������ʹ������Ϊ���䲢�ṩ����δ�������Ľ�������Kappa�ܹ��л���һ�н��������������˶�ģ�ͽ��м򻯣�����һ���������������������𽥳������ſ��еġ�</p>
+<h5 id="���ƺ;���-3"><a href="#���ƺ;���-3" class="headerlink" title="���ƺ;���"></a>���ƺ;���</h5><p>FlinkĿǰ�Ǵ�����������һ�����صļ�������ȻSparkҲ����ִ��������������������Spark����������ȡ��΢���ܹ�ʹ���޷������ںܶ�������Flink������Ϊ�ȵķ������ṩ���ӳ٣��������ʣ������������������</p>
+<p>Flink�ĺܶ����������й����ġ���Ȼ����������Ϊ���������������ܷ�����ԭ�򣬸ü��������й����ڴ棬��������ԭ����Java�������ջ��ơ���Spark��ͬ�����������ݵ����������仯��Flink�����ֹ��Ż��͵��������Ҹü���Ҳ�������д������ݷ������Զ������Ȳ�����</p>
+<p>Flink��ͨ�����ַ�ʽ�Թ������з��������Ż����������ַ����ڲ��̶ֳ���������SQL��ѯ�滮���Թ�ϵ�����ݿ��������Ż����������ض�����ȷ������Ч��ʵ�ַ������ü�����֧�ֶ��׶β���ִ�У�ͬʱ�ɽ��������������ݼ�����һ�𡣶��ڵ���ʽ���񣬳������ܷ����Ŀ��ǣ�Flink�᳢���ڴ洢���ݵĽڵ���ִ����Ӧ�ļ������񡣴��⻹�ɽ��С��������������������������иĶ��Ĳ��ֽ��е�����</p>
+<p>���û����߷��棬Flink�ṩ�˻���Web�ĵ�����ͼ�����˿����ɹ������񲢲鿴ϵͳ״̬���û�Ҳ���Բ鿴���ύ�������Ż������������˽����������������ڼ�Ⱥ��ʵ�ֵġ����ڷ�����������Flink�ṩ������SQL�Ĳ�ѯ��ͼ�λ��������Լ�����ѧϰ�⣬���⻹֧���ڴ����㡣</p>
+<p>Flink�ܺܺõ���������������ʹ�á���������Hadoop ��ջʹ�ã��ü������Ժܺõ������������������κ�ʱ����ֻռ�ñ�Ҫ����Դ���ü��������ɵ���YARN��HDFS��Kafka ���ɡ��ڼ��ݰ��İ����£�Flink����������Ϊ�����������ܣ�����Hadoop��Storm��д��������</p>
+<p>ĿǰFlink�����ľ���֮һ��������Ȼ��һ���ǳ������ס�����Ŀ����ʵ�����и���Ŀ�Ĵ���ģ�����в�����������������ô����������Flink���������������ľ���ĿǰҲû�н�Ϊ�������о������ſ��ٿ������ڵ��ƽ��ͼ��ݰ��ȹ��ܵ����ƣ���Խ��Խ������֯��ʼ����ʱ�����ܻ�����Խ��Խ����Flink������</p>
+<h5 id="�ܽ�-3"><a href="#�ܽ�-3" class="headerlink" title="�ܽ�"></a>�ܽ�</h5><p>Flink�ṩ�˵��ӳ���������ͬʱ��֧�ִ�ͳ��������������FlinkҲ�����ʺ��м������������󣬲���������������������֯���ü����ɼ���ԭ��Storm��Hadoop���򣬿���YARN�����ļ�Ⱥ�����У����˿��Ժܷ����ؽ������������ٽ�չ�Ŀ�������ʹ��ֵ�ñ����ҹ�ע��</p>
+<h4 id="����-1"><a href="#����-1" class="headerlink" title="����"></a>����</h4><p>���ڽ���Ҫ�������Ĺ������أ�������ʱ�䲻���У���������������ʵ�ֳɱ����͵�Hadoop������һ����ѡ����</p>
+<p>���ڽ���Ҫ�������Ĺ������أ�Storm��֧�ָ��㷺�����Բ�ʵ�ּ����ӳٵĴ�������Ĭ�����ÿ��ܲ����ظ����������޷���֤˳����Samza��YARN��Kafka���ܼ��ɿ��ṩ���������ԣ������õĶ��Ŷ�ʹ�ã��Լ����򵥵ĸ��ƺ�״̬������</p>
+<p>���ڻ����͹������أ�Spark���ṩ������������΢������ģʽ�����������ü�����֧�ָ����ƣ��߱����ּ��ɿ��͹��ߣ���ʵ�������ļ��ɡ�Flink�ṩ�����������������߱�������������ͨ�������Ż���������������ƽ̨��д���������ṩ���ӳٵĴ�������ʵ��Ӧ�÷��滹Ϊʱ���硣</p>
+<p>���ʺϵĽ���������Ҫȡ���ڴ��������ݵ�״̬���Դ�������ʱ�����������Լ�ϣ���õ��Ľ�����������ʹ��ȫ���ܽ�����������Ҫ������ĳ����Ŀ�Ľ�������������������Ҫ����Ȩ�⡣�����𽥳��첢���㷺���ܣ��������κ��³��ֵĴ����ͽ�������ʱ����Ҫ�������Ƶ����⡣</p>
+<p>�������ҵ�������Ҫ��������������CEP���������¼�������ʽ�������棬������Ҫ���㿪ʼΪ��Ŀ����һ��Ŀ����ȷ�ļ�Ⱥ��ʩ����ô�Ҹ��˸�������ѡ��Storm�����ر���������Storm�������ܹ�ȷ���������Ҽ��������������¡���һ���۲�������Ӳ��Ҫ������ǿ�ƹ��򣬵��������صĴ���ȷʵ���ʺ���Storm����������</p>
+<p>����һ���棬�������Ҵ���ʹ������Hadoop����Mesos��Ⱥ������/���߼ȶ�������Ҫ�漰��ͼ�δ�����SQL���ʻ��������������ص�����ʵ����Ҫ������ôSpark��ֵ�ü������ȿ��ǡ�</p>
+<p>��һ����Ҫ����������������ϵͳ���ڶ����Ե�֧��������������˵������������Ҫʹ����R���Ի�������Spark�޷�ԭ��֧�ֵ���������д�Ĵ��룬��ôStorm����������֧�ֿ����Է���ռ�����ơ�ͬ����֪���������ұ������ý���ʽshellͨ��API����ʵ������̽������ôSparkҲ�ܴ���Storm�����߱�������������</p>
+<h4 id="ѡ�ͽ���"><a href="#ѡ�ͽ���" class="headerlink" title="ѡ�ͽ���"></a>ѡ�ͽ���</h4><ul>
+<li>��������Ҫ���뼶�ӳٲ���û�����ݶ�ʧ��Storm��һ��������ѡ���� ��������Ҫ��״̬���㣬��֤ÿ���¼���ȷ����һ�Σ�Spark Streaming���á�Stormһ���ǽ����������ݷ��������á�</li>
+<li>Spark Streaming���������ƣ���������Clojureʵ�ֵ�(����ͨ����)�������Ժܺõ���Spark�������������ܼ��ɡ�</li>
+<li>Storm��ʵ�ʲ�ƷӦ�þ���Ҫ��Spark Streaming�õöࡣ����Spark Streaming���������ƣ���Ϊ��Դ��Ʒ��һ����������˾����֧�ֺ͹��׼���������ԭ������YARN��Storm����Mesos</li>
+<li>���Ǽ�������������Ա����ļ���������ã�δ��ҵ����չ�ȸ������ء�����spark ��һ�㡣���Ƕ�ʵʱ��Ҫ����ô�ߣ�stormһ�㶼���Ƽ���</li>
+<li>Spark Streaming�������������������ӳ�Ŀǰ��Զ����Storm��һ��ֻ�ܴﵽһ���뼶׼ʵʱ���ĵ�������0.5-2s��������Ҳ����Ӧ�Ե�ǰ�󲿷�ʵʱӦ�ó����ˣ�</li>
+</ul>
+<h4 id="�ο�"><a href="#�ο�" class="headerlink" title="�ο�"></a>�ο�</h4><p><a href="http://www.cbdio.com/BigData/2017-05/02/content_5508288.htm" target="_blank" rel="external">һ�Ķ��������ݼ���������ƽ̨</a></p>
+<p><a href="https://www.cnblogs.com/oc-bowen/p/6109009.html" target="_blank" rel="external">���ֱ�֪�Ĵ����ݴ�������</a></p>
+<p><a href="http://storm.apache.org/" target="_blank" rel="external">Apache Storm</a></p>
+<p><a href="https://www.jianshu.com/p/11f7dec5aa07" target="_blank" rel="external">Storm��Spark Streaming�ĶԱ�</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/23/并发编程读书笔记（四）/" class="archive-article-date">
-  	<time datetime="2017-10-23T13:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/23/并发编程读书笔记（四）/">并发编程读书笔记（四）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">big data</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/12/26/大数据分布式计算框架调研/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/15/并发编程读书笔记（三）/" class="archive-article-date">
-  	<time datetime="2017-10-15T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/25/大数据查询框架调研/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据查询框架调研</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/15/并发编程读书笔记（三）/">并发编程读书笔记（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#����"><span class="toc-number">1.</span> <span class="toc-text">����</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#����������"><span class="toc-number">2.</span> <span class="toc-text">����������</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Storm"><span class="toc-number">3.</span> <span class="toc-text">Storm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#���ƺ;���"><span class="toc-number">3.1.</span> <span class="toc-text">���ƺ;���</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#�ܽ�"><span class="toc-number">3.2.</span> <span class="toc-text">�ܽ�</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Samza"><span class="toc-number">4.</span> <span class="toc-text">Samza</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#���ƺ;���-1"><span class="toc-number">4.1.</span> <span class="toc-text">���ƺ;���</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#�ܽ�-1"><span class="toc-number">4.2.</span> <span class="toc-text">�ܽ�</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spark"><span class="toc-number">5.</span> <span class="toc-text">Spark</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#������gʽ"><span class="toc-number">5.1.</span> <span class="toc-text">������ģʽ</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#������gʽ-1"><span class="toc-number">5.2.</span> <span class="toc-text">������ģʽ</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#���ƺ;���-2"><span class="toc-number">5.3.</span> <span class="toc-text">���ƺ;���</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#�ܽ�-2"><span class="toc-number">5.4.</span> <span class="toc-text">�ܽ�</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Flink"><span class="toc-number">6.</span> <span class="toc-text">Flink</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#���ƺ;���-3"><span class="toc-number">6.1.</span> <span class="toc-text">���ƺ;���</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#�ܽ�-3"><span class="toc-number">6.2.</span> <span class="toc-text">�ܽ�</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#����-1"><span class="toc-number">7.</span> <span class="toc-text">����</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ѡ�ͽ���"><span class="toc-number">8.</span> <span class="toc-text">ѡ�ͽ���</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#�ο�"><span class="toc-number">9.</span> <span class="toc-text">�ο�</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/14/并发编程读书笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-10-14T04:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/14/并发编程读书笔记（二）/">并发编程读书笔记（二）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/10/并发编程读书笔记（一）/" class="archive-article-date">
-  	<time datetime="2017-10-10T15:02:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/10/并发编程读书笔记（一）/">并发编程读书笔记（一）</a>
-    </h1>
+  <div id="SOHUCS" sid="大数据分布式计算框架调研" ></div> 
+<script type="text/javascript"> 
+window.YiliaChangyanWrap = function() {
+    var appid = "cyteMrlxV"; 
+    var conf = "c025c77b26852e1cf2ef8d5ad5493e87"; 
+    var width = window.innerWidth || document.documentElement.clientWidth; 
+    if (width < 960) { 
+    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+}
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">concurrency</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -355,9 +450,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
