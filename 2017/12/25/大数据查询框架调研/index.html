@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://cuteqin.github.io/2017/12/25/大数据查询框架调研/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
 <meta property="og:description" content="大数据相关的开源项目日新月异，很容易让人眼花缭乱。这篇文章整理一下网上的各种资料，对大数据的查询框架做一些介绍。大数据开发人员如果只会用工具的话，也很有可能随着工具的淘汰而被淘汰哦。">
-<meta property="og:updated_time" content="2017-12-25T08:54:31.634Z">
+<meta property="og:updated_time" content="2017-12-28T01:35:48.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据查询框架调研">
 <meta name="twitter:description" content="大数据相关的开源项目日新月异，很容易让人眼花缭乱。这篇文章整理一下网上的各种资料，对大数据的查询框架做一些介绍。大数据开发人员如果只会用工具的话，也很有可能随着工具的淘汰而被淘汰哦。">
@@ -231,7 +231,7 @@
 <p>2) 充分利用缓存的系统在内存充足的情况下性能优势明显。例如，Spark SQL，Impala在小数据量时性能优势明显；内存不足时性能下降严重，Spark SQL会出现很多问题；</p>
 <p>3) 数据倾斜会严重影响一些系统的性能。例如，Hive、Stinger、Spark SQL对数据倾斜比较敏感，容易造成倾斜；Impala受这方面的影响似乎不大；<br>对于Hive、Impala、Spark SQL、Stinger和Presto这五类开源的分析引擎，在大多数情况下，Imapla的综合性能是最稳定的，时间性能也是最好的，而且其安装配置过程也相对容易。其他分别为Presto、Spark SQL、Stinger和Hive。在内存足够和非Join操作情况下，Spark SQL的性能是最好的。</p>
 <h4 id="总结与展望"><a href="#总结与展望" class="headerlink" title="总结与展望"></a>总结与展望</h4><p>对大数据分析的项目来说，技术往往不是最关键的，关键在于谁的生态系统更强，技术上一时的领先并不足以保证项目的最终成功。虽然Google最先推出的论文定基了大数据的发展，但是Cloudera,Facebook,Hortonwork等公司在其论文的基础上开发出的开源产品使得大数据技术更加普及。这也使我们的选择更加丰富起来。Hadoop已经是一个兼容并包的大平台了，各种技术可以组合一起使用来满足用户的不同需求。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.venustech.com.cn/NewsInfo/531/25567.Html" target="_blank" rel="external">http://www.venustech.com.cn/NewsInfo/531/25567.Html</a><br><a href="http://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/36632.pdf" target="_blank" rel="external">Google Dremel paper</a><br><a href="https://hive.apache.org/" target="_blank" rel="external">Apache Hive</a><br><a href="https://drill.apache.org/docs/drill-introduction/" target="_blank" rel="external">Apache Drill</a><br><a href="http://data.qq.com/article?id=2331" target="_blank" rel="external">腾讯大数据博客</a><br><a href="https://cwiki.apache.org/confluence/display/Hive/Hive+on+Spark%3A+Getting+Started" target="_blank" rel="external">Hive on Spark</a><br><a href="https://allegro.tech/2015/06/fast-data-hackathon.html" target="_blank" rel="external">性能对比benchmark</a><br><a href="https://tech.meituan.com/presto.html" target="_blank" rel="external">美团Presto使用实践</a><br><a href="http://dataunion.org/25451.html" target="_blank" rel="external">Presto使用场景</a><br><a href="https://www.quora.com/What-is-the-difference-between-Spark-and-Presto" target="_blank" rel="external">Spark和Presto对比Quaro</a><br><a href="https://www.zhihu.com/question/41541395" target="_blank" rel="external">Presto和Spark对比知乎</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.venustech.com.cn/NewsInfo/531/25567.Html" target="_blank" rel="external">http://www.venustech.com.cn/NewsInfo/531/25567.Html</a><br><a href="http://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/36632.pdf" target="_blank" rel="external">Google Dremel paper</a><br><a href="https://hive.apache.org/" target="_blank" rel="external">Apache Hive</a><br><a href="https://drill.apache.org/docs/drill-introduction/" target="_blank" rel="external">Apache Drill</a><br><a href="http://data.qq.com/article?id=2331" target="_blank" rel="external">腾讯大数据博客</a><br><a href="https://cwiki.apache.org/confluence/display/Hive/Hive+on+Spark%3A+Getting+Started" target="_blank" rel="external">Hive on Spark</a><br><a href="https://allegro.tech/2015/06/fast-data-hackathon.html" target="_blank" rel="external">性能对比benchmark</a><br><a href="https://tech.meituan.com/presto.html" target="_blank" rel="external">美团Presto使用实践</a><br><a href="http://dataunion.org/25451.html" target="_blank" rel="external">Presto使用场景</a><br><a href="https://www.quora.com/What-is-the-difference-between-Spark-and-Presto" target="_blank" rel="external">Spark和Presto对比Quaro</a><br><a href="https://www.zhihu.com/question/41541395" target="_blank" rel="external">Presto和Spark对比知乎</a><br><a href="https://www.ctolib.com/cheatsheets-big-data-open-source-projects.html" target="_blank" rel="external">大数据相关开源项目汇总</a></p>
 
       
 
@@ -501,6 +501,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
@@ -522,10 +526,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hobby</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring boot</a>
               </li>
              
               <li class="article-tag-list-item">
