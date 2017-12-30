@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>git使用整理 | qin&#39;s blog</title>
+  <title>Tag: 2017 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~">
-<meta name="keywords" content="git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git使用整理">
-<meta property="og:url" content="http://cuteqin.github.io/2017/11/16/git使用整理/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="qin&#39;s blog">
+<meta property="og:url" content="http://cuteqin.github.io/tags/2017/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~">
-<meta property="og:updated_time" content="2017-12-15T02:33:51.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用整理">
-<meta name="twitter:description" content="今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~">
+<meta name="twitter:title" content="qin&#39;s blog">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -154,260 +149,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git使用整理" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      git使用整理
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/30/2017年终总结/" class="archive-article-date">
+  	<time datetime="2017-12-30T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-30</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/30/2017年终总结/">2017年终总结</a>
     </h1>
   
 
-        
-        <a href="/2017/11/16/git使用整理/" class="archive-article-date">
-  	<time datetime="2017-11-16T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~</p>
-<a id="more"></a>
-<h4 id="the-stupid-content-tracker"><a href="#the-stupid-content-tracker" class="headerlink" title="the stupid content tracker"></a>the stupid content tracker</h4><p>git是一个分布式的版本控制系统，是由伟大的程序员Linus开发而成。git的本意是饭桶，无用的人，烂人。</p>
-<blockquote>
-<p>I’m an egotistical bastard, so I name all my projects after myself. First Linux, now git.</p>
-</blockquote>
-<p>与传统的集中式版本控制系统相比，两者的区别是：集中式版本控制系统提取的是最新版本的文件快照；而分布式版本控制系统是把代码仓库完整地镜像下来。分布式的好处是任一机器发生故障，都能从其他任何一个镜像出来的本地仓库恢复。</p>
-<h4 id="git的优点"><a href="#git的优点" class="headerlink" title="git的优点"></a>git的优点</h4><ul>
-<li><p>速度</p>
-</li>
-<li><p>简单的设计</p>
-</li>
-<li><p>对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</p>
-</li>
-<li><p>完全分布式</p>
-</li>
-<li><p>有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</p>
-</li>
-</ul>
-<h4 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h4><p>在安装好git后，我们就能愉快地使用这个强大的工具啦~</p>
-<h5 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git help &lt;verb&gt;</div></pre></td></tr></table></figure>
-<h5 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-<h5 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone [url]</div></pre></td></tr></table></figure>
-<h5 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h5><p>支持glob模式正则匹配<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat .gitignore</div></pre></td></tr></table></figure></p>
-<p>要养成一开始设置好gitignore的习惯，避免提交无用的文件</p>
-<h5 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status -s</div></pre></td></tr></table></figure>
-<h5 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h5><p>将修改的文件从工作目录添加到本地暂存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add file</div></pre></td></tr></table></figure></p>
-<h5 id="比较当前工作目录的文件和暂存区的差异"><a href="#比较当前工作目录的文件和暂存区的差异" class="headerlink" title="比较当前工作目录的文件和暂存区的差异"></a>比较当前工作目录的文件和暂存区的差异</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//更新尚未暂存的内容</div><div class="line">git diff</div><div class="line">//暂存暂未提交的内容</div><div class="line">git diff --cached | --staged</div><div class="line">//查看当前系统支持哪些Git Diff 的插件版本</div><div class="line">git difftool --tool-help</div></pre></td></tr></table></figure>
-<h5 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &apos;added new benchmarks&apos;</div></pre></td></tr></table></figure>
-<h5 id="跳过使用暂存区域提交"><a href="#跳过使用暂存区域提交" class="headerlink" title="跳过使用暂存区域提交"></a>跳过使用暂存区域提交</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a -m &apos;added new benchmarks&apos;</div></pre></td></tr></table></figure>
-<h5 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//移除尚未暂存的本地文件</div><div class="line">git rm README</div><div class="line">//移除已经暂存的文件,并连带本地文件一起删除</div><div class="line">git rm -f README</div><div class="line">//移除暂存区的文件，但是保留在工作目录中</div><div class="line">git rm --cached log/\*.log</div></pre></td></tr></table></figure>
-<h5 id="移动文件-重命名"><a href="#移动文件-重命名" class="headerlink" title="移动文件(重命名)"></a>移动文件(重命名)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git mv README.md README</div></pre></td></tr></table></figure>
-<h5 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log</div></pre></td></tr></table></figure>
-<h5 id="重新提交"><a href="#重新提交" class="headerlink" title="重新提交"></a>重新提交</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//第二次提交将代替第一次提交</div><div class="line">git commit -m &apos;initial commit&apos;</div><div class="line">git add forgotten_file</div><div class="line">git commit --amend</div></pre></td></tr></table></figure>
-<h5 id="取消暂存"><a href="#取消暂存" class="headerlink" title="取消暂存"></a>取消暂存</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD README.md</div></pre></td></tr></table></figure>
-<h5 id="撤销对文件的修改"><a href="#撤销对文件的修改" class="headerlink" title="撤销对文件的修改"></a>撤销对文件的修改</h5><p>会将文件还原成最初的样子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- [file]</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>PS:git中任何已提交的东西几乎都是可以恢复的，而未提交的东西丢失后很可能再也找不到了。</p>
-</blockquote>
-<h5 id="查看所有远程仓库"><a href="#查看所有远程仓库" class="headerlink" title="查看所有远程仓库"></a>查看所有远程仓库</h5><p>如果是git clone克隆下来的仓库默认名称为origin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
-<h5 id="查看某一个远程仓库"><a href="#查看某一个远程仓库" class="headerlink" title="查看某一个远程仓库"></a>查看某一个远程仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote show [remote-name]</div></pre></td></tr></table></figure>
-<h5 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add &lt;shortname&gt; &lt;url&gt;</div></pre></td></tr></table></figure>
-<h5 id="从远程仓库拉取数据"><a href="#从远程仓库拉取数据" class="headerlink" title="从远程仓库拉取数据"></a>从远程仓库拉取数据</h5><p>git fetch数据拉到本地仓库，但不会自动合并或修改当前的工作，当准备好时必须手动将其合并入你的工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch [remote-name]</div></pre></td></tr></table></figure></p>
-<p>如果你有一个分支设置为跟踪一个远程分支（默认git clone会将本地master分支跟踪远程仓库的master分支），git pull会拉取远程仓库的数据并自动尝试合并到当前所在的分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull</div></pre></td></tr></table></figure></p>
-<h5 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h5><p>pull request (PR)</p>
-<p>只有当有远程服务器的写入权限，并且之前没有人推送过时，这条命令才会生效。如果你和其他人同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会被拒绝。必须先将他人的工作拉取下来并将其合并进的的工作之后才能推送。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push [romete-name] [branch-name]</div></pre></td></tr></table></figure></p>
-<hr>
-<h5 id="远程仓库的移除与重命名"><a href="#远程仓库的移除与重命名" class="headerlink" title="远程仓库的移除与重命名"></a>远程仓库的移除与重命名</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote rename pb paul</div><div class="line">git remote rm paul</div></pre></td></tr></table></figure>
-<h5 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git tag //列出标签</div><div class="line">git tag -l &apos;tagname&apos; //列出指定标签</div><div class="line">git tag -a v1.4 -m &apos;my version 1.4&apos; //创建标签1.4</div><div class="line">git show v1.4 //查看标签的提交信息</div><div class="line">git log --pretty=oneline</div><div class="line">git tag -a v1.2 9fceb01 //后期打标签，找到log里的每次提交的校验和</div><div class="line">git push origin v1.4 //将标签推送到共享服务器上</div><div class="line">git push origin tags //将所有不在远程服务器上的标签都推送上去</div><div class="line">git checkout -b version1.4 v1.4 //对特定的标签创建一个新分支</div></pre></td></tr></table></figure>
-<h4 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h4><p><strong>Git的杀手级特性：分支模型</strong>。分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。理解和精通这一特性，你便会意识到git是如此的强大而又独特，从此真正地改变你的开发方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git branch test     //创建分支test</div><div class="line">git checkout test   //分支切换</div><div class="line"></div><div class="line">git checkout master</div><div class="line">git merge test //合并master和test分支</div><div class="line">git branch -d test //删除分支</div><div class="line">git branch //列出当前所有分支</div><div class="line">git branch -v //列出每一个分支的最后一次提交</div><div class="line">git branch --merged/--no-merged //查看哪些分支已合并到/未合并到当前分支</div></pre></td></tr></table></figure></p>
-<p><strong>分支开发工作流:</strong></p>
-<ul>
-<li>长期分支：对于复杂庞大的项目，一般在master分支上保留完全安全稳定的代码（有可能是已经发布或者即将发布的代码）。还有一些名为develop或者next的平行分支，被用来做后续持续开发或者测试你稳定性，这些分支不必保持绝对稳定，但是一旦达到稳定状态就可以被合并入master分支了。</li>
-<li>特性分支：对于任何项目规模都适用。特性分支是一种短期分支，它被用来实现单一特性或者相关工作。</li>
-</ul>
-<p><strong>利用远程跟踪分支</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git remote show origin //获取远程分支的更多信息</div><div class="line">git push origin serverfix:awesomebranch  //将本地的serverfix推送到远程仓库中awesomebranch仓库中</div><div class="line">git fetch origin //抓取新的远程跟踪分支时，只有一个不可修改的origin/awesomebranch的</div><div class="line">git merge origin/awesomebranch //将awesomebranch分支中的工作合并到当前所在的分支</div><div class="line">git checkout -b serverfix origin/awesomebranch //检出远程分支生成一个用于工作的本地分支</div><div class="line">git checkout --track origin/awesomebranch //上面的快捷方式</div><div class="line">git branch -u/--set-upstream-to origin/awesomebranch //修改正在跟踪的上游分支</div><div class="line">git branch -vv //查看设置的所有跟踪分支 </div><div class="line">git fetch --all;git branch -vv  //查看最新的领先与落后数字</div><div class="line">git pull //相当于git fetch;git merge 最好显示地使用fetch和merge命令好一些</div><div class="line">git push origin --delete awesomebranch //删除远程分支</div></pre></td></tr></table></figure></p>
-<p><strong>变基（rebase):</strong><br>可以使用rebase命令将提交到某一分支的所有修改都迁移到另一分支上。使用变基使得提交历史更加简洁。但是，不要对你的仓库外有副本的分支执行变基。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout experiment </div><div class="line">git rebase master //将experiment分支的修改应用到master分支上</div><div class="line">git checkout master </div><div class="line">git merge experiment //此时是fast-forward合并</div></pre></td></tr></table></figure></p>
-<h4 id="储藏与清理"><a href="#储藏与清理" class="headerlink" title="储藏与清理"></a>储藏与清理</h4><p>当在某个分支上做了修改又不想提交的时候，可以将更改的储藏推送到栈上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git stash //提交储藏</div><div class="line">git statsh list //查看已经储藏的列表</div><div class="line">git stash apply xxx //将储藏应用</div><div class="line">git stash apply --index // ???</div><div class="line">git stash drop xxx //移除储藏</div><div class="line">git stash pop //应用储藏并立即从栈上扔掉它</div><div class="line">git stash --keep-index //不要储藏git add的东西</div><div class="line">git stash -u //储藏跟踪和未跟踪的文件</div><div class="line">git stash --patch //交互式地提示哪些改动想要储藏，哪些改动需要保存在工作目录中</div></pre></td></tr></table></figure></p>
-<h4 id="凭证存储"><a href="#凭证存储" class="headerlink" title="凭证存储"></a>凭证存储</h4><p>如何避免每次推送的时候输入用户名和密码？</p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://git-scm.com/docs" target="_blank" rel="external">https://git-scm.com/docs</a></p>
-<p><a href="https://git-scm.com/book/zh" target="_blank" rel="external">https://git-scm.com/book/zh</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">2017</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">年终总结</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/11/16/git使用整理/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/12/02/sqoop用户指南/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          sqoop用户指南
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/11/16/重拾英语/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">重拾英语</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#the-stupid-content-tracker"><span class="toc-number">1.</span> <span class="toc-text">the stupid content tracker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git的优点"><span class="toc-number">2.</span> <span class="toc-text">git的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git基本操作"><span class="toc-number">3.</span> <span class="toc-text">git基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#帮助"><span class="toc-number">3.1.</span> <span class="toc-text">帮助</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#初始化仓库"><span class="toc-number">3.2.</span> <span class="toc-text">初始化仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#克隆"><span class="toc-number">3.3.</span> <span class="toc-text">克隆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#忽略文件"><span class="toc-number">3.4.</span> <span class="toc-text">忽略文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#检查当前文件状态"><span class="toc-number">3.5.</span> <span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#跟踪新文件"><span class="toc-number">3.6.</span> <span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#比较当前工作目录的文件和暂存区的差异"><span class="toc-number">3.7.</span> <span class="toc-text">比较当前工作目录的文件和暂存区的差异</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提交更新"><span class="toc-number">3.8.</span> <span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#跳过使用暂存区域提交"><span class="toc-number">3.9.</span> <span class="toc-text">跳过使用暂存区域提交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移除文件"><span class="toc-number">3.10.</span> <span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移动文件-重命名"><span class="toc-number">3.11.</span> <span class="toc-text">移动文件(重命名)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看提交历史"><span class="toc-number">3.12.</span> <span class="toc-text">查看提交历史</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重新提交"><span class="toc-number">3.13.</span> <span class="toc-text">重新提交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#取消暂存"><span class="toc-number">3.14.</span> <span class="toc-text">取消暂存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#撤销对文件的修改"><span class="toc-number">3.15.</span> <span class="toc-text">撤销对文件的修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看所有远程仓库"><span class="toc-number">3.16.</span> <span class="toc-text">查看所有远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看某一个远程仓库"><span class="toc-number">3.17.</span> <span class="toc-text">查看某一个远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#添加远程仓库"><span class="toc-number">3.18.</span> <span class="toc-text">添加远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#从远程仓库拉取数据"><span class="toc-number">3.19.</span> <span class="toc-text">从远程仓库拉取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#推送到远程仓库"><span class="toc-number">3.20.</span> <span class="toc-text">推送到远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#远程仓库的移除与重命名"><span class="toc-number">3.21.</span> <span class="toc-text">远程仓库的移除与重命名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打标签"><span class="toc-number">3.22.</span> <span class="toc-text">打标签</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git分支"><span class="toc-number">4.</span> <span class="toc-text">git分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#储藏与清理"><span class="toc-number">5.</span> <span class="toc-text">储藏与清理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#凭证存储"><span class="toc-number">6.</span> <span class="toc-text">凭证存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="git使用整理" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cyteMrlxV"; 
-    var conf = "c025c77b26852e1cf2ef8d5ad5493e87"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -430,9 +229,9 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

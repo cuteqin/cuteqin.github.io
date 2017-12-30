@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>git使用整理 | qin&#39;s blog</title>
+  <title>2017年终总结 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~">
-<meta name="keywords" content="git">
+  <meta name="description" content="2017年马上就要结束啦，以后每年都要写一篇年终总结啦啦啦~">
+<meta name="keywords" content="2017,年终总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git使用整理">
-<meta property="og:url" content="http://cuteqin.github.io/2017/11/16/git使用整理/index.html">
+<meta property="og:title" content="2017年终总结">
+<meta property="og:url" content="http://cuteqin.github.io/2017/12/30/2017年终总结/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:description" content="今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~">
-<meta property="og:updated_time" content="2017-12-15T02:33:51.427Z">
+<meta property="og:description" content="2017年马上就要结束啦，以后每年都要写一篇年终总结啦啦啦~">
+<meta property="og:updated_time" content="2017-12-30T07:57:23.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用整理">
-<meta name="twitter:description" content="今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~">
+<meta name="twitter:title" content="2017年终总结">
+<meta name="twitter:description" content="2017年马上就要结束啦，以后每年都要写一篇年终总结啦啦啦~">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -154,87 +154,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git使用整理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-2017年终总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      git使用整理
+      2017年终总结
     </h1>
   
 
         
-        <a href="/2017/11/16/git使用整理/" class="archive-article-date">
-  	<time datetime="2017-11-16T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-16</time>
+        <a href="/2017/12/30/2017年终总结/" class="archive-article-date">
+  	<time datetime="2017-12-30T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天突然想到我对git的理解还不是特别清楚，特意整理一下git相关的知识和使用技能~</p>
+        <p>2017年马上就要结束啦，以后每年都要写一篇年终总结啦啦啦~</p>
 <a id="more"></a>
-<h4 id="the-stupid-content-tracker"><a href="#the-stupid-content-tracker" class="headerlink" title="the stupid content tracker"></a>the stupid content tracker</h4><p>git是一个分布式的版本控制系统，是由伟大的程序员Linus开发而成。git的本意是饭桶，无用的人，烂人。</p>
-<blockquote>
-<p>I’m an egotistical bastard, so I name all my projects after myself. First Linux, now git.</p>
-</blockquote>
-<p>与传统的集中式版本控制系统相比，两者的区别是：集中式版本控制系统提取的是最新版本的文件快照；而分布式版本控制系统是把代码仓库完整地镜像下来。分布式的好处是任一机器发生故障，都能从其他任何一个镜像出来的本地仓库恢复。</p>
-<h4 id="git的优点"><a href="#git的优点" class="headerlink" title="git的优点"></a>git的优点</h4><ul>
-<li><p>速度</p>
-</li>
-<li><p>简单的设计</p>
-</li>
-<li><p>对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</p>
-</li>
-<li><p>完全分布式</p>
-</li>
-<li><p>有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</p>
-</li>
-</ul>
-<h4 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h4><p>在安装好git后，我们就能愉快地使用这个强大的工具啦~</p>
-<h5 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git help &lt;verb&gt;</div></pre></td></tr></table></figure>
-<h5 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-<h5 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone [url]</div></pre></td></tr></table></figure>
-<h5 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h5><p>支持glob模式正则匹配<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat .gitignore</div></pre></td></tr></table></figure></p>
-<p>要养成一开始设置好gitignore的习惯，避免提交无用的文件</p>
-<h5 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status -s</div></pre></td></tr></table></figure>
-<h5 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h5><p>将修改的文件从工作目录添加到本地暂存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add file</div></pre></td></tr></table></figure></p>
-<h5 id="比较当前工作目录的文件和暂存区的差异"><a href="#比较当前工作目录的文件和暂存区的差异" class="headerlink" title="比较当前工作目录的文件和暂存区的差异"></a>比较当前工作目录的文件和暂存区的差异</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//更新尚未暂存的内容</div><div class="line">git diff</div><div class="line">//暂存暂未提交的内容</div><div class="line">git diff --cached | --staged</div><div class="line">//查看当前系统支持哪些Git Diff 的插件版本</div><div class="line">git difftool --tool-help</div></pre></td></tr></table></figure>
-<h5 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &apos;added new benchmarks&apos;</div></pre></td></tr></table></figure>
-<h5 id="跳过使用暂存区域提交"><a href="#跳过使用暂存区域提交" class="headerlink" title="跳过使用暂存区域提交"></a>跳过使用暂存区域提交</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a -m &apos;added new benchmarks&apos;</div></pre></td></tr></table></figure>
-<h5 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//移除尚未暂存的本地文件</div><div class="line">git rm README</div><div class="line">//移除已经暂存的文件,并连带本地文件一起删除</div><div class="line">git rm -f README</div><div class="line">//移除暂存区的文件，但是保留在工作目录中</div><div class="line">git rm --cached log/\*.log</div></pre></td></tr></table></figure>
-<h5 id="移动文件-重命名"><a href="#移动文件-重命名" class="headerlink" title="移动文件(重命名)"></a>移动文件(重命名)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git mv README.md README</div></pre></td></tr></table></figure>
-<h5 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log</div></pre></td></tr></table></figure>
-<h5 id="重新提交"><a href="#重新提交" class="headerlink" title="重新提交"></a>重新提交</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//第二次提交将代替第一次提交</div><div class="line">git commit -m &apos;initial commit&apos;</div><div class="line">git add forgotten_file</div><div class="line">git commit --amend</div></pre></td></tr></table></figure>
-<h5 id="取消暂存"><a href="#取消暂存" class="headerlink" title="取消暂存"></a>取消暂存</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD README.md</div></pre></td></tr></table></figure>
-<h5 id="撤销对文件的修改"><a href="#撤销对文件的修改" class="headerlink" title="撤销对文件的修改"></a>撤销对文件的修改</h5><p>会将文件还原成最初的样子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- [file]</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>PS:git中任何已提交的东西几乎都是可以恢复的，而未提交的东西丢失后很可能再也找不到了。</p>
-</blockquote>
-<h5 id="查看所有远程仓库"><a href="#查看所有远程仓库" class="headerlink" title="查看所有远程仓库"></a>查看所有远程仓库</h5><p>如果是git clone克隆下来的仓库默认名称为origin<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote -v</div></pre></td></tr></table></figure></p>
-<h5 id="查看某一个远程仓库"><a href="#查看某一个远程仓库" class="headerlink" title="查看某一个远程仓库"></a>查看某一个远程仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote show [remote-name]</div></pre></td></tr></table></figure>
-<h5 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add &lt;shortname&gt; &lt;url&gt;</div></pre></td></tr></table></figure>
-<h5 id="从远程仓库拉取数据"><a href="#从远程仓库拉取数据" class="headerlink" title="从远程仓库拉取数据"></a>从远程仓库拉取数据</h5><p>git fetch数据拉到本地仓库，但不会自动合并或修改当前的工作，当准备好时必须手动将其合并入你的工作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch [remote-name]</div></pre></td></tr></table></figure></p>
-<p>如果你有一个分支设置为跟踪一个远程分支（默认git clone会将本地master分支跟踪远程仓库的master分支），git pull会拉取远程仓库的数据并自动尝试合并到当前所在的分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull</div></pre></td></tr></table></figure></p>
-<h5 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h5><p>pull request (PR)</p>
-<p>只有当有远程服务器的写入权限，并且之前没有人推送过时，这条命令才会生效。如果你和其他人同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会被拒绝。必须先将他人的工作拉取下来并将其合并进的的工作之后才能推送。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push [romete-name] [branch-name]</div></pre></td></tr></table></figure></p>
-<hr>
-<h5 id="远程仓库的移除与重命名"><a href="#远程仓库的移除与重命名" class="headerlink" title="远程仓库的移除与重命名"></a>远程仓库的移除与重命名</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote rename pb paul</div><div class="line">git remote rm paul</div></pre></td></tr></table></figure>
-<h5 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git tag //列出标签</div><div class="line">git tag -l &apos;tagname&apos; //列出指定标签</div><div class="line">git tag -a v1.4 -m &apos;my version 1.4&apos; //创建标签1.4</div><div class="line">git show v1.4 //查看标签的提交信息</div><div class="line">git log --pretty=oneline</div><div class="line">git tag -a v1.2 9fceb01 //后期打标签，找到log里的每次提交的校验和</div><div class="line">git push origin v1.4 //将标签推送到共享服务器上</div><div class="line">git push origin tags //将所有不在远程服务器上的标签都推送上去</div><div class="line">git checkout -b version1.4 v1.4 //对特定的标签创建一个新分支</div></pre></td></tr></table></figure>
-<h4 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h4><p><strong>Git的杀手级特性：分支模型</strong>。分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。理解和精通这一特性，你便会意识到git是如此的强大而又独特，从此真正地改变你的开发方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git branch test     //创建分支test</div><div class="line">git checkout test   //分支切换</div><div class="line"></div><div class="line">git checkout master</div><div class="line">git merge test //合并master和test分支</div><div class="line">git branch -d test //删除分支</div><div class="line">git branch //列出当前所有分支</div><div class="line">git branch -v //列出每一个分支的最后一次提交</div><div class="line">git branch --merged/--no-merged //查看哪些分支已合并到/未合并到当前分支</div></pre></td></tr></table></figure></p>
-<p><strong>分支开发工作流:</strong></p>
-<ul>
-<li>长期分支：对于复杂庞大的项目，一般在master分支上保留完全安全稳定的代码（有可能是已经发布或者即将发布的代码）。还有一些名为develop或者next的平行分支，被用来做后续持续开发或者测试你稳定性，这些分支不必保持绝对稳定，但是一旦达到稳定状态就可以被合并入master分支了。</li>
-<li>特性分支：对于任何项目规模都适用。特性分支是一种短期分支，它被用来实现单一特性或者相关工作。</li>
-</ul>
-<p><strong>利用远程跟踪分支</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">git remote show origin //获取远程分支的更多信息</div><div class="line">git push origin serverfix:awesomebranch  //将本地的serverfix推送到远程仓库中awesomebranch仓库中</div><div class="line">git fetch origin //抓取新的远程跟踪分支时，只有一个不可修改的origin/awesomebranch的</div><div class="line">git merge origin/awesomebranch //将awesomebranch分支中的工作合并到当前所在的分支</div><div class="line">git checkout -b serverfix origin/awesomebranch //检出远程分支生成一个用于工作的本地分支</div><div class="line">git checkout --track origin/awesomebranch //上面的快捷方式</div><div class="line">git branch -u/--set-upstream-to origin/awesomebranch //修改正在跟踪的上游分支</div><div class="line">git branch -vv //查看设置的所有跟踪分支 </div><div class="line">git fetch --all;git branch -vv  //查看最新的领先与落后数字</div><div class="line">git pull //相当于git fetch;git merge 最好显示地使用fetch和merge命令好一些</div><div class="line">git push origin --delete awesomebranch //删除远程分支</div></pre></td></tr></table></figure></p>
-<p><strong>变基（rebase):</strong><br>可以使用rebase命令将提交到某一分支的所有修改都迁移到另一分支上。使用变基使得提交历史更加简洁。但是，不要对你的仓库外有副本的分支执行变基。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout experiment </div><div class="line">git rebase master //将experiment分支的修改应用到master分支上</div><div class="line">git checkout master </div><div class="line">git merge experiment //此时是fast-forward合并</div></pre></td></tr></table></figure></p>
-<h4 id="储藏与清理"><a href="#储藏与清理" class="headerlink" title="储藏与清理"></a>储藏与清理</h4><p>当在某个分支上做了修改又不想提交的时候，可以将更改的储藏推送到栈上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git stash //提交储藏</div><div class="line">git statsh list //查看已经储藏的列表</div><div class="line">git stash apply xxx //将储藏应用</div><div class="line">git stash apply --index // ???</div><div class="line">git stash drop xxx //移除储藏</div><div class="line">git stash pop //应用储藏并立即从栈上扔掉它</div><div class="line">git stash --keep-index //不要储藏git add的东西</div><div class="line">git stash -u //储藏跟踪和未跟踪的文件</div><div class="line">git stash --patch //交互式地提示哪些改动想要储藏，哪些改动需要保存在工作目录中</div></pre></td></tr></table></figure></p>
-<h4 id="凭证存储"><a href="#凭证存储" class="headerlink" title="凭证存储"></a>凭证存储</h4><p>如何避免每次推送的时候输入用户名和密码？</p>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://git-scm.com/docs" target="_blank" rel="external">https://git-scm.com/docs</a></p>
-<p><a href="https://git-scm.com/book/zh" target="_blank" rel="external">https://git-scm.com/book/zh</a></p>
+<h4 id="生日愿望"><a href="#生日愿望" class="headerlink" title="生日愿望"></a>生日愿望</h4><p>按照农历，今年我的生日恰巧是2017年最后一个工作日。虽然新来的老大最后一个工作日依旧在加班，但是我很可耻的请了半天假回家，为了吃上想念许久的麻麻的晚餐。上周末去香港给妈妈买了瓶老贵老贵的香水，给老爸买了个包。爸爸妈妈收到后都挺开心和满意的，虽然这个月我要吃土加上下个月要还不少的信用卡钱……</p>
+<p>其实我本来都没想许生日愿望这回事，等朋友问起来的时候，我才开始仔细思考了一下：今年的生日愿望是什么呢？</p>
+<p>首先是希望亲爱的家人，朋友身体健健康康的，生活幸福快乐的。爷爷今年已经90多岁了，不知道什么时候起爷爷的牙齿掉得都不剩几颗了，脸上和手上的皱纹越来越深，走路腿脚也越来越不方便。爸爸妈妈也快年过半百，不知道为什么，我总是会觉得人生苦短，我需要把握现在尽我所能去回报他们。</p>
+<p>今年我的二伯母得胃癌去世了。我看见了病魔给她带来的痛苦，把她折磨得不成人形。那个每次看见我都会笑得很灿烂的亲人，我最后一次见她的时候，已经瘦成皮包骨，两颊和眼窝都凹陷得厉害，只有肚子被无法消化的食物撑得像个皮球。她的眼神似乎已经向命运妥协，无论之前她多么努力地抗争想要回到正常人的生活……还有今年一起经历无数欢乐时光的同事，家里同样遇到了各种各样的变故。也许我还体会不到他们那么深刻的痛苦，但是我希望他们能够早日走出来这一段痛苦，重新回到最初快乐的原点。前段时间和姗姗姐一起去看寻梦环游记的时候，我看见CoCo奶奶好像看见自己已经去世的奶奶一样，电影把我哭成了泪人。我希望所有离我们而去的亲人能够像寻梦环游记里那样，生活在一个无比梦幻和幸福的乐园~只要我们不忘记他们。</p>
+<p>第二个愿望是希望自己的工作能够上一个台阶。毕业这一年半的时间客观来说我的成长是比较缓慢的，乱七八糟的东西看了不少，拿得出手的项目基本没有。而在学校读研究生的小伙伴呢，依旧那么优秀，拿各种奖学金，轻松去BAT等互联网公司的实习。希望我以后能够更加勇敢地去承担工作中的责任与接受各种挑战，不需要想太多地去拼搏和付出，加快自己实现目标的节奏。我们团队新来的老大是一个很厉害很好的人，希望以后我也能像他那么厉害。</p>
+<p>最后，还有一个不能说的生日愿望，哈哈哈哈~</p>
+<h4 id="朋友啊朋友"><a href="#朋友啊朋友" class="headerlink" title="朋友啊朋友"></a>朋友啊朋友</h4><p>这一年我对自己有了很多新的认知，看了一些好书，也认识到了很多很棒的朋友，他们潜移默化地教会了我很多东西。</p>
+<p>柯柯是一个很独特的台湾姐姐，和她相处起来的时间真的真的很快乐。我们一起聊很多很多的八卦和各种吐槽，她帮不会画眼线的我画和她一样很粗很粗的眼线，她教我点和一种很好喝的叫金汤力的鸡尾酒，她教我们怎么和男生相处，她的音容笑貌都是那么地美，我不经疑惑怎么可以那么美的女生性格还那么好。我第一次也是唯一一次见她很憔悴的样子是在她离开我们的那一天，虽然她说话的时候很想哭但是都忍住了，挤出了和往常一样的笑脸。没有人问为什么她要突然离开，为什么要和我们都断了联系，大家还是像平常一样说说段子，也不去管路过的路人有没有听到什么不可描述的事情，我们之间愉快聊天的氛围好像周围的人都消失不见。大家依次和柯柯拥抱，恋恋不舍地送柯柯上车，以后想见她只能去台北找她，如果去了台北的话又怎么找到她呢？</p>
+<p>很温柔很善解人意的斯哲，从没有见他发过脾气，总是那么平易近人。他也像一个大哥哥一样，教会了我很多很多的知识。今年公司体检结果显示我的幽门螺旋杆菌抗体阳性，然后去医院吹气检查显示胃里的细菌超标，医生给开了一堆杀菌药我吃得很恶心，然后我和斯哲抱怨说这个问题很多人都有，而且会传染，吃药还有副作用每天恶心头有点晕，那治不治有什么区别呢？斯哲教导我说这个病一定要治的，一定要坚持把医生开的药吃完，因为这个问题虽然很普遍，但它严重的时候可能会导致最后患上胃癌。我恍然大悟，噢，那我一定好好听医生的话把药吃完……还记得部门团建去巽寮湾的旅游巴士上，斯哲给我们讲了一个拔萝卜的黄段子，好像从那个时候开始我才看到了斯哲另外可爱的一面，看很多很多黄段子，会说黄笑话，但是没有任何让人感到猥琐的痕迹，果然还是颜即正义吧！</p>
+<p>心里永远带着前女友给他的伤的韩粑粑，他的故事一直支撑着他深情款款的人设。明明是明年就三十岁的油腻大叔，总是说一些我们听不懂的文艺青年专属的骚话，还每天像个逗比一样不停地给自己加戏。就连送给我的生日礼物都那么文艺有逼格——一款叫at first sight的香水。他总说什么人与人交往最美好的时候就是初见的时候，人生若只如初见。然后还得意洋洋地跟我说，你第一次见我觉得我还不错对不对？我说是啊是啊，可现在你在我眼里的形象已经完全颠覆第一次的印象啦，哈哈哈。连王阳明的走正道行王道也不放过，简直是一颗有毒的污鸡白凤丸。但是，韩粑粑是那个即便不得不先回家也要提醒其他人照顾好我们三个女生的体贴的人；是那个我们有了烦恼第一时间想找到他倾诉的人，是那个会给我们发舒淇的粑粑给女儿舒淇说的充满浓浓父爱的话的人……</p>
+<p>每天24小时生活在一起的爽秀丹，校友+同事+室友这无比奇妙的组合，让我们之间就像家人一样。超级暖心超级美的陈丹学姐，会在大家心情不好的时候精心准备小礼物偷偷地挂在我们的房门上，会在我的生日礼物里加上一个很好看的爱心折纸，里面写满了大家对我说的祝福的话语，会做芋圆，会做烧麦，会做菠萝包，会和我们一起分享妈妈从福建带过来的超好吃的鱼丸，紫菜饼，让我彻底爱上了福建美食……还有每天都很美美哒萌萌哒的爽爽，身为武汉房姐明明可以在武汉过滋润的日子，还是选择来深圳辛苦地拼搏。现在她在一家人工智能创业公司，里面高手如云，和男朋友的感情也是很让人羡慕嫉妒。不得不说，有爽爽在的地方，就有无数无数的笑声和欢乐……最后说一下让人敬仰的秀秀，踢足球，划赛艇，轻轻松松跑个半马，轻轻松松地跑个全马，更加轻轻松松地走个深圳百公里。是因为她的年纪是我们之间最小的吗？总是那么有活力，对生活充满着热爱和好奇。今年我和秀秀还一起参加了深圳百公里。从早上6点多一直走到晚上7点多，全程65公里，那感觉真是酸爽。我本来以为自己走不完的，想不到最后还是走完啦。每天发生在秀秀身上的事情简直就像一部电视剧一样，而我时不时也会在她的剧本里出演一个配角或者跑龙套的角色……</p>
+<p>还有一直陪伴我长大的那些小伙伴，从小学，初中，到高中，大学，都有那么几个经常经常联系的老友，我觉得很幸福，每一个阶段都有一群拥有共同回忆的好朋友，我们也会互相倾诉自己现在生活中的变化和点点滴滴。亚萍的双胞胎小孩都已经会跳很多舞蹈了；资资11月份的婚礼我没有回去参加，但是看着从现场拍过来的视频，感觉她的幸福简直要溢出我的手机屏幕；老罗没有和谈了七年的男朋友走到最后，应该是要和现在的男朋友结婚了吧,我不知道要啥时候才能赶上她们的节奏哈哈哈~今年和朋朋一起去看了my little airport的现场，她喜欢这个乐队7年了，一直把自己的昵称改成和男主唱一样，徐阿P。我是偶然在网易云音乐听到他们的歌，然后就很喜欢。广东人一直把广东以外的地方称为北方，北方人应该很少听My little airport的歌吧，有个广东同事这么对我说。不过确实，在听live的时候，阿P说的粤语我都没有听懂，下次一定要和会说粤语的人一起去听，求翻译;在深圳有姗姗姐陪伴我给我满满的爱和温暖，我一定要努力挣钱然后包养她;龙龙和菁奶还在北京读研，每天都过得很充实;好圆明年前也要辞掉华为的工作，去考司法的研究生；西游居然最后和我成了同行，我们从小学就是同学真是有缘分啊……本以为猪一个人去德国留学会很辛苦，直到被她那幸福的恩爱照虐一脸也就放心啦，我们的小妹依旧有人在爱护着她呢~余滢桑毕业后去了加拿大留学，加拿大真的很冷啊，她跟我讲她租房子被骗的事情让人感觉总放心不下，等明年她回国的时候一定要去武汉见见她；还有厉害的文青青，老大，燕儿，昨天一起视频回忆起大学毕业时候那些日子，简直不能欢乐更多……</p>
+<h4 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h4><p>虽然工作的时间不算长，但是真的也是体会到了不少的东西。比在学校时的我，现在的心态真的很不一样。很多事情没有经历过到一定的阶段就根本连想都想不到，就算看到了也无法理解。还记得我第一份实习是在武汉惠普公司，武汉的冬天很冷，每天我要早早地起来在学校附近等班车，当时认识了一个很漂亮的小姐姐后来去了加拿大的Paypal公司；还有一个自己靠挣钱上学，工作很努力地玉兰姐姐，不知道她现在怎么样啦。也算是体验过外企公司的工作氛围啦，感受很深刻的就是即使同一个部门的员工分布在世界各地，大家依然能够一起配合工作。公司文化似乎很注重work life balance，所以工作任务也不算繁重。我的第一个领导是Yi,她在上海办公，是一个虔诚的佛教信徒，大概30多岁，没有结婚好像也不打算结婚。每次和她线上语音one one的时候，总是会给我很多宝贵的建议带领我成长。当时我们组的项目是负责用微软的BI套件工具搭建一个data cube，然后分布在世界不同地方的客户会直接从excel表里或其他的地方拿这个data cube生产报表。做数据的活果然是很繁琐的，每次在数据ETL的问题上都要开会讨论很久很久的业务。当时还学会了一个很重要的技能就是怎么写邮件和发邮件……</p>
+<p>后来毕业之后来到了某公司的大数据云平台部门，我的导师是一个很厉害的人，一个人扛起了整个hadoop集群的开发，运维，安全和测试，每天忙得不像样子。当时的我还是一脸懵逼的，我在导师眼里那懵懵懂懂的样子肯定也像现在新来的实习生在我眼里的样子。他今年9月份离职确实给我造成了一些些打击，但直到现在我们一直还保持着联系，每当我没有信心的时候他都会鼓励我，即使我觉得他非常厉害，他很谦虚地说以前他自己也是没有什么信心。其实公司并没有在这一块投入很多的人力，toB的企业不像互联网公司那样天然地有海量的数据可以做数据挖掘，人工智能的应用。所以我们部门真的算是野蛮成长啦，说起来微服务架构，开放平台，网关，数据采集服务，数据处理服务，数据存储服务我们应有尽有，但是并没有很大规模地在全公司用起来，可能还算是处于自娱自乐的阶段吧。当时自己一个人负责一个全文检索的项目，经验不足有很多问题但也直接给产品线去用了，打算近期一定要把它重新好好优化一下。后来还参与了各种数据分析，包括电商的数据分析，应用的数据分析，日志的数据分析，任务繁琐得不行不行的，自己还私底下学习了一些机器学习，做了一些小demo，比如调用spark mlib的贝叶斯算法，用了三层贝叶斯给电商商品名打上了一个三级类别的标签。训练数据也是在网上爬下来的京东数据，最后分类的准确率大概在86%左右。以前的我一直也很想去尝试机器学习和人工智能的偏算法的技术，奈何基础不够，特别是要对数据了解，要用到各种数学知识的时候简直懵逼。现在有太多的平台和轮子把这门技术的使用门槛降低了，调调包谁都会，但那根本不代表学会了这门技术。今年9月份的时候部门经历了一次大调整，然后我们老大被调走了，我的导师也是在那个时候走了，爽爽也走了。有一个多月的时间我们都没有老大，是直接向副总裁汇报。后来终于等到了新来的老大，他很靠谱，对我们的要求很高，也给了我们很多自主思考的空间。跟着新老大的这段时间，我依旧要安心地把技术练好，这样当机会来临的时候我才不至于错过它。</p>
+<h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>希望2018年能够爱情事业双丰收，嘻嘻嘻。</p>
 
       
 
@@ -269,7 +225,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">2017</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">年终总结</a>
         		</li>
       		
 		</ul>
@@ -325,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/11/16/git使用整理/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2017/12/30/2017年终总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -339,18 +299,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/02/sqoop用户指南/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          sqoop用户指南
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/16/重拾英语/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">重拾英语</div>
+    <a href="/2017/12/26/大数据分布式计算框架调研/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据分布式计算框架调研</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -377,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#the-stupid-content-tracker"><span class="toc-number">1.</span> <span class="toc-text">the stupid content tracker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git的优点"><span class="toc-number">2.</span> <span class="toc-text">git的优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git基本操作"><span class="toc-number">3.</span> <span class="toc-text">git基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#帮助"><span class="toc-number">3.1.</span> <span class="toc-text">帮助</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#初始化仓库"><span class="toc-number">3.2.</span> <span class="toc-text">初始化仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#克隆"><span class="toc-number">3.3.</span> <span class="toc-text">克隆</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#忽略文件"><span class="toc-number">3.4.</span> <span class="toc-text">忽略文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#检查当前文件状态"><span class="toc-number">3.5.</span> <span class="toc-text">检查当前文件状态</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#跟踪新文件"><span class="toc-number">3.6.</span> <span class="toc-text">跟踪新文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#比较当前工作目录的文件和暂存区的差异"><span class="toc-number">3.7.</span> <span class="toc-text">比较当前工作目录的文件和暂存区的差异</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提交更新"><span class="toc-number">3.8.</span> <span class="toc-text">提交更新</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#跳过使用暂存区域提交"><span class="toc-number">3.9.</span> <span class="toc-text">跳过使用暂存区域提交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移除文件"><span class="toc-number">3.10.</span> <span class="toc-text">移除文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#移动文件-重命名"><span class="toc-number">3.11.</span> <span class="toc-text">移动文件(重命名)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看提交历史"><span class="toc-number">3.12.</span> <span class="toc-text">查看提交历史</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#重新提交"><span class="toc-number">3.13.</span> <span class="toc-text">重新提交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#取消暂存"><span class="toc-number">3.14.</span> <span class="toc-text">取消暂存</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#撤销对文件的修改"><span class="toc-number">3.15.</span> <span class="toc-text">撤销对文件的修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看所有远程仓库"><span class="toc-number">3.16.</span> <span class="toc-text">查看所有远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看某一个远程仓库"><span class="toc-number">3.17.</span> <span class="toc-text">查看某一个远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#添加远程仓库"><span class="toc-number">3.18.</span> <span class="toc-text">添加远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#从远程仓库拉取数据"><span class="toc-number">3.19.</span> <span class="toc-text">从远程仓库拉取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#推送到远程仓库"><span class="toc-number">3.20.</span> <span class="toc-text">推送到远程仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#远程仓库的移除与重命名"><span class="toc-number">3.21.</span> <span class="toc-text">远程仓库的移除与重命名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打标签"><span class="toc-number">3.22.</span> <span class="toc-text">打标签</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#git分支"><span class="toc-number">4.</span> <span class="toc-text">git分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#储藏与清理"><span class="toc-number">5.</span> <span class="toc-text">储藏与清理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#凭证存储"><span class="toc-number">6.</span> <span class="toc-text">凭证存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#生日愿望"><span class="toc-number">1.</span> <span class="toc-text">生日愿望</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#朋友啊朋友"><span class="toc-number">2.</span> <span class="toc-text">朋友啊朋友</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工作"><span class="toc-number">3.</span> <span class="toc-text">工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最后"><span class="toc-number">4.</span> <span class="toc-text">最后</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -393,7 +344,7 @@
   
 
   
-  <div id="SOHUCS" sid="git使用整理" ></div> 
+  <div id="SOHUCS" sid="2017年终总结" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cyteMrlxV"; 
