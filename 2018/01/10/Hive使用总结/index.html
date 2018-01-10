@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cuteqin.github.io">
-  <title>search | qin&#39;s blog</title>
+  <title>hive使用总结 | qin&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="search">
-<meta property="og:url" content="http://cuteqin.github.io/search/index.html">
+  <meta name="description" content="总结一下hive的相关资料。">
+<meta name="keywords" content="hive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hive使用总结">
+<meta property="og:url" content="http://cuteqin.github.io/2018/01/10/Hive使用总结/index.html">
 <meta property="og:site_name" content="qin&#39;s blog">
-<meta property="og:updated_time" content="2017-09-28T06:22:51.979Z">
+<meta property="og:description" content="总结一下hive的相关资料。">
+<meta property="og:updated_time" content="2018-01-10T09:39:59.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="search">
+<meta name="twitter:title" content="hive使用总结">
+<meta name="twitter:description" content="总结一下hive的相关资料。">
   
     <link rel="alternative" href="/atom.xml" title="qin&#39;s blog" type="application/atom+xml">
   
@@ -150,27 +154,142 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="search-" class="article article-type-search " itemscope itemprop="blogPost">
+            <article id="post-Hive使用总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      search
+      hive使用总结
     </h1>
   
 
         
-        <a href="/search/index.html" class="archive-article-date">
-  	<time datetime="2017-09-28T06:22:51.979Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+        <a href="/2018/01/10/Hive使用总结/" class="archive-article-date">
+  	<time datetime="2018-01-10T12:02:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>总结一下hive的相关资料。</p>
+<a id="more"></a>
+<h4 id="Hive介绍"><a href="#Hive介绍" class="headerlink" title="Hive介绍"></a>Hive介绍</h4><p>Hive是hadoop生态圈必不可少的数据仓库工具，它是最早提供类似SQL的查询语言HQL用来查询存储在HDFS中的数据。使得基于传统关系型数据库的数据架构转移在hadoop上后，sql用户可以集中精力关注查询本身，而不是写map reduce代码来获得计算结果。</p>
+<h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><p>Hive拥有成熟完善的官方文档。有Hive使用的语言文档，Hive开发的API文档，而Hive Wiki则是对Hive做了完整的介绍。甚至你可以成为Hive社区开发的一名成员，了解Hive的设计思想，查看JIRA可以跟踪Hive历史的BUG修复，项目跟踪等。</p>
+<h5 id="Commands-and-CLIs"><a href="#Commands-and-CLIs" class="headerlink" title="Commands and CLIs"></a>Commands and CLIs</h5><h6 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h6><p>commands是一些non-SQL的命令，比如说定义属性，增加资源，可以在HiveQL脚本或Beeline命令行中使用。<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Commands" target="_blank" rel="external">详见</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hive&gt; set mapred.reduce.tasks=32;</div><div class="line">hive&gt; set;</div><div class="line">hive&gt; select a.* from tab1;</div><div class="line">hive&gt; !ls;</div><div class="line">hive&gt; dfs -ls;//可以允许hdfs命令，但是需要该用户有权限</div></pre></td></tr></table></figure></p>
+<h6 id="Beeline"><a href="#Beeline" class="headerlink" title="Beeline"></a>Beeline</h6><p>下载安装后hive后，我们会发现bin目录下有两个CLI，分别是hive和beeline。其中hive是Hiveserver使用的CLI,而在最新的Hiveserver2中，更倾向于使用beeline,而且hive CLI会被逐渐弃用。<a href="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients" target="_blank" rel="external">详见</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">% bin/beeline </div><div class="line">Hive version 0.11.0-SNAPSHOT by Apache</div><div class="line">beeline&gt; !connect jdbc:hive2://localhost:10000 scott tiger</div><div class="line">!connect jdbc:hive2://localhost:10000 scott tiger </div><div class="line">Connecting to jdbc:hive2://localhost:10000</div><div class="line">Connected to: Hive (version 0.10.0)</div><div class="line">Driver: Hive (version 0.10.0-SNAPSHOT)</div><div class="line">Transaction isolation: TRANSACTION_REPEATABLE_READ</div><div class="line">0: jdbc:hive2://localhost:10000&gt; show tables;</div><div class="line">show tables;</div><div class="line">+-------------------+</div><div class="line">|     tab_name      |</div><div class="line">+-------------------+</div><div class="line">| primitives        |</div><div class="line">| src               |</div><div class="line">| src1              |</div><div class="line">| src_json          |</div><div class="line">| src_sequencefile  |</div><div class="line">| src_thrift        |</div><div class="line">| srcbucket         |</div><div class="line">| srcbucket2        |</div><div class="line">| srcpart           |</div><div class="line">+-------------------+</div><div class="line">9 rows selected (1.079 seconds)</div></pre></td></tr></table></figure></p>
+<h6 id="HCatalog-CLI"><a href="#HCatalog-CLI" class="headerlink" title="HCatalog CLI"></a>HCatalog CLI</h6><blockquote>
+<p>HCatalog is a table and storage management layer for Hadoop that enables users with different data processing tools — Pig, MapReduce — to more easily read and write data on the grid.<br>暂时不知道是啥。。。</p>
+</blockquote>
+<h5 id="文件存储格式"><a href="#文件存储格式" class="headerlink" title="文件存储格式"></a>文件存储格式</h5><p>Hive支持以下几种文件存储格式：</p>
+<ul>
+<li>Avro Files:<a href="https://www.jianshu.com/p/ecbb607809c4" target="_blank" rel="external">介绍</a></li>
+<li>ORC Files：<a href="https://www.iteblog.com/archives/1014.html" target="_blank" rel="external">介绍</a></li>
+<li>Parquet：<a href="http://www.infoq.com/cn/articles/in-depth-analysis-of-parquet-column-storage-format" target="_blank" rel="external">介绍</a></li>
+<li>Compressed Data Storage</li>
+<li>LZO Compression</li>
+</ul>
+<h5 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h5><p><strong>Numeric Types</strong></p>
+<ul>
+<li>TINYINT (1-byte signed integer, from -128 to 127)</li>
+<li>SMALLINT (2-byte signed integer, from -32,768 to 32,767)</li>
+<li>INT/INTEGER (4-byte signed integer, from -2,147,483,648 to 2,147,483,647)</li>
+<li>BIGINT (8-byte signed integer, from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807)</li>
+<li>FLOAT (4-byte single precision floating point number)</li>
+<li>DOUBLE (8-byte double precision floating point number)</li>
+<li>DOUBLE PRECISION (alias for DOUBLE, only available starting with Hive 2.2.0)<br>DECIMAL<br>Introduced in Hive 0.11.0 with a precision of 38 digits<br>Hive 0.13.0 introduced user-definable precision and scale</li>
+<li>NUMERIC (same as DECIMAL, starting with Hive 3.0.0)</li>
+</ul>
+<p><strong>Date/Time Types</strong></p>
+<ul>
+<li>TIMESTAMP (Note: Only available starting with Hive 0.8.0)</li>
+<li>DATE (Note: Only available starting with Hive 0.12.0)</li>
+<li>INTERVAL (Note: Only available starting with Hive 1.2.0)</li>
+</ul>
+<p><strong>String Types</strong></p>
+<ul>
+<li>STRING</li>
+<li>VARCHAR (Note: Only available starting with Hive 0.12.0)</li>
+<li>CHAR (Note: Only available starting with Hive 0.13.0)</li>
+</ul>
+<p><strong>Misc Types</strong></p>
+<ul>
+<li>BOOLEAN</li>
+<li>BINARY (Note: Only available starting with Hive 0.8.0)</li>
+</ul>
+<p><strong>Complex Types</strong></p>
+<ul>
+<li>arrays: ARRAY<data_type> (Note: negative values and non-constant expressions are allowed as of Hive 0.14.)</data_type></li>
+<li>maps: MAP<primitive_type, data_type=""> (Note: negative values and non-constant expressions are allowed as of Hive 0.14.)</primitive_type,></li>
+<li>structs: STRUCT<col_name :="" data_type="" [comment="" col_comment],="" ...=""></col_name></li>
+<li>union: UNIONTYPE<data_type, data_type,="" ...=""> (Note: Only available starting with Hive 0.7.0.)</data_type,></li>
+</ul>
+<h5 id="数据定义DDL"><a href="#数据定义DDL" class="headerlink" title="数据定义DDL"></a>数据定义DDL</h5><p>包括：</p>
+<ul>
+<li>CREATE DATABASE/SCHEMA, TABLE, VIEW, FUNCTION, INDEX</li>
+<li>DROP DATABASE/SCHEMA, TABLE, VIEW, INDEX</li>
+<li>TRUNCATE TABLE</li>
+<li>ALTER DATABASE/SCHEMA, TABLE, VIEW</li>
+<li>MSCK REPAIR TABLE (or ALTER TABLE RECOVER PARTITIONS)</li>
+<li>SHOW DATABASES/SCHEMAS, TABLES, TBLPROPERTIES, VIEWS, PARTITIONS, FUNCTIONS, INDEX[ES], COLUMNS, CREATE TABLE</li>
+<li>DESCRIBE DATABASE/SCHEMA, table_name, view_name</li>
+</ul>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL" target="_blank" rel="external">详见</a></p>
+<h5 id="数据操作DML"><a href="#数据操作DML" class="headerlink" title="数据操作DML"></a>数据操作DML</h5><p>包括：</p>
+<ul>
+<li>LOAD</li>
+<li>INSERT</li>
+<li>UPDATE</li>
+<li>DELETE</li>
+<li>MERGE ：since Hive2.2</li>
+</ul>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML" target="_blank" rel="external">详见</a></p>
+<h5 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h5><ul>
+<li>where clause</li>
+<li>All and Distinct clause</li>
+<li>Partition based clause</li>
+<li>HAVING clause</li>
+<li>LIMIT clause</li>
+<li>REGEX Column Specification</li>
+<li>GROUP BY</li>
+<li>SORT/ORDER/CLUSTER/DISTRIBUTE BY</li>
+<li>JOIN</li>
+<li>UNION</li>
+<li>TABLESAMPLE</li>
+<li>Subqueries</li>
+<li>Virtual Columns</li>
+<li>Operators and UDFs</li>
+<li>LATERAL VIEW</li>
+<li>Windowing, OVER, and Analytics</li>
+<li>Common Table Expressions</li>
+</ul>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Select" target="_blank" rel="external">详见</a></p>
+<h5 id="hive常用函数"><a href="#hive常用函数" class="headerlink" title="hive常用函数"></a>hive常用函数</h5><p><a href="https://www.cnblogs.com/MOBIN/p/5618747.html" target="_blank" rel="external">详见</a></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><h5 id="hive限制"><a href="#hive限制" class="headerlink" title="hive限制"></a>hive限制</h5><ul>
+<li>不支持行级数据更新、删除、插入操作</li>
+<li>查询有较大的延时（可以结合kylin,pig对需要查询的维度进行预计算，提高查询速度）</li>
+<li>不支持OLTP所需的关键功能（可以结合hbase或cassandra来使用OLTP功能）<br>PS：传统关系型数据库是“写时模式”，在加载数据时会对数据模式进行检查校验，索引，压缩，因此加载慢但是读取的速度很快。而hive是“读时模式”，数据加载很快，只有在查询的时候才会检查格式，这样的好处是对存储 模式未知的数据有优势。</li>
+<li>数据访问权限控制较弱（可以结合sentry等）</li>
+</ul>
+<h4 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h4><h5 id="hive复合数据结构"><a href="#hive复合数据结构" class="headerlink" title="hive复合数据结构"></a>hive复合数据结构</h5><p>如何处理存储格式为JSON的文件，将其导入Hive并计算？</p>
+<p>Hive本身并没有针对JSON数据的解析提供原生的支持方式，仅提供了两个内建函数：get_json_object和json_tuple，用于解析某一列的JSON数据。究其原因主要是JSON格式的数据太过灵活，尤其是存在普通数据与JSON数据结合使用、多层嵌套、JSON对象和JSON数组对象结合使用的场景下，常规的数据解析方式变得捉襟见肘。</p>
+<p>首先，我们可以利用github上提供的一个<a href="https://github.com/quux00/hive-json-schema" target="_blank" rel="external">工具</a>将json生成对应的Hive建表语句,建表语句中用到的ROW FORMAT SERDE ‘org.openx.data.jsonserde.JsonSerDe’ 参考<a href="https://github.com/rcongiu/Hive-JSON-Serde" target="_blank" rel="external">github</a>,最后使用LOAD DATA INPATH ‘/warehouse/other/k3cloud/useroperationcollector/20160722-20160906-r-00000.gz’ OVERWRITE INTO TABLE  k3_cloud_useroperation即可成功导入数据。</p>
+<p>第二步，我们需要对JSON格式的hive表进行计算。需要使用熟悉数据结构struct,array,map,和explode,lateral view等函数的使用。</p>
+<h5 id="UDF编写"><a href="#UDF编写" class="headerlink" title="UDF编写"></a>UDF编写</h5><p>有时候hive并没有提供我们需要使用的函数，比如IP转省市区的函数等，这个时候需要我们自己编写UDF函数去操作数据。<a href="https://cwiki.apache.org/confluence/display/Hive/HivePlugins" target="_blank" rel="external">参考</a></p>
+<h5 id="数据倾斜问题"><a href="#数据倾斜问题" class="headerlink" title="数据倾斜问题"></a>数据倾斜问题</h5><p>在并行计算中我们总希望分配的每一个task 都能以差不多的粒度来切分并且完成时间相差不大，但是集群中可能硬件不同，应用的类型不同和切分的数据大小不一致总会导致有部分任务极大的拖慢了整个任务的完成时间。数据倾斜到部分TASK上，导致有些TASK任务过重，有些TASK很闲。导致过重的几个TASK拖长任务完成的时间。此时的表现可能是Job一直卡在99%的进度。</p>
+<p><a href="http://blog.csdn.net/s646575997/article/details/51510661" target="_blank" rel="external">解决参考</a></p>
+<h5 id="hive参数调优"><a href="#hive参数调优" class="headerlink" title="hive参数调优"></a>hive参数调优</h5><p><a href="https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties" target="_blank" rel="external">hive参数信息</a></p>
+<h5 id="hive查询优化建议"><a href="#hive查询优化建议" class="headerlink" title="hive查询优化建议"></a>hive查询优化建议</h5><p>从Hive语法和Job内部的角度去进行优化,这要求MapReduce以及Hive如何被翻译成为MapReduce要非常精通;</p>
+<p><a href="http://blog.csdn.net/lovebyz/article/details/52096464" target="_blank" rel="external">参考CSDN</a></p>
+<p><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization" target="_blank" rel="external">官网建议</a></p>
+<h5 id="hive-OOM"><a href="#hive-OOM" class="headerlink" title="hive OOM"></a>hive OOM</h5><p><a href="http://blog.csdn.net/oopsoom/article/details/41356251" target="_blank" rel="external">参考CSDN</a></p>
+<h5 id="hive执行计划"><a href="#hive执行计划" class="headerlink" title="hive执行计划"></a>hive执行计划</h5><p>暂无</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://hive.apache.org/" target="_blank" rel="external">Hive官网</a></p>
+<p>《Hive编程指南》</p>
+<p><a href="http://blog.csdn.net/wisgood/article/category/1790541" target="_blank" rel="external">CSDN hive专栏</a></p>
+
       
 
       
@@ -199,6 +318,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hive</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +379,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/search/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cuteqin.github.io/2018/01/10/Hive使用总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,6 +391,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/12/26/大数据分布式计算框架调研/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据分布式计算框架调研</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -282,7 +422,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Hive介绍"><span class="toc-number">1.</span> <span class="toc-text">Hive介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基础知识"><span class="toc-number">2.</span> <span class="toc-text">基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Commands-and-CLIs"><span class="toc-number">2.1.</span> <span class="toc-text">Commands and CLIs</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#commands"><span class="toc-number">2.1.1.</span> <span class="toc-text">commands</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Beeline"><span class="toc-number">2.1.2.</span> <span class="toc-text">Beeline</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#HCatalog-CLI"><span class="toc-number">2.1.3.</span> <span class="toc-text">HCatalog CLI</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文件存储格式"><span class="toc-number">2.2.</span> <span class="toc-text">文件存储格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据类型"><span class="toc-number">2.3.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据定义DDL"><span class="toc-number">2.4.</span> <span class="toc-text">数据定义DDL</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据操作DML"><span class="toc-number">2.5.</span> <span class="toc-text">数据操作DML</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查询"><span class="toc-number">2.6.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hive常用函数"><span class="toc-number">2.7.</span> <span class="toc-text">hive常用函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#hive限制"><span class="toc-number">3.1.</span> <span class="toc-text">hive限制</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FAQ"><span class="toc-number">4.</span> <span class="toc-text">FAQ</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#hive复合数据结构"><span class="toc-number">4.1.</span> <span class="toc-text">hive复合数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#UDF编写"><span class="toc-number">4.2.</span> <span class="toc-text">UDF编写</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数据倾斜问题"><span class="toc-number">4.3.</span> <span class="toc-text">数据倾斜问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hive参数调优"><span class="toc-number">4.4.</span> <span class="toc-text">hive参数调优</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hive查询优化建议"><span class="toc-number">4.5.</span> <span class="toc-text">hive查询优化建议</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hive-OOM"><span class="toc-number">4.6.</span> <span class="toc-text">hive OOM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hive执行计划"><span class="toc-number">4.7.</span> <span class="toc-text">hive执行计划</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -298,7 +438,7 @@
   
 
   
-  <div id="SOHUCS" sid="" ></div> 
+  <div id="SOHUCS" sid="Hive使用总结" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cyteMrlxV"; 
@@ -335,7 +475,7 @@ window.YiliaChangyanWrap = function() {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
